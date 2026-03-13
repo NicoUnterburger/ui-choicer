@@ -1,4 +1,4 @@
-# UniFi Network Portal
+# ui-choicer
 
 Ein interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte mit über 145 Produkten in 7 Kategorien.
 
@@ -37,102 +37,10 @@ Ein interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte mit übe
 - **Deployment**: Docker + Nginx / Apache
 - **Build Size**: ~150 KB (gzip)
 
-## 📋 Quick Start
-
-### Option 1: Docker (empfohlen)
-
-```bash
-# Repository klonen
-git clone https://github.com/your-username/unifi-network-portal.git
-cd unifi-network-portal
-
-# Container starten
-docker compose up -d
-
-# Öffne http://localhost:8080
-```
-
-### Option 2: Node.js Development
-
-```bash
-# Repository klonen
-git clone https://github.com/your-username/unifi-network-portal.git
-cd unifi-network-portal
-
-# Dependencies installieren
-npm install
-
-# Entwicklungsserver starten
-npm run dev
-
-# Öffne http://localhost:5173
-```
-
-### Option 3: Statischer Build
-
-```bash
-# Build erstellen
-npm run build
-
-# dist/ Ordner auf Webserver kopieren
-```
-
-## 🐳 Docker Deployment
-
-### Docker Compose
-
-```yaml
-version: '3.8'
-services:
-  unifi-portal:
-    build: .
-    ports:
-      - "8080:80"
-    restart: unless-stopped
-```
-
-```bash
-docker compose up -d
-```
-
-### Standalone Docker
-
-```bash
-# Image bauen
-docker build -t unifi-network-portal .
-
-# Container starten
-docker run -d -p 8080:80 --name unifi-portal unifi-network-portal
-```
-
-### GitHub Container Registry
-
-```bash
-# Image direkt von GHCR ziehen (nach erstem Push)
-docker pull ghcr.io/your-username/unifi-network-portal:latest
-docker run -d -p 8080:80 ghcr.io/your-username/unifi-network-portal:latest
-```
-
-### Mit Traefik (HTTPS)
-
-Siehe auskommentierte Konfiguration in `docker-compose.yml` für automatische Let's Encrypt Zertifikate.
-
-## 🌐 Apache Deployment
-
-Siehe [DEPLOYMENT.md](DEPLOYMENT.md) für detaillierte Apache-Anleitung.
-
-```bash
-# Build erstellen
-npm run build
-
-# Auf Server kopieren
-rsync -avz --delete dist/ user@server:/var/www/unifi-portal/
-```
-
 ## 📁 Projektstruktur
 
 ```
-unifi-network-portal/
+ui-choicer/
 ├── .github/
 │   └── workflows/
 │       └── build.yml        # CI/CD Pipeline
@@ -142,14 +50,9 @@ unifi-network-portal/
 │   └── index.css            # Tailwind + Custom Styles
 ├── public/
 │   └── favicon.svg          # UniFi-Style Favicon
-├── docker-compose.yml       # Docker Compose Config
-├── Dockerfile               # Multi-Stage Build
-├── nginx.conf               # Nginx Config für SPA
 ├── vite.config.js           # Vite Konfiguration
 ├── tailwind.config.js       # Tailwind Konfiguration
 ├── package.json
-├── DEPLOYMENT.md            # Ausführliche Deployment-Anleitung
-├── CONTRIBUTING.md          # Contribution Guidelines
 ├── LICENSE                  # MIT License
 └── README.md
 ```
@@ -174,49 +77,6 @@ Nach dem ersten Push ist das Image verfügbar unter:
 ```
 ghcr.io/your-username/unifi-network-portal:latest
 ```
-
-## 🎨 Screenshots
-
-### Access Points mit Strahlungsdiagrammen
-- Elevation & Azimuth Patterns
-- Gain-Werte pro Band (2.4/5/6 GHz)
-- Beamwidth-Visualisierung
-
-### Richtfunk mit Beam-Charakteristiken
-- Pencil Beam (≤5°) für 60 GHz
-- Dish Beam (6-15°) für PowerBeams
-- Sector Beam (>20°) für NanoStations
-
-### Vergleichstabellen
-- Sortierbare Spalten
-- Inline Geizhals-Links
-- Datasheet-Links
-
-## 🔧 Konfiguration
-
-### Port ändern (Docker)
-
-```yaml
-# docker-compose.yml
-ports:
-  - "3000:80"  # Statt 8080
-```
-
-### Base URL ändern (Subdirectory)
-
-```javascript
-// vite.config.js
-export default defineConfig({
-  base: '/unifi/',  // Für /unifi/ Subdirectory
-  // ...
-})
-```
-
-## 📊 Datenquellen
-
-- Preise: ~MSRP in EUR (Stand: 2024/2025)
-- Spezifikationen: Ubiquiti Datasheets
-- Strahlungsdiagramme: Basierend auf Beamwidth-Angaben
 
 ## 🤝 Contributing
 
