@@ -1563,7 +1563,8 @@ export default function UniFiNetworkPortal() {
     hasAI: 'all',
     hasLPR: false,
     hasFaceId: false,
-    connection: 'all'
+    connection: 'all',
+    ipClass: 'all'
   });
 
   const updateCameraFilter = (key, value) => {
@@ -1573,7 +1574,7 @@ export default function UniFiNetworkPortal() {
   const resetCameraFilters = () => {
     setCameraFilters({
       searchText: '', generation: 'all', type: 'all', minResolution: '',
-      maxPrice: '', hasAI: 'all', hasLPR: false, hasFaceId: false, connection: 'all'
+      maxPrice: '', hasAI: 'all', hasLPR: false, hasFaceId: false, connection: 'all', ipClass: 'all'
     });
     setCameraCategoryFilter('all');
   };
@@ -1594,6 +1595,7 @@ export default function UniFiNetworkPortal() {
       if (cameraFilters.hasLPR && !cam.lpr) return false;
       if (cameraFilters.hasFaceId && !cam.faceId) return false;
       if (cameraFilters.connection !== 'all' && !cam.connection.includes(cameraFilters.connection)) return false;
+      if (cameraFilters.ipClass !== 'all' && cam.ip !== cameraFilters.ipClass) return false;
       if (cameraFilters.maxPrice && cam.msrp > parseInt(cameraFilters.maxPrice)) return false;
       return true;
     });
@@ -1607,6 +1609,7 @@ export default function UniFiNetworkPortal() {
     if (cameraFilters.hasLPR) count++;
     if (cameraFilters.hasFaceId) count++;
     if (cameraFilters.connection !== 'all') count++;
+    if (cameraFilters.ipClass !== 'all') count++;
     if (cameraFilters.maxPrice) count++;
     if (cameraCategoryFilter !== 'all') count++;
     return count;
@@ -1965,7 +1968,7 @@ export default function UniFiNetworkPortal() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded bg-blue-600 flex items-center justify-center text-white font-bold text-sm">UI</div>
-            <span className="font-semibold">UniFi Network Portal</span>
+            <span className="font-semibold">ui-choicer</span>
           </div>
           <div className="text-xs text-gray-400">
             {Object.keys(apData).length + Object.keys(switchData).length + Object.keys(gatewayData).length + Object.keys(cameraData).length + Object.keys(nvrData).length + Object.keys(nasData).length + Object.keys(bridgeData).length} Products
@@ -2846,6 +2849,21 @@ export default function UniFiNetworkPortal() {
                     <option value="PoE">PoE</option>
                     <option value="WiFi">WiFi</option>
                     <option value="PoE++">PoE++</option>
+                  </select>
+                </div>
+
+                {/* IP Schutzklasse */}
+                <div>
+                  <label className="text-xs text-gray-400 block mb-1">IP-Schutzklasse</label>
+                  <select value={cameraFilters.ipClass} onChange={(e) => updateCameraFilter('ipClass', e.target.value)}
+                    className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
+                    <option value="all">Alle</option>
+                    <option value="IPX4">IPX4 (Spritzwasser)</option>
+                    <option value="IPX5">IPX5 (Strahlwasser)</option>
+                    <option value="IP55">IP55 (Staub + Strahl)</option>
+                    <option value="IP65">IP65 (Staubdicht + Strahl)</option>
+                    <option value="IP66">IP66 (Staubdicht + Starkregen)</option>
+                    <option value="IP67">IP67 (Staubdicht + Tauchfest)</option>
                   </select>
                 </div>
 
@@ -3778,7 +3796,7 @@ export default function UniFiNetworkPortal() {
 
         {/* Footer */}
         <div className="mt-6 pt-4 border-t border-gray-700 text-center text-xs text-gray-500">
-          UniFi Network Portal • {Object.keys(apData).length} APs • {Object.keys(switchData).length} Switches • {Object.keys(gatewayData).length} Gateways • {Object.keys(cameraData).length} Cameras • {Object.keys(nvrData).length} NVRs • {Object.keys(nasData).length} NAS • {Object.keys(bridgeData).length} Richtfunk • Prices ~MSRP in €
+          ui-choicer • {Object.keys(apData).length} APs • {Object.keys(switchData).length} Switches • {Object.keys(gatewayData).length} Gateways • {Object.keys(cameraData).length} Cameras • {Object.keys(nvrData).length} NVRs • {Object.keys(nasData).length} NAS • {Object.keys(bridgeData).length} Richtfunk • Prices ~MSRP in €
         </div>
       </div>
     </div>
