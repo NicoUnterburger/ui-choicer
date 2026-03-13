@@ -418,26 +418,26 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-Aggregation': {
       name: 'Hi-Capacity Aggregation', sku: 'USW-Pro-Aggregation', category: 'aggregation',
       color: '#7C3AED', msrp: 399, eur: 389, geizhals: 'https://geizhals.de/ubiquiti-unifi-switch-pro-aggregation-usw-pro-aggregation-a2516060.html', status: 'current',
-      ports: '28x SFP+', portCount: 28, speed: '10G SFP+',
-      poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 28, sfp28: 0,
+      ports: '28x 10G SFP+ + 4x 25G SFP28', portCount: 32, speed: '25G SFP28',
+      poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 28, sfp28: 4,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
-      features: ['L3'], formFactor: '1U Rack', power: 60,
+      features: ['L3', '25G'], formFactor: '1U Rack', power: 100,
       notes: 'High-capacity L3 aggregation'
     },
     'USW-Pro-XG-Aggregation': {
       name: 'Pro XG Aggregation', sku: 'USW-Pro-XG-Aggregation', category: 'aggregation',
       color: '#7C3AED', msrp: 699, eur: 679, geizhals: 'https://geizhals.de/ubiquiti-unifi-switch-pro-xg-aggregation-usw-pro-xg-a3136795.html', status: 'current',
-      ports: '4x 25G SFP28 + 12x 10G SFP+', portCount: 16, speed: '25G SFP28',
-      poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 12, sfp28: 4,
+      ports: '32x 25G SFP28', portCount: 32, speed: '25G SFP28',
+      poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 32,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
       features: ['L3', '25G'], formFactor: '1U Rack', power: 85,
-      notes: '25G uplinks'
+      notes: 'All 25G SFP28 ports'
     },
     'ECS-Aggregation': {
       name: 'Enterprise Campus Aggregation', sku: 'ECS-Aggregation', category: 'aggregation',
       color: '#7C3AED', msrp: 1499, eur: 1459, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-campus-switch-aggregation-a3320131.html', status: 'new',
-      ports: '4x 100G QSFP28 + 28x 25G SFP28', portCount: 32, speed: '100G QSFP28',
-      poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 28,
+      ports: '48x 25G SFP28 + 6x 100G QSFP28', portCount: 54, speed: '100G QSFP28',
+      poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 48,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
       features: ['L3', '100G', 'HA'], formFactor: '1U Rack', power: 150,
       notes: '100G backbone'
