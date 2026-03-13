@@ -2441,12 +2441,15 @@ export default function UniFiNetworkPortal() {
                     <tr>
                       <th className="p-1 text-left">Modell</th>
                       <th className="p-1">Ports</th>
-                      <th className="p-1">Speed</th>
+                      <th className="p-1 text-gray-400">1G</th>
+                      <th className="p-1 text-blue-400">2.5G</th>
+                      <th className="p-1 text-teal-400">10G</th>
+                      <th className="p-1 text-purple-400">SFP+</th>
+                      <th className="p-1 text-yellow-400">SFP28</th>
                       <th className="p-1">Preis</th>
                       <th className="p-1">PoE</th>
                       <th className="p-1">Budget</th>
                       <th className="p-1">Layer</th>
-                      <th className="p-1">10G+</th>
                       <th className="p-1">📋</th>
                       <th className="p-1">🛒</th>
                     </tr>
@@ -2456,12 +2459,15 @@ export default function UniFiNetworkPortal() {
                       <tr key={k} className={`border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${selectedSwitch === k ? 'bg-gray-700' : ''}`} onClick={() => setSelectedSwitch(k)}>
                         <td className="p-1 font-semibold" style={{ color: d.color }}>{d.status === 'new' && '★ '}{d.name}</td>
                         <td className="p-1 text-center">{d.portCount}</td>
-                        <td className="p-1 text-center">{d.speed}</td>
+                        <td className="p-1 text-center text-gray-400">{d.ethernet1g > 0 ? d.ethernet1g : '-'}</td>
+                        <td className="p-1 text-center text-blue-400">{d.ethernet2_5g > 0 ? d.ethernet2_5g : '-'}</td>
+                        <td className="p-1 text-center text-teal-400">{d.ethernet10g > 0 ? d.ethernet10g : '-'}</td>
+                        <td className="p-1 text-center text-purple-400">{d.sfpPlus > 0 ? d.sfpPlus : '-'}</td>
+                        <td className="p-1 text-center text-yellow-400">{d.sfp28 > 0 ? d.sfp28 : '-'}</td>
                         <td className="p-1 text-center text-green-400">{formatPrice(d.msrp)}</td>
                         <td className="p-1 text-center">{d.poe || '-'}</td>
                         <td className="p-1 text-center text-orange-400">{d.poeBudget > 0 ? d.poeBudget : '-'}</td>
                         <td className="p-1 text-center">{d.layer}</td>
-                        <td className="p-1 text-center">{(d.ethernet10g + d.sfpPlus + d.sfp28) > 0 ? `${d.ethernet10g + d.sfpPlus + d.sfp28}` : '-'}</td>
                         <td className="p-1 text-center"><a href={getDatasheetLink(d.sku, 'switch')} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-blue-400 hover:text-blue-300">→</a></td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(d.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
