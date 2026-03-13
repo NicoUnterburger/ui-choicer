@@ -307,3 +307,179 @@ Bei Problemen:
 - Apache-Logs prüfen: `/var/log/apache2/`
 - Browser Developer Tools öffnen (F12) → Console & Network Tab
 - Vite-Dokumentation: https://vitejs.dev/
+
+---
+
+## Docker Deployment
+
+### Voraussetzungen
+
+- **Docker** (v20.10+) - [docs.docker.com](https://docs.docker.com/get-docker/)
+- **Docker Compose** (v2.0+) - meist in Docker Desktop enthalten
+
+### Quick Start
+
+```bash
+# In das Projektverzeichnis wechseln
+cd unifi-portal-vite
+
+# Container bauen und starten
+docker compose up -d
+
+# Logs anzeigen
+docker compose logs -f
+
+# Status prüfen
+docker compose ps
+```
+
+Das Portal ist dann unter **http://localhost:8080** erreichbar.
+
+### Docker Compose Befehle
+
+```bash
+# Starten
+docker compose up -d
+
+# Stoppen
+docker compose down
+
+# Neu bauen (nach Code-Änderungen)
+docker compose up -d --build
+
+# Logs anzeigen
+docker compose logs -f unifi-portal
+
+# In Container einsteigen (Debugging)
+docker compose exec unifi-portal sh
+
+# Ressourcen-Verbrauch anzeigen
+docker stats unifi-portal
+```
+
+### Port ändern
+
+Bearbeite `docker-compose.yml`:
+
+```yaml
+ports:
+  - "3000:80"   # Statt 8080:80
+```
+
+### Mit Traefik (HTTPS + Reverse Proxy)
+
+Für automatische Let's Encrypt Zertifikate, aktiviere die auskommentierte Traefik-Konfiguration in `docker-compose.yml`:
+
+```yaml
+services:
+  unifi-portal:
+    # ...
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.unifi-portal.rule=Host(`unifi.example.com`)"
+      - "traefik.http.routers.unifi-portal.entrypoints=websecure"
+      - "traefik.http.routers.unifi-portal.tls.certresolver=letsencrypt"
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
+```
+
+### Standalone Docker (ohne Compose)
+
+```bash
+# Image bauen
+docker build -t unifi-network-portal:latest .
+
+# Container starten
+docker run -d \
+  --name unifi-portal \
+  --restart unless-stopped \
+  -p 8080:80 \
+  unifi-network-portal:latest
+
+# Container stoppen
+docker stop unifi-portal
+docker rm unifi-portal
+```
+
+### Als Image exportieren (für Offline-Deployment)
+
+```bash
+# Image als Datei speichern
+docker save unifi-network-portal:latest | gzip > unifi-portal-image.tar.gz
+
+# Auf anderem Server laden
+docker load < unifi-portal-image.tar.gz
+
+# Dort starten
+docker run -d --name unifi-portal -p 8080:80 unifi-network-portal:latest
+```
+
+### In Portainer deployen
+
+1. **Stack erstellen** → Name: `unifi-portal`
+2. **Web Editor** → Inhalt von `docker-compose.yml` einfügen
+3. **Deploy the stack** klicken
+
+### In Proxmox LXC mit Docker
+
+```bash
+# In deinem LXC Container
+apt update && apt install -y docker.io docker-compose-plugin
+
+# Projekt klonen/kopieren
+cd /opt
+# (Dateien hier ablegen)
+
+# Starten
+docker compose up -d
+```
+
+### Health Check
+
+Der Container hat einen eingebauten Health Check:
+
+```bash
+# Status prüfen
+docker inspect --format='{{.State.Health.Status}}' unifi-portal
+
+# Manuell testen
+curl http://localhost:8080/health
+```
+
+### Ressourcen-Limits
+
+In `docker-compose.yml` sind bereits Limits definiert:
+
+```yaml
+deploy:
+  resources:
+    limits:
+      cpus: '0.5'      # Max 50% einer CPU
+      memory: 128M     # Max 128 MB RAM
+    reservations:
+      cpus: '0.1'      # Garantiert 10% einer CPU
+      memory: 32M      # Garantiert 32 MB RAM
+```
+
+Die App ist sehr leichtgewichtig (~15 MB Image, ~10 MB RAM im Betrieb).
+
+---
+
+## Dateistruktur (Docker)
+
+```
+unifi-portal-vite/
+├── docker-compose.yml    ← Docker Compose Konfiguration
+├── Dockerfile            ← Multi-Stage Build (Node → Nginx)
+├── nginx.conf            ← Nginx Konfiguration für SPA
+├── .dockerignore         ← Ausgeschlossene Dateien
+├── package.json
+├── vite.config.js
+├── src/
+│   └── App.jsx
+└── ...
+```
