@@ -1977,13 +1977,13 @@ export default function UniFiNetworkPortal() {
       <div className="bg-gray-800 border-b border-gray-700 sticky top-0 z-40 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-4 flex gap-1">
           {[
-            { id: 'wifi', label: 'Access Points', count: Object.keys(apData).length },
-            { id: 'switching', label: 'Switches', count: Object.keys(switchData).length },
             { id: 'gateways', label: 'Gateways', count: Object.keys(gatewayData).length },
+            { id: 'switching', label: 'Switches', count: Object.keys(switchData).length },
+            { id: 'wifi', label: 'Access Points', count: Object.keys(apData).length },
+            { id: 'bridges', label: 'Richtfunk', count: Object.keys(bridgeData).length },
             { id: 'cameras', label: 'Cameras', count: Object.keys(cameraData).length },
             { id: 'nvr', label: 'NVR', count: Object.keys(nvrData).length },
             { id: 'nas', label: 'UNAS', count: Object.keys(nasData).length },
-            { id: 'bridges', label: 'Richtfunk', count: Object.keys(bridgeData).length }
           ].map(tab => (
             <button key={tab.id} onClick={() => setActiveSection(tab.id)}
               className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
@@ -2053,12 +2053,14 @@ export default function UniFiNetworkPortal() {
             </div>
 
             {/* Categories */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap justify-center gap-1 mb-2">
               {Object.entries(apCategories).map(([k, v]) => (
                 <button key={k} onClick={() => setCategoryFilter(k)}
-                  className={`px-3 py-1 rounded text-sm ${categoryFilter === k ? 'bg-blue-600' : 'bg-gray-700 hover:bg-gray-600'}`}>{v}</button>
+                  className={`px-2 py-0.5 rounded text-xs font-medium ${categoryFilter === k ? 'bg-blue-600' : 'bg-gray-700'}`}>{v}</button>
               ))}
-              <span className="ml-auto text-sm text-gray-400">{filteredAPs.length} of {Object.keys(apData).length}</span>
+            </div>
+            <div className="text-center text-sm text-gray-400 mb-2">
+              {filteredAPs.length} von {Object.keys(apData).length} Access Points gefunden
             </div>
 
             {/* AP Buttons */}
