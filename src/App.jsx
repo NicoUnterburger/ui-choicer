@@ -447,7 +447,7 @@ export default function UniFiNetworkPortal() {
     'ECS-24-PoE': {
       name: 'Enterprise Campus 24 PoE', sku: 'ECS-24-PoE', category: 'enterprise',
       color: '#DC2626', msrp: 1299, eur: 1269, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-campus-switch-24-poe-a3271244.html', status: 'current',
-      ports: '24x 2.5G + 2x 25G SFP28', portCount: 24, speed: '2.5G / 25G',
+      ports: '24x 2.5G + 2x 25G SFP28', portCount: 26, speed: '2.5G / 25G',
       poe: 'PoE++', poeBudget: 400, layer: 'L3', sfpPlus: 0, sfp28: 2,
       ethernet1g: 0, ethernet2_5g: 24, ethernet10g: 0,
       features: ['L3', 'PoE++', 'HA', 'Etherlighting'], formFactor: '1U Rack', power: 500,
@@ -456,7 +456,7 @@ export default function UniFiNetworkPortal() {
     'ECS-48-PoE': {
       name: 'Enterprise Campus 48 PoE', sku: 'ECS-48-PoE', category: 'enterprise',
       color: '#DC2626', msrp: 2499, eur: 2449, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-campus-switch-48-poe-a3271246.html', status: 'current',
-      ports: '48x 2.5G + 4x 25G SFP28', portCount: 48, speed: '2.5G / 25G',
+      ports: '48x 2.5G + 4x 25G SFP28', portCount: 52, speed: '2.5G / 25G',
       poe: 'PoE++', poeBudget: 720, layer: 'L3', sfpPlus: 0, sfp28: 4,
       ethernet1g: 0, ethernet2_5g: 48, ethernet10g: 0,
       features: ['L3', 'PoE++', 'HA', 'Etherlighting'], formFactor: '1U Rack', power: 900,
@@ -465,7 +465,7 @@ export default function UniFiNetworkPortal() {
     'ECS-24S-PoE': {
       name: 'Enterprise Campus 24S PoE', sku: 'ECS-24S-PoE', category: 'enterprise',
       color: '#DC2626', msrp: 1999, status: 'new',
-      ports: '24x 10G + 2x 25G SFP28', portCount: 24, speed: '10G / 25G',
+      ports: '24x 10G + 2x 25G SFP28', portCount: 26, speed: '10G / 25G',
       poe: 'PoE+++', poeBudget: 720, layer: 'L3', sfpPlus: 0, sfp28: 2,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 24,
       features: ['L3', 'PoE+++', 'HA', '10G'], formFactor: '1U Rack', power: 900,
@@ -474,7 +474,7 @@ export default function UniFiNetworkPortal() {
     'ECS-48S-PoE': {
       name: 'Enterprise Campus 48S PoE', sku: 'ECS-48S-PoE', category: 'enterprise',
       color: '#DC2626', msrp: 3499, status: 'new',
-      ports: '48x 10G + 4x 25G SFP28', portCount: 48, speed: '10G / 25G',
+      ports: '48x 10G + 4x 25G SFP28', portCount: 52, speed: '10G / 25G',
       poe: 'PoE+++', poeBudget: 1440, layer: 'L3', sfpPlus: 0, sfp28: 4,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 48,
       features: ['L3', 'PoE+++', 'HA', '10G'], formFactor: '1U Rack', power: 1600,
@@ -483,7 +483,7 @@ export default function UniFiNetworkPortal() {
     'USW-Enterprise-48-PoE': {
       name: 'Enterprise 48 PoE', sku: 'USW-Enterprise-48-PoE', category: 'enterprise',
       color: '#DC2626', msrp: 1299, status: 'legacy',
-      ports: '48x 2.5G + 4x 10G SFP+', portCount: 48, speed: '2.5G / 10G',
+      ports: '48x 2.5G + 4x 10G SFP+', portCount: 52, speed: '2.5G / 10G',
       poe: 'PoE+', poeBudget: 720, layer: 'L3', sfpPlus: 4, sfp28: 0,
       ethernet1g: 0, ethernet2_5g: 48, ethernet10g: 0,
       features: ['L3', 'PoE+'], formFactor: '1U Rack', power: 900,
@@ -494,7 +494,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-XG-8-PoE': {
       name: 'Pro XG 8 PoE', sku: 'USW-Pro-XG-8-PoE', category: 'pro-xg',
       color: '#14B8A6', msrp: 499, status: 'new',
-      ports: '8x 10G + 2x 10G SFP+', portCount: 8, speed: '10G',
+      ports: '8x 10G + 2x 10G SFP+', portCount: 10, speed: '10G',
       poe: 'PoE++', poeBudget: 155, layer: 'L3', sfpPlus: 2, sfp28: 0,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 8,
       features: ['L3', 'PoE++', '10G', 'Etherlighting'], formFactor: 'Desktop/Rack', power: 200,
@@ -503,7 +503,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-XG-10-PoE': {
       name: 'Pro XG 10 PoE', sku: 'USW-Pro-XG-10-PoE', category: 'pro-xg',
       color: '#14B8A6', msrp: 799, status: 'new',
-      ports: '10x 10G + 2x 10G SFP+', portCount: 10, speed: '10G',
+      ports: '10x 10G + 2x 10G SFP+', portCount: 12, speed: '10G',
       poe: 'PoE+++', poeBudget: 400, layer: 'L3', sfpPlus: 2, sfp28: 0,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 10,
       features: ['L3', 'PoE+++', '10G', 'Etherlighting', 'Display'], formFactor: '1U Rack', power: 500,
@@ -512,7 +512,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-XG-24': {
       name: 'Pro XG 24', sku: 'USW-Pro-XG-24', category: 'pro-xg',
       color: '#14B8A6', msrp: 999, status: 'new',
-      ports: '24x 10G + 2x 25G SFP28', portCount: 24, speed: '10G / 25G',
+      ports: '24x 10G + 2x 25G SFP28', portCount: 26, speed: '10G / 25G',
       poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 2,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 24,
       features: ['L3', '10G', '25G'], formFactor: '1U Rack', power: 100,
@@ -521,7 +521,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-XG-24-PoE': {
       name: 'Pro XG 24 PoE', sku: 'USW-Pro-XG-24-PoE', category: 'pro-xg',
       color: '#14B8A6', msrp: 1499, status: 'new',
-      ports: '24x 10G + 2x 25G SFP28', portCount: 24, speed: '10G / 25G',
+      ports: '24x 10G + 2x 25G SFP28', portCount: 26, speed: '10G / 25G',
       poe: 'PoE+++', poeBudget: 720, layer: 'L3', sfpPlus: 0, sfp28: 2,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 24,
       features: ['L3', 'PoE+++', '10G', '25G', 'Etherlighting'], formFactor: '1U Rack', power: 900,
@@ -530,7 +530,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-XG-48': {
       name: 'Pro XG 48', sku: 'USW-Pro-XG-48', category: 'pro-xg',
       color: '#14B8A6', msrp: 1799, status: 'new',
-      ports: '48x 10G + 4x 25G SFP28', portCount: 48, speed: '10G / 25G',
+      ports: '48x 10G + 4x 25G SFP28', portCount: 52, speed: '10G / 25G',
       poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 4,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 48,
       features: ['L3', '10G', '25G'], formFactor: '1U Rack', power: 150,
@@ -539,7 +539,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-XG-48-PoE': {
       name: 'Pro XG 48 PoE', sku: 'USW-Pro-XG-48-PoE', category: 'pro-xg',
       color: '#14B8A6', msrp: 2499, status: 'new',
-      ports: '48x 10G + 4x 25G SFP28', portCount: 48, speed: '10G / 25G',
+      ports: '48x 10G + 4x 25G SFP28', portCount: 52, speed: '10G / 25G',
       poe: 'PoE+++', poeBudget: 1440, layer: 'L3', sfpPlus: 0, sfp28: 4,
       ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 48,
       features: ['L3', 'PoE+++', '10G', '25G', 'Etherlighting'], formFactor: '1U Rack', power: 1600,
@@ -550,7 +550,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-Max-16': {
       name: 'Pro Max 16', sku: 'USW-Pro-Max-16', category: 'pro-max',
       color: '#8B5CF6', msrp: 249, status: 'current',
-      ports: '16x 2.5G + 2x 10G SFP+', portCount: 16, speed: '2.5G / 10G',
+      ports: '16x 2.5G + 2x 10G SFP+', portCount: 18, speed: '2.5G / 10G',
       poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 2, sfp28: 0,
       ethernet1g: 0, ethernet2_5g: 16, ethernet10g: 0,
       features: ['L3', 'Etherlighting'], formFactor: 'Desktop/Rack', power: 30,
@@ -559,7 +559,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-Max-16-PoE': {
       name: 'Pro Max 16 PoE', sku: 'USW-Pro-Max-16-PoE', category: 'pro-max',
       color: '#8B5CF6', msrp: 399, status: 'current',
-      ports: '16x 2.5G + 2x 10G SFP+', portCount: 16, speed: '2.5G / 10G',
+      ports: '16x 2.5G + 2x 10G SFP+', portCount: 18, speed: '2.5G / 10G',
       poe: 'PoE++', poeBudget: 180, layer: 'L3', sfpPlus: 2, sfp28: 0,
       ethernet1g: 0, ethernet2_5g: 16, ethernet10g: 0,
       features: ['L3', 'PoE++', 'Etherlighting'], formFactor: 'Desktop/Rack', power: 220,
@@ -568,7 +568,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-Max-24': {
       name: 'Pro Max 24', sku: 'USW-Pro-Max-24', category: 'pro-max',
       color: '#8B5CF6', msrp: 349, status: 'current',
-      ports: '24x 2.5G + 2x 10G SFP+', portCount: 24, speed: '2.5G / 10G',
+      ports: '24x 2.5G + 2x 10G SFP+', portCount: 26, speed: '2.5G / 10G',
       poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 2, sfp28: 0,
       ethernet1g: 0, ethernet2_5g: 24, ethernet10g: 0,
       features: ['L3', 'Etherlighting'], formFactor: '1U Rack', power: 45,
@@ -577,7 +577,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-Max-24-PoE': {
       name: 'Pro Max 24 PoE', sku: 'USW-Pro-Max-24-PoE', category: 'pro-max',
       color: '#8B5CF6', msrp: 599, status: 'current',
-      ports: '16x 1G + 8x 2.5G + 2x 10G SFP+', portCount: 24, speed: '2.5G / 10G',
+      ports: '16x 1G + 8x 2.5G + 2x 10G SFP+', portCount: 26, speed: '2.5G / 10G',
       poe: 'PoE++', poeBudget: 400, layer: 'L3', sfpPlus: 2, sfp28: 0,
       ethernet1g: 16, ethernet2_5g: 8, ethernet10g: 0,
       features: ['L3', 'PoE++', 'Etherlighting'], formFactor: '1U Rack', power: 500,
@@ -586,7 +586,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-Max-48': {
       name: 'Pro Max 48', sku: 'USW-Pro-Max-48', category: 'pro-max',
       color: '#8B5CF6', msrp: 599, status: 'current',
-      ports: '48x 2.5G + 4x 10G SFP+', portCount: 48, speed: '2.5G / 10G',
+      ports: '48x 2.5G + 4x 10G SFP+', portCount: 52, speed: '2.5G / 10G',
       poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 4, sfp28: 0,
       ethernet1g: 0, ethernet2_5g: 48, ethernet10g: 0,
       features: ['L3', 'Etherlighting'], formFactor: '1U Rack', power: 80,
@@ -595,7 +595,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-Max-48-PoE': {
       name: 'Pro Max 48 PoE', sku: 'USW-Pro-Max-48-PoE', category: 'pro-max',
       color: '#8B5CF6', msrp: 999, status: 'current',
-      ports: '32x 1G + 16x 2.5G + 4x 10G SFP+', portCount: 48, speed: '2.5G / 10G',
+      ports: '32x 1G + 16x 2.5G + 4x 10G SFP+', portCount: 52, speed: '2.5G / 10G',
       poe: 'PoE++', poeBudget: 720, layer: 'L3', sfpPlus: 4, sfp28: 0,
       ethernet1g: 32, ethernet2_5g: 16, ethernet10g: 0,
       features: ['L3', 'PoE++', 'Etherlighting'], formFactor: '1U Rack', power: 900,
@@ -606,7 +606,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-24': {
       name: 'Pro 24', sku: 'USW-Pro-24', category: 'pro',
       color: '#3B82F6', msrp: 299, status: 'current',
-      ports: '24x 1G + 2x 10G SFP+', portCount: 24, speed: '1G / 10G',
+      ports: '24x 1G + 2x 10G SFP+', portCount: 26, speed: '1G / 10G',
       poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 2, sfp28: 0,
       ethernet1g: 24, ethernet2_5g: 0, ethernet10g: 0,
       features: ['L3'], formFactor: '1U Rack', power: 30,
@@ -615,7 +615,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-24-PoE': {
       name: 'Pro 24 PoE', sku: 'USW-Pro-24-PoE', category: 'pro',
       color: '#3B82F6', msrp: 499, status: 'current',
-      ports: '24x 1G + 2x 10G SFP+', portCount: 24, speed: '1G / 10G',
+      ports: '24x 1G + 2x 10G SFP+', portCount: 26, speed: '1G / 10G',
       poe: 'PoE+', poeBudget: 400, layer: 'L3', sfpPlus: 2, sfp28: 0,
       ethernet1g: 24, ethernet2_5g: 0, ethernet10g: 0,
       features: ['L3', 'PoE+'], formFactor: '1U Rack', power: 500,
@@ -624,7 +624,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-48': {
       name: 'Pro 48', sku: 'USW-Pro-48', category: 'pro',
       color: '#3B82F6', msrp: 499, status: 'current',
-      ports: '48x 1G + 4x 10G SFP+', portCount: 48, speed: '1G / 10G',
+      ports: '48x 1G + 4x 10G SFP+', portCount: 52, speed: '1G / 10G',
       poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 4, sfp28: 0,
       ethernet1g: 48, ethernet2_5g: 0, ethernet10g: 0,
       features: ['L3'], formFactor: '1U Rack', power: 50,
@@ -633,7 +633,7 @@ export default function UniFiNetworkPortal() {
     'USW-Pro-48-PoE': {
       name: 'Pro 48 PoE', sku: 'USW-Pro-48-PoE', category: 'pro',
       color: '#3B82F6', msrp: 799, status: 'current',
-      ports: '48x 1G + 4x 10G SFP+', portCount: 48, speed: '1G / 10G',
+      ports: '48x 1G + 4x 10G SFP+', portCount: 52, speed: '1G / 10G',
       poe: 'PoE+', poeBudget: 600, layer: 'L3', sfpPlus: 4, sfp28: 0,
       ethernet1g: 48, ethernet2_5g: 0, ethernet10g: 0,
       features: ['L3', 'PoE+'], formFactor: '1U Rack', power: 750,
@@ -644,7 +644,7 @@ export default function UniFiNetworkPortal() {
     'USW-24': {
       name: 'Standard 24', sku: 'USW-24', category: 'standard',
       color: '#6B7280', msrp: 199, status: 'current',
-      ports: '24x 1G + 2x 1G SFP', portCount: 24, speed: '1G',
+      ports: '24x 1G + 2x 1G SFP', portCount: 26, speed: '1G',
       poe: null, poeBudget: 0, layer: 'L2', sfpPlus: 0, sfp28: 0,
       ethernet1g: 24, ethernet2_5g: 0, ethernet10g: 0,
       features: [], formFactor: '1U Rack', power: 20,
@@ -653,7 +653,7 @@ export default function UniFiNetworkPortal() {
     'USW-24-PoE': {
       name: 'Standard 24 PoE', sku: 'USW-24-PoE', category: 'standard',
       color: '#6B7280', msrp: 349, status: 'current',
-      ports: '24x 1G + 2x 1G SFP', portCount: 24, speed: '1G',
+      ports: '24x 1G + 2x 1G SFP', portCount: 26, speed: '1G',
       poe: 'PoE+', poeBudget: 95, layer: 'L2', sfpPlus: 0, sfp28: 0,
       ethernet1g: 24, ethernet2_5g: 0, ethernet10g: 0,
       features: ['PoE+', 'Fanless'], formFactor: '1U Rack', power: 130,
@@ -662,7 +662,7 @@ export default function UniFiNetworkPortal() {
     'USW-48': {
       name: 'Standard 48', sku: 'USW-48', category: 'standard',
       color: '#6B7280', msrp: 349, status: 'current',
-      ports: '48x 1G + 4x 1G SFP', portCount: 48, speed: '1G',
+      ports: '48x 1G + 4x 1G SFP', portCount: 52, speed: '1G',
       poe: null, poeBudget: 0, layer: 'L2', sfpPlus: 0, sfp28: 0,
       ethernet1g: 48, ethernet2_5g: 0, ethernet10g: 0,
       features: [], formFactor: '1U Rack', power: 35,
@@ -671,7 +671,7 @@ export default function UniFiNetworkPortal() {
     'USW-48-PoE': {
       name: 'Standard 48 PoE', sku: 'USW-48-PoE', category: 'standard',
       color: '#6B7280', msrp: 599, status: 'current',
-      ports: '48x 1G + 4x 1G SFP', portCount: 48, speed: '1G',
+      ports: '48x 1G + 4x 1G SFP', portCount: 52, speed: '1G',
       poe: 'PoE+', poeBudget: 195, layer: 'L2', sfpPlus: 0, sfp28: 0,
       ethernet1g: 48, ethernet2_5g: 0, ethernet10g: 0,
       features: ['PoE+'], formFactor: '1U Rack', power: 260,
