@@ -43,12 +43,18 @@ export default function UniFiNetworkPortal() {
       const apMappings = {
         'uap-ac-lite': 'unifi-ap-ac-lite',
         'uap-ac-pro': 'unifi-ap-ac-pro',
+        'uap-nanohd': 'uap-nanohd',
+        'uap-flexhd': 'uap-flexhd',
+        'u6-lite': 'u6-lite',
         'u6-plus': 'u6-plus',
         'u6-lr': 'u6-lr',
         'u6-pro': 'u6-pro',
         'u6-mesh': 'u6-mesh',
+        'u6-mesh-pro': 'u6-mesh-pro',
         'u6-iw': 'u6-iw',
+        'u6-extender': 'u6-extender',
         'u6-enterprise': 'u6-enterprise',
+        'u6-enterprise-iw': 'u6-enterprise-iw',
         'u7-lite': 'u7-lite',
         'u7-lr': 'u7-lr',
         'u7-pro': 'u7-pro',
@@ -156,7 +162,43 @@ export default function UniFiNetworkPortal() {
       azimuth: { '2.4GHz': [3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9], '5GHz': [3, 2.8, 2.9, 2.7, 3, 2.8, 2.9, 2.7, 3, 2.8, 2.9, 2.7] },
       beamwidth: { h: 360, v: 110 }
     },
+    'nanoHD': {
+      name: 'UAP-nanoHD', sku: 'UAP-nanoHD', generation: 'Wi-Fi 5', category: 'flagship',
+      color: '#6B7280', msrp: 99, eur: 89, geizhals: 'https://geizhals.de/?fs=UAP-nanoHD', status: 'legacy',
+      radio24: { mimo: '2x2', txPower: 23, gain: 2.8, maxRate: 300 },
+      radio5: { mimo: '4x4', txPower: 26, gain: 3, maxRate: 1700 },
+      radio6: null, streams: 6, coverage: 115, clients: '200+',
+      ethernet: '1 GbE', poe: 'PoE (10.5W)', mount: 'Ceiling/Wall',
+      features: ['BLE'], notes: 'Kompaktes 4x4 Wi-Fi 5',
+      elevation: { '2.4GHz': [0, 2.4, 2.7, 2.8, 2.7, 2.4, 1.9, 1.1, 0.2, -2], '5GHz': [-0.5, 2.5, 2.8, 3, 2.8, 2.4, 1.8, 1, 0, -2.5] },
+      azimuth: { '2.4GHz': [2.8, 2.7, 2.8, 2.7, 2.8, 2.7, 2.8, 2.7, 2.8, 2.7, 2.8, 2.7], '5GHz': [3, 2.8, 2.9, 2.7, 3, 2.8, 2.9, 2.7, 3, 2.8, 2.9, 2.7] },
+      beamwidth: { h: 360, v: 105 }
+    },
+    'FlexHD': {
+      name: 'UAP-FlexHD', sku: 'UAP-FlexHD', generation: 'Wi-Fi 5', category: 'flagship',
+      color: '#6B7280', msrp: 149, eur: 129, geizhals: 'https://geizhals.de/?fs=UAP-FlexHD', status: 'legacy',
+      radio24: { mimo: '2x2', txPower: 23, gain: 3, maxRate: 300 },
+      radio5: { mimo: '4x4', txPower: 26, gain: 3, maxRate: 1733 },
+      radio6: null, streams: 6, coverage: 115, clients: '200+',
+      ethernet: '1 GbE', poe: 'PoE (11W)', mount: 'Ceiling/Wall/Tisch',
+      features: ['BLE', 'Flex-Mount'], notes: 'Flexible Montage (Decke/Wand/Tisch)',
+      elevation: { '2.4GHz': [0, 2.4, 2.7, 3, 2.7, 2.4, 1.9, 1.1, 0.2, -2], '5GHz': [-0.5, 2.5, 2.8, 3, 2.8, 2.4, 1.8, 1, 0, -2.5] },
+      azimuth: { '2.4GHz': [3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9], '5GHz': [3, 2.8, 2.9, 2.7, 3, 2.8, 2.9, 2.7, 3, 2.8, 2.9, 2.7] },
+      beamwidth: { h: 360, v: 105 }
+    },
     // Wi-Fi 6
+    'U6-Lite': {
+      name: 'U6-Lite', sku: 'U6-Lite', generation: 'Wi-Fi 6', category: 'flagship',
+      color: '#F97316', msrp: 99, eur: 89, geizhals: 'https://geizhals.de/?fs=U6-Lite', status: 'current',
+      radio24: { mimo: '2x2', txPower: 20, gain: 3, maxRate: 300 },
+      radio5: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 1201 },
+      radio6: null, streams: 4, coverage: 115, clients: '300+',
+      ethernet: '1 GbE', poe: 'PoE (12W)', mount: 'Ceiling/Wall',
+      features: ['BLE'], notes: 'Einstieg Wi-Fi 6',
+      elevation: { '2.4GHz': [0, 2.5, 2.8, 3, 2.8, 2.5, 2, 1.2, 0.3, -2], '5GHz': [-0.5, 2.8, 3.5, 4, 3.5, 2.8, 1.8, 0.8, -0.2, -3] },
+      azimuth: { '2.4GHz': [3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9, 3, 2.9], '5GHz': [4, 3.8, 3.9, 3.7, 4, 3.8, 3.9, 3.7, 4, 3.8, 3.9, 3.7] },
+      beamwidth: { h: 360, v: 95 }
+    },
     'U6+': {
       name: 'U6-Plus', sku: 'U6-Plus', generation: 'Wi-Fi 6', category: 'flagship',
       color: '#F97316', msrp: 129, eur: 109, geizhals: 'https://geizhals.de/ubiquiti-unifi-6-plus-u6-plus-a2815847.html', status: 'current',
@@ -193,6 +235,18 @@ export default function UniFiNetworkPortal() {
       azimuth: { '2.4GHz': [4, 3.8, 3.9, 3.7, 4, 3.8, 3.9, 3.7, 4, 3.8, 3.9, 3.7], '5GHz': [6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7] },
       beamwidth: { h: 360, v: 80 }
     },
+    'U6-Mesh-Pro': {
+      name: 'U6-Mesh-Pro', sku: 'U6-Mesh-Pro', generation: 'Wi-Fi 6', category: 'outdoor',
+      color: '#F97316', msrp: 199, eur: 189, geizhals: 'https://geizhals.de/?fs=U6-Mesh-Pro', status: 'current',
+      radio24: { mimo: '2x2', txPower: 24, gain: 6, maxRate: 573 },
+      radio5: { mimo: '4x4', txPower: 27, gain: 8, maxRate: 4804 },
+      radio6: null, streams: 6, coverage: 185, clients: '350+',
+      ethernet: '1 GbE + Passthrough', poe: 'PoE+ (13W)', mount: 'Pole/Wall',
+      features: ['IP65', 'Mesh', 'High-Gain'], notes: 'Outdoor 4x4 mit 8 dBi Antenne',
+      elevation: { '2.4GHz': [-1, 4, 5.5, 6, 5.5, 4, 2.5, 0.8, -0.8, -3.5], '5GHz': [-2, 5.5, 7, 8, 7, 5.5, 3.5, 1.2, -1, -5] },
+      azimuth: { '2.4GHz': [6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7], '5GHz': [8, 7.8, 7.9, 7.7, 8, 7.8, 7.9, 7.7, 8, 7.8, 7.9, 7.7] },
+      beamwidth: { h: 360, v: 75 }
+    },
     'U6-Mesh': {
       name: 'U6-Mesh', sku: 'U6-Mesh', generation: 'Wi-Fi 6', category: 'outdoor',
       color: '#F97316', msrp: 179, eur: 159, geizhals: 'https://geizhals.de/ubiquiti-unifi-6-mesh-u6-mesh-a2590639.html', status: 'current',
@@ -217,6 +271,18 @@ export default function UniFiNetworkPortal() {
       azimuth: { '2.4GHz': [2.5, 2.4, 2.3, 2.2, 2.1, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.4], '5GHz': [4, 3.8, 3.5, 3.2, 3, 2.8, 3, 3.2, 3.5, 3.8, 4, 3.8] },
       beamwidth: { h: 180, v: 90 }
     },
+    'U6-Extender': {
+      name: 'U6-Extender', sku: 'U6-Extender', generation: 'Wi-Fi 6', category: 'inwall',
+      color: '#F97316', msrp: 99, eur: 89, geizhals: 'https://geizhals.de/?fs=U6-Extender', status: 'current',
+      radio24: { mimo: '2x2', txPower: 20, gain: 2.5, maxRate: 573 },
+      radio5: { mimo: '4x4', txPower: 24, gain: 4, maxRate: 4804 },
+      radio6: null, streams: 6, coverage: 115, clients: '300+',
+      ethernet: '1 GbE', poe: 'AC-Steckdose (15W)',  mount: 'Wall outlet',
+      features: ['AC-powered', 'BLE'], notes: 'Steckdosen-AP, kein PoE nötig',
+      elevation: { '2.4GHz': [2.5, 2.3, 2, 1.5, 0.8, 0, -1, -2, -3, -4], '5GHz': [4, 3.7, 3.2, 2.5, 1.5, 0.3, -1, -2.5, -4, -5] },
+      azimuth: { '2.4GHz': [2.5, 2.4, 2.3, 2.2, 2.1, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.4], '5GHz': [4, 3.8, 3.5, 3.2, 3, 2.8, 3, 3.2, 3.5, 3.8, 4, 3.8] },
+      beamwidth: { h: 180, v: 90 }
+    },
     // Wi-Fi 6E
     'U6-Enterprise': {
       name: 'U6-Enterprise', sku: 'U6-Enterprise', generation: 'Wi-Fi 6E', category: 'flagship',
@@ -230,6 +296,19 @@ export default function UniFiNetworkPortal() {
       elevation: { '2.4GHz': [-0.5, 3, 3.6, 4, 3.6, 3, 2.2, 1.2, 0.1, -3], '5GHz': [-2, 4, 5.5, 6, 5.5, 4.3, 3, 1.3, -0.8, -5], '6GHz': [-2.5, 3.6, 5, 5.5, 5, 3.8, 2.4, 0.6, -1.4, -5.5] },
       azimuth: { '2.4GHz': [4, 3.8, 3.9, 3.7, 4, 3.8, 3.9, 3.7, 4, 3.8, 3.9, 3.7], '5GHz': [6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7], '6GHz': [5.5, 5.3, 5.4, 5.2, 5.5, 5.3, 5.4, 5.2, 5.5, 5.3, 5.4, 5.2] },
       beamwidth: { h: 360, v: 78 }
+    },
+    'U6-Enterprise-IW': {
+      name: 'U6-Enterprise-IW', sku: 'U6-Enterprise-IW', generation: 'Wi-Fi 6E', category: 'inwall',
+      color: '#EC4899', msrp: 299, eur: 279, geizhals: 'https://geizhals.de/?fs=U6-Enterprise-IW', status: 'current',
+      radio24: { mimo: '2x2', txPower: 22, gain: 2.5, maxRate: 573 },
+      radio5: { mimo: '4x4', txPower: 25, gain: 4, maxRate: 4804 },
+      radio6: { mimo: '4x4', txPower: 24, gain: 4, maxRate: 4804 },
+      streams: 10, coverage: 115, clients: '600+',
+      ethernet: '2.5 GbE + 4x 1G (1x PoE-out)', poe: 'PoE++ (22W)', mount: 'Wall outlet',
+      features: ['6 GHz', '4-Port Switch', 'PoE-out'], notes: 'Wi-Fi 6E In-Wall mit eingebautem Switch',
+      elevation: { '2.4GHz': [2.5, 2.3, 2, 1.5, 0.8, 0, -1, -2, -3, -4], '5GHz': [4, 3.7, 3.2, 2.5, 1.5, 0.3, -1, -2.5, -4, -5], '6GHz': [4, 3.7, 3.2, 2.5, 1.5, 0.3, -1, -2.5, -4, -5] },
+      azimuth: { '2.4GHz': [2.5, 2.4, 2.3, 2.2, 2.1, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.4], '5GHz': [4, 3.8, 3.5, 3.2, 3, 2.8, 3, 3.2, 3.5, 3.8, 4, 3.8], '6GHz': [4, 3.8, 3.5, 3.2, 3, 2.8, 3, 3.2, 3.5, 3.8, 4, 3.8] },
+      beamwidth: { h: 180, v: 90 }
     },
     // Wi-Fi 7 Flagship
     'U7-Lite': {
