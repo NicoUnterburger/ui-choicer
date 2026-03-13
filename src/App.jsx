@@ -20,6 +20,19 @@ export default function UniFiNetworkPortal() {
   const [bridgeCategoryFilter, setBridgeCategoryFilter] = useState('all');
   const [showHelp, setShowHelp] = useState(false);
   const [showRadiationModal, setShowRadiationModal] = useState(false);
+  const [cart, setCart] = useState([]);
+
+  const toggleCart = (sku, name, msrp, section, color) => {
+    setCart(prev => prev.find(i => i.sku === sku)
+      ? prev.filter(i => i.sku !== sku)
+      : [...prev, { sku, name, msrp, section, color, qty: 1 }]
+    );
+  };
+  const updateCartQty = (sku, delta) => setCart(prev =>
+    prev.map(i => i.sku === sku ? { ...i, qty: i.qty + delta } : i).filter(i => i.qty > 0)
+  );
+  const removeFromCart = (sku) => setCart(prev => prev.filter(i => i.sku !== sku));
+  const isInCart = (sku) => cart.some(i => i.sku === sku);
 
   // Deutsche Preisformatierung
   const formatPrice = (price) => {
@@ -1987,6 +2000,7 @@ export default function UniFiNetworkPortal() {
             { id: 'cameras', label: 'Cameras', count: Object.keys(cameraData).length },
             { id: 'nvr', label: 'NVR', count: Object.keys(nvrData).length },
             { id: 'nas', label: 'UNAS', count: Object.keys(nasData).length },
+            { id: 'cart', label: '🛒 Merkliste', count: cart.reduce((s, i) => s + i.qty, 0) || null },
           ].map(tab => (
             <button key={tab.id} onClick={() => setActiveSection(tab.id)}
               className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
@@ -2090,8 +2104,12 @@ export default function UniFiNetworkPortal() {
                     <span className="text-xl font-bold text-green-400">~{formatPrice(ap.msrp)}</span>
                     <a href={getDatasheetLink(ap.sku, 'ap')} target="_blank" rel="noopener noreferrer" 
                       className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-xs">Specs</a>
-                    <a href={getGeizhalsLink(ap.sku)} target="_blank" rel="noopener noreferrer" 
+                    <a href={getGeizhalsLink(ap.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-700 px-3 py-1 rounded text-xs">Geizhals</a>
+                    <button onClick={() => toggleCart(ap.sku, ap.name, ap.msrp, 'Access Point', ap.color)}
+                      className={`px-3 py-1 rounded text-xs font-medium transition-colors ${isInCart(ap.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                      {isInCart(ap.sku) ? '✓ Gemerkt' : '+ Merken'}
+                    </button>
                   </div>
                   <div className="flex gap-1 flex-wrap">
                     {ap.features.map(f => <FeatureBadge key={f} feature={f} />)}
@@ -2475,10 +2493,14 @@ export default function UniFiNetworkPortal() {
                       className="bg-blue-600 hover:bg-blue-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       📋 Datenblatt
                     </a>
-                    <a href={getGeizhalsLink(sw.sku)} target="_blank" rel="noopener noreferrer" 
+                    <a href={getGeizhalsLink(sw.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
+                    <button onClick={() => toggleCart(sw.sku, sw.name, sw.msrp, 'Switch', sw.color)}
+                      className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(sw.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                      {isInCart(sw.sku) ? '✓ Gemerkt' : '+ Merken'}
+                    </button>
                   </div>
                   <div className="text-xs text-gray-400 mt-0.5">{sw.sku}</div>
                   <div className="flex gap-1 flex-wrap mt-1">
@@ -2677,10 +2699,14 @@ export default function UniFiNetworkPortal() {
                       className="bg-blue-600 hover:bg-blue-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       📋 Datenblatt
                     </a>
-                    <a href={getGeizhalsLink(gw.sku)} target="_blank" rel="noopener noreferrer" 
+                    <a href={getGeizhalsLink(gw.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
+                    <button onClick={() => toggleCart(gw.sku, gw.name, gw.msrp, 'Gateway', gw.color)}
+                      className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(gw.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                      {isInCart(gw.sku) ? '✓ Gemerkt' : '+ Merken'}
+                    </button>
                   </div>
                   <div className="text-xs text-gray-400">{gw.sku}</div>
                   <div className="flex gap-1 flex-wrap mt-1">
@@ -2930,10 +2956,14 @@ export default function UniFiNetworkPortal() {
                       className="bg-blue-600 hover:bg-blue-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       📋 Datenblatt
                     </a>
-                    <a href={getGeizhalsLink(cam.sku)} target="_blank" rel="noopener noreferrer" 
+                    <a href={getGeizhalsLink(cam.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
+                    <button onClick={() => toggleCart(cam.sku, cam.name, cam.msrp, 'Kamera', cam.color)}
+                      className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(cam.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                      {isInCart(cam.sku) ? '✓ Gemerkt' : '+ Merken'}
+                    </button>
                   </div>
                   <div className="text-xs text-gray-400">{cam.sku}</div>
                   <div className="flex gap-1 flex-wrap mt-1">
@@ -3132,10 +3162,14 @@ export default function UniFiNetworkPortal() {
                   <div className="flex items-center gap-2 flex-wrap">
                     <h2 className="text-lg font-bold" style={{ color: nvr.color }}>{nvr.name}</h2>
                     {nvr.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">NEU</span>}
-                    <a href={getGeizhalsLink(nvr.sku)} target="_blank" rel="noopener noreferrer" 
+                    <a href={getGeizhalsLink(nvr.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
+                    <button onClick={() => toggleCart(nvr.sku, nvr.name, nvr.msrp, 'NVR', nvr.color)}
+                      className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(nvr.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                      {isInCart(nvr.sku) ? '✓ Gemerkt' : '+ Merken'}
+                    </button>
                   </div>
                   <div className="text-xs text-gray-400">{nvr.sku}</div>
                   <div className="flex gap-1 flex-wrap mt-1">
@@ -3322,10 +3356,14 @@ export default function UniFiNetworkPortal() {
                   <div className="flex items-center gap-2 flex-wrap">
                     <h2 className="text-lg font-bold" style={{ color: nas.color }}>{nas.name}</h2>
                     {nas.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">NEU</span>}
-                    <a href={getGeizhalsLink(nas.sku)} target="_blank" rel="noopener noreferrer" 
+                    <a href={getGeizhalsLink(nas.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
+                    <button onClick={() => toggleCart(nas.sku, nas.name, nas.msrp, 'NAS', nas.color)}
+                      className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(nas.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                      {isInCart(nas.sku) ? '✓ Gemerkt' : '+ Merken'}
+                    </button>
                   </div>
                   <div className="text-xs text-gray-400">{nas.sku}</div>
                   <div className="flex gap-1 flex-wrap mt-1">
@@ -3524,10 +3562,14 @@ export default function UniFiNetworkPortal() {
                   <div className="flex items-center gap-2 flex-wrap">
                     <h2 className="text-lg font-bold" style={{ color: br.color }}>{br.name}</h2>
                     {br.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">NEU</span>}
-                    <a href={getGeizhalsLink(br.sku)} target="_blank" rel="noopener noreferrer" 
+                    <a href={getGeizhalsLink(br.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
+                    <button onClick={() => toggleCart(br.sku, br.name, br.msrp, 'Richtfunk', br.color)}
+                      className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(br.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                      {isInCart(br.sku) ? '✓ Gemerkt' : '+ Merken'}
+                    </button>
                   </div>
                   <div className="text-xs text-gray-400">{br.sku}</div>
                   <div className="flex gap-1 flex-wrap mt-1">
@@ -3791,6 +3833,67 @@ export default function UniFiNetworkPortal() {
                 </div>
               </div>
             </div>
+          </>
+        )}
+
+        {/* Cart / Merkliste */}
+        {activeSection === 'cart' && (
+          <>
+            <h2 className="text-xl font-bold mb-4">🛒 Merkliste</h2>
+            {cart.length === 0 ? (
+              <div className="bg-gray-800 rounded-lg p-8 text-center text-gray-400">
+                <div className="text-4xl mb-3">🛒</div>
+                <div className="text-lg font-medium mb-1">Merkliste ist leer</div>
+                <div className="text-sm">Klicke bei einem Produkt auf <span className="bg-gray-600 px-1.5 py-0.5 rounded text-xs font-bold">+ Merken</span> um es hinzuzufügen.</div>
+              </div>
+            ) : (
+              <>
+                {['Gateway', 'Switch', 'Access Point', 'Richtfunk', 'Kamera', 'NVR', 'NAS'].map(section => {
+                  const items = cart.filter(i => i.section === section);
+                  if (items.length === 0) return null;
+                  return (
+                    <div key={section} className="mb-4">
+                      <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">{section}</h3>
+                      <div className="bg-gray-800 rounded-lg overflow-hidden">
+                        {items.map((item, idx) => (
+                          <div key={item.sku} className={`flex items-center gap-3 px-3 py-2.5 ${idx < items.length - 1 ? 'border-b border-gray-700' : ''}`}>
+                            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: item.color }} />
+                            <div className="flex-1 min-w-0">
+                              <div className="font-medium text-sm truncate">{item.name}</div>
+                              <div className="text-xs text-gray-400">{item.sku}</div>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <button onClick={() => updateCartQty(item.sku, -1)}
+                                className="w-6 h-6 bg-gray-700 hover:bg-gray-600 rounded text-xs font-bold flex items-center justify-center">−</button>
+                              <span className="w-6 text-center text-sm font-medium">{item.qty}</span>
+                              <button onClick={() => updateCartQty(item.sku, 1)}
+                                className="w-6 h-6 bg-gray-700 hover:bg-gray-600 rounded text-xs font-bold flex items-center justify-center">+</button>
+                            </div>
+                            <div className="text-sm font-bold text-green-400 w-20 text-right">
+                              {formatPrice(item.msrp * item.qty)}
+                            </div>
+                            <button onClick={() => removeFromCart(item.sku)}
+                              className="w-6 h-6 bg-gray-700 hover:bg-red-700 rounded text-xs flex items-center justify-center text-gray-400 hover:text-white transition-colors">✕</button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+                <div className="bg-gray-800 rounded-lg p-3 flex items-center justify-between mt-2">
+                  <button onClick={() => setCart([])}
+                    className="px-3 py-1.5 bg-red-800 hover:bg-red-700 rounded text-xs font-medium transition-colors">
+                    Alle entfernen
+                  </button>
+                  <div className="text-right">
+                    <div className="text-xs text-gray-400 mb-0.5">{cart.reduce((s, i) => s + i.qty, 0)} Artikel · Geschätzter Gesamtpreis (MSRP)</div>
+                    <div className="text-xl font-bold text-green-400">
+                      {formatPrice(cart.reduce((s, i) => s + i.msrp * i.qty, 0))}
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </>
         )}
 
