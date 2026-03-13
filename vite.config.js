@@ -8,11 +8,9 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      },
+    minify: 'esbuild',
+    esbuildOptions: {
+      drop: ['console'],
     },
   },
 })
