@@ -182,7 +182,7 @@ export default function UniFiNetworkPortal() {
       radio5: { mimo: '4x4', txPower: 26, gain: 3, maxRate: 1700 },
       radio6: null, streams: 6, coverage: 115, clients: '200+',
       ethernet: '1 GbE', poe: 'PoE (10.5W)', mount: 'Ceiling/Wall',
-      features: ['BLE'], notes: 'Kompaktes 4x4 Wi-Fi 5',
+      features: ['BLE'], notes: 'Compact 4x4 Wi-Fi 5',
       elevation: { '2.4GHz': [0, 2.4, 2.7, 2.8, 2.7, 2.4, 1.9, 1.1, 0.2, -2], '5GHz': [-0.5, 2.5, 2.8, 3, 2.8, 2.4, 1.8, 1, 0, -2.5] },
       azimuth: { '2.4GHz': [2.8, 2.7, 2.8, 2.7, 2.8, 2.7, 2.8, 2.7, 2.8, 2.7, 2.8, 2.7], '5GHz': [3, 2.8, 2.9, 2.7, 3, 2.8, 2.9, 2.7, 3, 2.8, 2.9, 2.7] },
       beamwidth: { h: 360, v: 105 }
@@ -1126,7 +1126,7 @@ export default function UniFiNetworkPortal() {
       interface: '1 GbE + 1 GbE', poe: 'PoE+ (24W)', weatherproof: 'IP67',
       mimo: '2x2', channelWidth: '20/40/50 MHz', txPower: 29,
       features: ['LTU', 'GPS Sync', 'PTMP', 'Ext. Antenna'],
-      notes: 'Basisstation für externe Antennen (RocketDish kompatibel)',
+      notes: 'Base station for external antennas (RocketDish compatible)',
       elevation: null, azimuth: null, beamwidthH: null, beamwidthV: null
     },
     'LTU-Pro': {
@@ -1162,7 +1162,7 @@ export default function UniFiNetworkPortal() {
       interface: '1 GbE', poe: 'PoE (12W)', weatherproof: 'IP67',
       mimo: '2x2', channelWidth: '20/40/50 MHz', txPower: 29,
       features: ['LTU', '26 dBi', 'Long Range'],
-      notes: 'Maximale Reichweite mit 26 dBi',
+      notes: 'Maximum range with 26 dBi',
       // 26 dBi - sehr enger Beam (5°)
       elevation: [-12, 6, 18, 24, 26, 24, 18, 6, -12, -28],
       azimuth: [26, 24, 18, 6, -12, -28, -12, 6, 18, 24, 26, 24],
@@ -1203,7 +1203,7 @@ export default function UniFiNetworkPortal() {
       interface: '1 GbE', poe: 'PoE+ (15W)', weatherproof: 'IP66',
       mimo: '2x2', channelWidth: '20/40/80 MHz', txPower: 27,
       features: ['airMAX AC', '29 dBi Dish', '620mm Dish', 'Long Range'],
-      notes: 'Große 620mm Schüssel - max Reichweite',
+      notes: 'Large 620mm dish - max range',
       // 29 dBi - 620mm Dish - sehr enger 5° Beam
       elevation: [-14, 6, 20, 27, 29, 27, 20, 6, -14, -28],
       azimuth: [29, 27, 21, 8, -10, -25, -10, 8, 21, 27, 29, 27],
@@ -1216,7 +1216,7 @@ export default function UniFiNetworkPortal() {
       interface: '1 GbE', poe: 'PoE (8W)', weatherproof: 'IP66',
       mimo: '2x2', channelWidth: '20/40/80 MHz', txPower: 25,
       features: ['airMAX AC', 'Compact', 'Budget'],
-      notes: 'Kompakt & günstig',
+      notes: 'Compact & affordable',
       // 19 dBi - breiterer Beam (10°)
       elevation: [-4, 6, 13, 17, 19, 17, 13, 6, -4, -16],
       azimuth: [19, 18, 15, 9, 2, -10, 2, 9, 15, 18, 19, 18],
@@ -1321,7 +1321,7 @@ export default function UniFiNetworkPortal() {
       interface: '1 GbE', poe: 'PoE (10W)', weatherproof: 'IP66',
       mimo: null, channelWidth: '2160 MHz', txPower: 40,
       features: ['60 GHz', 'Compact', 'Low Power'],
-      notes: 'Kompakter 60 GHz Link',
+      notes: 'Compact 60 GHz link',
       // 35 dBi - 5° Beam
       elevation: [-12, 6, 22, 33, 35, 33, 22, 6, -12, -28],
       azimuth: [35, 33, 24, 8, -10, -25, -10, 8, 24, 33, 35, 33],
@@ -1334,7 +1334,7 @@ export default function UniFiNetworkPortal() {
       interface: '1 GbE', poe: 'PoE+ (15W)', weatherproof: 'IP66',
       mimo: null, channelWidth: '2160 MHz', txPower: 40,
       features: ['60 GHz', 'Extended Range', '2 Gbps'],
-      notes: 'Mehr Reichweite als GigaBeam',
+      notes: 'More range than GigaBeam',
       // 38 dBi - 3° Beam
       elevation: [-15, 5, 25, 36, 38, 36, 25, 5, -15, -30],
       azimuth: [38, 36, 25, 5, -15, -30, -15, 5, 25, 36, 38, 36],
@@ -1375,7 +1375,7 @@ export default function UniFiNetworkPortal() {
       interface: '2x RP-SMA', poe: null, weatherproof: 'IP67',
       mimo: '2x2', channelWidth: null, txPower: null,
       features: ['34 dBi', 'Dish', 'Long Range'],
-      notes: '90cm Dish für maximale Reichweite',
+      notes: '90cm dish for maximum range',
       // 34 dBi - 3° Beam
       elevation: [-16, 4, 23, 32, 34, 32, 23, 4, -16, -32],
       azimuth: [34, 32, 23, 4, -16, -32, -16, 4, 23, 32, 34, 32],
@@ -1817,13 +1817,13 @@ export default function UniFiNetworkPortal() {
   const nas = nasData[selectedNAS];
   const br = bridgeData[selectedBridge];
 
-  const apCategories = { 'all': 'Alle', 'flagship': 'Flagship', 'inwall': 'In-Wall', 'outdoor': 'Outdoor', 'enterprise': 'Enterprise' };
-  const switchCategories = { 'all': 'Alle', 'aggregation': 'Aggregation', 'enterprise': 'Enterprise Campus', 'pro-xg': 'Pro XG', 'pro-max': 'Pro Max', 'pro': 'Pro', 'standard': 'Standard', 'utility': 'Utility/Flex' };
-  const cameraCategories = { 'all': 'Alle', 'bullet': 'Bullet', 'turret': 'Turret', 'dome': 'Dome', 'compact': 'Compact', 'ptz': 'PTZ', 'panoramic': 'Panoramic', 'doorbell': 'Doorbell', 'specialty': 'Specialty' };
-  const gatewayCategories = { 'all': 'Alle', 'compact': 'Compact/Desktop', 'rackmount': 'Rackmount', 'enterprise': 'Enterprise', 'special': 'Special' };
-  const nvrCategories = { 'all': 'Alle', 'compact': 'Compact', 'rackmount': 'Rackmount', 'enterprise': 'Enterprise', 'ai': 'AI Series' };
-  const nasCategories = { 'all': 'Alle', 'standard': 'Standard', 'pro': 'Pro', 'rackmount': 'Rackmount', 'special': 'Special' };
-  const bridgeCategories = { 'all': 'Alle', 'unifi-ptp': 'UniFi Building', 'ltu-basestation': 'LTU Basis', 'ltu-client': 'LTU Client', 'airmax-ptp': 'airMAX AC', 'airfiber': 'airFiber', 'gigabeam': 'GigaBeam', 'antenna': 'Antennen' };
+  const apCategories = { 'all': 'All', 'flagship': 'Flagship', 'inwall': 'In-Wall', 'outdoor': 'Outdoor', 'enterprise': 'Enterprise' };
+  const switchCategories = { 'all': 'All', 'aggregation': 'Aggregation', 'enterprise': 'Enterprise Campus', 'pro-xg': 'Pro XG', 'pro-max': 'Pro Max', 'pro': 'Pro', 'standard': 'Standard', 'utility': 'Utility/Flex' };
+  const cameraCategories = { 'all': 'All', 'bullet': 'Bullet', 'turret': 'Turret', 'dome': 'Dome', 'compact': 'Compact', 'ptz': 'PTZ', 'panoramic': 'Panoramic', 'doorbell': 'Doorbell', 'specialty': 'Specialty' };
+  const gatewayCategories = { 'all': 'All', 'compact': 'Compact/Desktop', 'rackmount': 'Rackmount', 'enterprise': 'Enterprise', 'special': 'Special' };
+  const nvrCategories = { 'all': 'All', 'compact': 'Compact', 'rackmount': 'Rackmount', 'enterprise': 'Enterprise', 'ai': 'AI Series' };
+  const nasCategories = { 'all': 'All', 'standard': 'Standard', 'pro': 'Pro', 'rackmount': 'Rackmount', 'special': 'Special' };
+  const bridgeCategories = { 'all': 'All', 'unifi-ptp': 'UniFi Building', 'ltu-basestation': 'LTU Base Station', 'ltu-client': 'LTU Client', 'airmax-ptp': 'airMAX AC', 'airfiber': 'airFiber', 'gigabeam': 'GigaBeam', 'antenna': 'Antennas' };
 
   // Polar Plot Component für Strahlungsdiagramme
   const PolarPlot = ({ data, title, type, color, size = 140, onClick }) => {
@@ -2000,11 +2000,11 @@ export default function UniFiNetworkPortal() {
             { id: 'gateways', label: 'Gateways', count: Object.keys(gatewayData).length },
             { id: 'switching', label: 'Switches', count: Object.keys(switchData).length },
             { id: 'wifi', label: 'Access Points', count: Object.keys(apData).length },
-            { id: 'bridges', label: 'Richtfunk', count: Object.keys(bridgeData).length },
+            { id: 'bridges', label: 'PTP Links', count: Object.keys(bridgeData).length },
             { id: 'cameras', label: 'Cameras', count: Object.keys(cameraData).length },
             { id: 'nvr', label: 'NVR', count: Object.keys(nvrData).length },
             { id: 'nas', label: 'UNAS', count: Object.keys(nasData).length },
-            { id: 'cart', label: '🛒 Merkliste', count: cart.reduce((s, i) => s + i.qty, 0) || null },
+            { id: 'cart', label: '🛒 Saved', count: cart.reduce((s, i) => s + i.qty, 0) || null },
           ].map(tab => (
             <button key={tab.id} onClick={() => setActiveSection(tab.id)}
               className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
@@ -2081,7 +2081,7 @@ export default function UniFiNetworkPortal() {
               ))}
             </div>
             <div className="text-center text-sm text-gray-400 mb-2">
-              {filteredAPs.length} von {Object.keys(apData).length} Access Points gefunden
+              {filteredAPs.length} of {Object.keys(apData).length} Access Points
             </div>
 
             {/* AP Buttons */}
@@ -2112,7 +2112,7 @@ export default function UniFiNetworkPortal() {
                       className="bg-orange-600 hover:bg-orange-700 px-3 py-1 rounded text-xs">Geizhals</a>
                     <button onClick={() => toggleCart(ap.sku, ap.name, ap.msrp, 'Access Point', ap.color)}
                       className={`px-3 py-1 rounded text-xs font-medium transition-colors ${isInCart(ap.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
-                      {isInCart(ap.sku) ? '✓ Gemerkt' : '+ Merken'}
+                      {isInCart(ap.sku) ? '✓ Saved' : '+ Save'}
                     </button>
                   </div>
                   <div className="flex gap-1 flex-wrap">
@@ -2212,7 +2212,7 @@ export default function UniFiNetworkPortal() {
                 <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={() => setShowRadiationModal(false)}>
                   <div className="bg-gray-900 rounded-2xl p-4 max-w-5xl w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
                     <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-xl font-bold" style={{ color: ap.color }}>📡 {ap.name} - Strahlungsdiagramme</h3>
+                      <h3 className="text-xl font-bold" style={{ color: ap.color }}>📡 {ap.name} - Radiation Patterns</h3>
                       <button onClick={() => setShowRadiationModal(false)} className="text-2xl hover:text-red-400">✕</button>
                     </div>
                     
@@ -2232,14 +2232,14 @@ export default function UniFiNetworkPortal() {
                     <div className="flex flex-wrap justify-center gap-6">
                       <LargePolarPlot 
                         data={ap.elevation[selectedBand]} 
-                        title={`${selectedBand} Elevation (Vertikal)`} 
+                        title={`${selectedBand} Elevation (Vertical)`}
                         type="elevation" 
                         color={selectedBand === '2.4GHz' ? '#F97316' : selectedBand === '5GHz' ? '#3B82F6' : '#A855F7'} 
                         size={280} 
                       />
                       <LargePolarPlot 
                         data={ap.azimuth[selectedBand]} 
-                        title={`${selectedBand} Azimuth (Horizontal)`} 
+                        title={`${selectedBand} Azimuth (Horizontal)`}
                         type="azimuth" 
                         color={selectedBand === '2.4GHz' ? '#F97316' : selectedBand === '5GHz' ? '#3B82F6' : '#A855F7'} 
                         size={280} 
@@ -2248,36 +2248,36 @@ export default function UniFiNetworkPortal() {
 
                     {/* Legend and info */}
                     <div className="mt-4 bg-gray-800 rounded-lg p-3">
-                      <h4 className="font-semibold mb-2">📖 Legende</h4>
+                      <h4 className="font-semibold mb-2">📖 Legend</h4>
                       <div className="grid md:grid-cols-2 gap-3 text-sm">
                         <div>
-                          <h5 className="text-blue-400 font-medium">Elevation (Vertikal)</h5>
+                          <h5 className="text-blue-400 font-medium">Elevation (Vertical)</h5>
                           <ul className="text-gray-400 text-xs space-y-1">
-                            <li>• Seitenansicht des Abstrahlmusters</li>
-                            <li>• 0° = direkt unter dem AP</li>
-                            <li>• 90° = horizontale Ebene</li>
-                            <li>• Wichtig für Deckenhöhe & vertikale Abdeckung</li>
+                            <li>• Side view of the radiation pattern</li>
+                            <li>• 0° = directly below the AP</li>
+                            <li>• 90° = horizontal plane</li>
+                            <li>• Important for ceiling height &amp; vertical coverage</li>
                           </ul>
                         </div>
                         <div>
                           <h5 className="text-green-400 font-medium">Azimuth (Horizontal)</h5>
                           <ul className="text-gray-400 text-xs space-y-1">
-                            <li>• Draufsicht des Abstrahlmusters</li>
-                            <li>• 360° Rundum-Abstrahlung</li>
-                            <li>• Zeigt Gleichmäßigkeit der Abdeckung</li>
-                            <li>• Ideal: gleichmäßiger Kreis</li>
+                            <li>• Top-down view of the radiation pattern</li>
+                            <li>• 360° omnidirectional radiation</li>
+                            <li>• Shows uniformity of coverage</li>
+                            <li>• Ideal: uniform circle</li>
                           </ul>
                         </div>
                       </div>
                       <div className="mt-3 text-xs text-gray-500">
-                        <strong>Beamwidth:</strong> Horizontal {ap.beamwidth?.h}° | Vertikal {ap.beamwidth?.v}° • 
+                        <strong>Beamwidth:</strong> H {ap.beamwidth?.h}° | V {ap.beamwidth?.v}° •
                         <strong className="ml-2">Max Gain:</strong> 2.4G {ap.radio24.gain} dBi | 5G {ap.radio5.gain} dBi {ap.radio6 && `| 6G ${ap.radio6.gain} dBi`}
                       </div>
                     </div>
 
                     <button onClick={() => setShowRadiationModal(false)} 
                       className="mt-4 w-full bg-gray-700 hover:bg-gray-600 py-2 rounded-lg font-medium">
-                      Schließen
+                      Close
                     </button>
                   </div>
                 </div>
@@ -2293,14 +2293,14 @@ export default function UniFiNetworkPortal() {
 
             {/* AP Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
-              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Vergleichstabelle</h3>
+              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
               <div className="overflow-x-auto max-h-64">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700 sticky top-0">
                     <tr>
-                      <th className="p-1 text-left">Modell</th>
+                      <th className="p-1 text-left">Model</th>
                       <th className="p-1">Gen</th>
-                      <th className="p-1">Preis</th>
+                      <th className="p-1">Price</th>
                       <th className="p-1">m²</th>
                       <th className="p-1">5G Gain</th>
                       <th className="p-1">6 GHz</th>
@@ -2341,7 +2341,7 @@ export default function UniFiNetworkPortal() {
                 <div className="relative flex-1">
                   <input
                     type="text"
-                    placeholder="🔍 Switch suchen (Name, SKU, Ports...)"
+                    placeholder="🔍 Search switches (name, SKU, ports...)"
                     value={switchFilters.searchText}
                     onChange={(e) => updateFilter('searchText', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
@@ -2376,9 +2376,9 @@ export default function UniFiNetworkPortal() {
                   <label className="text-xs text-gray-400 block mb-1">PoE</label>
                   <select value={switchFilters.poe} onChange={(e) => updateFilter('poe', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
-                    <option value="yes">Mit PoE</option>
-                    <option value="no">Ohne PoE</option>
+                    <option value="all">All</option>
+                    <option value="yes">With PoE</option>
+                    <option value="no">Without PoE</option>
                     <option value="poe+">PoE+ (30W)</option>
                     <option value="poe++">PoE++ (60W)</option>
                     <option value="poe+++">PoE+++ (90W)</option>
@@ -2388,7 +2388,7 @@ export default function UniFiNetworkPortal() {
                 {/* PoE Budget */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Min PoE Budget (W)</label>
-                  <input type="number" placeholder="z.B. 400" value={switchFilters.minPoeBudget} onChange={(e) => updateFilter('minPoeBudget', e.target.value)}
+                  <input type="number" placeholder="e.g. 400" value={switchFilters.minPoeBudget} onChange={(e) => updateFilter('minPoeBudget', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
 
@@ -2397,7 +2397,7 @@ export default function UniFiNetworkPortal() {
                   <label className="text-xs text-gray-400 block mb-1">Layer</label>
                   <select value={switchFilters.layer} onChange={(e) => updateFilter('layer', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
+                    <option value="all">All</option>
                     <option value="L2">Layer 2</option>
                     <option value="L3">Layer 3</option>
                   </select>
@@ -2408,7 +2408,7 @@ export default function UniFiNetworkPortal() {
                   <label className="text-xs text-gray-400 block mb-1">Port Speed</label>
                   <select value={switchFilters.speed} onChange={(e) => updateFilter('speed', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
+                    <option value="all">All</option>
                     <option value="1G">1 GbE</option>
                     <option value="2.5G">2.5 GbE</option>
                     <option value="10G">10 GbE</option>
@@ -2418,20 +2418,20 @@ export default function UniFiNetworkPortal() {
 
                 {/* Max Price */}
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Max Preis ($)</label>
-                  <input type="number" placeholder="z.B. 500" value={switchFilters.maxPrice} onChange={(e) => updateFilter('maxPrice', e.target.value)}
+                  <label className="text-xs text-gray-400 block mb-1">Max Price ($)</label>
+                  <input type="number" placeholder="e.g. 500" value={switchFilters.maxPrice} onChange={(e) => updateFilter('maxPrice', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
 
                 {/* Form Factor */}
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Bauform</label>
+                  <label className="text-xs text-gray-400 block mb-1">Form Factor</label>
                   <select value={switchFilters.formFactor} onChange={(e) => updateFilter('formFactor', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
+                    <option value="all">All</option>
                     <option value="rack">Rackmount (1U)</option>
                     <option value="desktop">Desktop</option>
-                    <option value="compact">Kompakt</option>
+                    <option value="compact">Compact</option>
                   </select>
                 </div>
 
@@ -2469,8 +2469,8 @@ export default function UniFiNetworkPortal() {
 
             {/* Results Count */}
             <div className="text-center text-sm text-gray-400 mb-2">
-              {filteredSwitches.length} von {Object.keys(switchData).length} Switches gefunden
-              {activeFilterCount > 0 && <span className="text-blue-400 ml-2">({activeFilterCount} Filter aktiv)</span>}
+              {filteredSwitches.length} of {Object.keys(switchData).length} Switches
+              {activeFilterCount > 0 && <span className="text-blue-400 ml-2">({activeFilterCount} filter(s) active)</span>}
             </div>
 
             {/* Switch Grid */}
@@ -2503,7 +2503,7 @@ export default function UniFiNetworkPortal() {
                     </a>
                     <button onClick={() => toggleCart(sw.sku, sw.name, sw.msrp, 'Switch', sw.color)}
                       className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(sw.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
-                      {isInCart(sw.sku) ? '✓ Gemerkt' : '+ Merken'}
+                      {isInCart(sw.sku) ? '✓ Saved' : '+ Save'}
                     </button>
                   </div>
                   <div className="text-xs text-gray-400 mt-0.5">{sw.sku}</div>
@@ -2544,19 +2544,19 @@ export default function UniFiNetworkPortal() {
 
             {/* Switch Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
-              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Vergleichstabelle</h3>
+              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
               <div className="overflow-x-auto max-h-72">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700 sticky top-0">
                     <tr>
-                      <th className="p-1 text-left">Modell</th>
+                      <th className="p-1 text-left">Model</th>
                       <th className="p-1">Ports</th>
                       <th className="p-1 text-gray-400">1G</th>
                       <th className="p-1 text-blue-400">2.5G</th>
                       <th className="p-1 text-teal-400">10G</th>
                       <th className="p-1 text-purple-400">SFP+</th>
                       <th className="p-1 text-yellow-400">SFP28</th>
-                      <th className="p-1">Preis</th>
+                      <th className="p-1">Price</th>
                       <th className="p-1">PoE</th>
                       <th className="p-1">Budget</th>
                       <th className="p-1">Layer</th>
@@ -2618,7 +2618,7 @@ export default function UniFiNetworkPortal() {
                 <div className="relative flex-1">
                   <input
                     type="text"
-                    placeholder="🔍 Gateway suchen (Name, SKU...)"
+                    placeholder="🔍 Search gateways (name, SKU...)"
                     value={gatewayFilters.searchText}
                     onChange={(e) => updateGatewayFilter('searchText', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-purple-500"
@@ -2638,22 +2638,22 @@ export default function UniFiNetworkPortal() {
               {/* Filter Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Wi-Fi integriert</label>
+                  <label className="text-xs text-gray-400 block mb-1">Built-in Wi-Fi</label>
                   <select value={gatewayFilters.hasWifi} onChange={(e) => updateGatewayFilter('hasWifi', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
-                    <option value="yes">Mit Wi-Fi</option>
-                    <option value="no">Ohne Wi-Fi</option>
+                    <option value="all">All</option>
+                    <option value="yes">With Wi-Fi</option>
+                    <option value="no">Without Wi-Fi</option>
                   </select>
                 </div>
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Min IPS (Gbps)</label>
-                  <input type="number" step="0.5" placeholder="z.B. 3" value={gatewayFilters.minIPS} onChange={(e) => updateGatewayFilter('minIPS', e.target.value)}
+                  <input type="number" step="0.5" placeholder="e.g. 3" value={gatewayFilters.minIPS} onChange={(e) => updateGatewayFilter('minIPS', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Max Preis (€)</label>
-                  <input type="number" placeholder="z.B. 500" value={gatewayFilters.maxPrice} onChange={(e) => updateGatewayFilter('maxPrice', e.target.value)}
+                  <label className="text-xs text-gray-400 block mb-1">Max Price (€)</label>
+                  <input type="number" placeholder="e.g. 500" value={gatewayFilters.maxPrice} onChange={(e) => updateGatewayFilter('maxPrice', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div className="flex items-end">
@@ -2676,8 +2676,8 @@ export default function UniFiNetworkPortal() {
 
             {/* Results Count */}
             <div className="text-center text-sm text-gray-400 mb-2">
-              {filteredGateways.length} von {Object.keys(gatewayData).length} Gateways gefunden
-              {activeGatewayFilterCount > 0 && <span className="text-purple-400 ml-2">({activeGatewayFilterCount} Filter aktiv)</span>}
+              {filteredGateways.length} of {Object.keys(gatewayData).length} Gateways
+              {activeGatewayFilterCount > 0 && <span className="text-purple-400 ml-2">({activeGatewayFilterCount} filter(s) active)</span>}
             </div>
 
             {/* Gateway Grid */}
@@ -2709,7 +2709,7 @@ export default function UniFiNetworkPortal() {
                     </a>
                     <button onClick={() => toggleCart(gw.sku, gw.name, gw.msrp, 'Gateway', gw.color)}
                       className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(gw.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
-                      {isInCart(gw.sku) ? '✓ Gemerkt' : '+ Merken'}
+                      {isInCart(gw.sku) ? '✓ Saved' : '+ Save'}
                     </button>
                   </div>
                   <div className="text-xs text-gray-400">{gw.sku}</div>
@@ -2759,13 +2759,13 @@ export default function UniFiNetworkPortal() {
 
             {/* Gateway Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
-              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Vergleichstabelle</h3>
+              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
               <div className="overflow-x-auto max-h-64">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700 sticky top-0">
                     <tr>
-                      <th className="p-1 text-left">Modell</th>
-                      <th className="p-1">Preis</th>
+                      <th className="p-1 text-left">Model</th>
+                      <th className="p-1">Price</th>
                       <th className="p-1">IPS</th>
                       <th className="p-1">Devices</th>
                       <th className="p-1">Wi-Fi</th>
@@ -2827,7 +2827,7 @@ export default function UniFiNetworkPortal() {
                 <div className="relative flex-1">
                   <input
                     type="text"
-                    placeholder="🔍 Kamera suchen (Name, SKU, Generation...)"
+                    placeholder="🔍 Search cameras (name, SKU, generation...)"
                     value={cameraFilters.searchText}
                     onChange={(e) => updateCameraFilter('searchText', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-500"
@@ -2851,10 +2851,10 @@ export default function UniFiNetworkPortal() {
                   <label className="text-xs text-gray-400 block mb-1">Generation</label>
                   <select value={cameraFilters.generation} onChange={(e) => updateCameraFilter('generation', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
-                    <option value="G6">G6 (Neu)</option>
+                    <option value="all">All</option>
+                    <option value="G6">G6 (New)</option>
                     <option value="G5">G5</option>
-                    <option value="AI">AI Serie</option>
+                    <option value="AI">AI Series</option>
                     <option value="G4">G4</option>
                   </select>
                 </div>
@@ -2864,18 +2864,18 @@ export default function UniFiNetworkPortal() {
                   <label className="text-xs text-gray-400 block mb-1">AI Features</label>
                   <select value={cameraFilters.hasAI} onChange={(e) => updateCameraFilter('hasAI', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
-                    <option value="yes">Mit AI</option>
-                    <option value="no">Ohne AI</option>
+                    <option value="all">All</option>
+                    <option value="yes">With AI</option>
+                    <option value="no">Without AI</option>
                   </select>
                 </div>
 
                 {/* Connection */}
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Verbindung</label>
+                  <label className="text-xs text-gray-400 block mb-1">Connection</label>
                   <select value={cameraFilters.connection} onChange={(e) => updateCameraFilter('connection', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
+                    <option value="all">All</option>
                     <option value="PoE">PoE</option>
                     <option value="WiFi">WiFi</option>
                     <option value="PoE++">PoE++</option>
@@ -2884,23 +2884,23 @@ export default function UniFiNetworkPortal() {
 
                 {/* IP Schutzklasse */}
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">IP-Schutzklasse</label>
+                  <label className="text-xs text-gray-400 block mb-1">IP Rating</label>
                   <select value={cameraFilters.ipClass} onChange={(e) => updateCameraFilter('ipClass', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
-                    <option value="IPX4">IPX4 (Spritzwasser)</option>
-                    <option value="IPX5">IPX5 (Strahlwasser)</option>
-                    <option value="IP55">IP55 (Staub + Strahl)</option>
-                    <option value="IP65">IP65 (Staubdicht + Strahl)</option>
-                    <option value="IP66">IP66 (Staubdicht + Starkregen)</option>
-                    <option value="IP67">IP67 (Staubdicht + Tauchfest)</option>
+                    <option value="all">All</option>
+                    <option value="IPX4">IPX4 (Splash proof)</option>
+                    <option value="IPX5">IPX5 (Water jet)</option>
+                    <option value="IP55">IP55 (Dust + jet)</option>
+                    <option value="IP65">IP65 (Dustproof + jet)</option>
+                    <option value="IP66">IP66 (Dustproof + heavy rain)</option>
+                    <option value="IP67">IP67 (Dustproof + submersible)</option>
                   </select>
                 </div>
 
                 {/* Max Price */}
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Max Preis ($)</label>
-                  <input type="number" placeholder="z.B. 500" value={cameraFilters.maxPrice} onChange={(e) => updateCameraFilter('maxPrice', e.target.value)}
+                  <label className="text-xs text-gray-400 block mb-1">Max Price ($)</label>
+                  <input type="number" placeholder="e.g. 500" value={cameraFilters.maxPrice} onChange={(e) => updateCameraFilter('maxPrice', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
 
@@ -2933,8 +2933,8 @@ export default function UniFiNetworkPortal() {
 
             {/* Results Count */}
             <div className="text-center text-sm text-gray-400 mb-2">
-              {filteredCameras.length} von {Object.keys(cameraData).length} Kameras gefunden
-              {activeCameraFilterCount > 0 && <span className="text-red-400 ml-2">({activeCameraFilterCount} Filter aktiv)</span>}
+              {filteredCameras.length} of {Object.keys(cameraData).length} Cameras
+              {activeCameraFilterCount > 0 && <span className="text-red-400 ml-2">({activeCameraFilterCount} filter(s) active)</span>}
             </div>
 
             {/* Camera Grid */}
@@ -2964,9 +2964,9 @@ export default function UniFiNetworkPortal() {
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
-                    <button onClick={() => toggleCart(cam.sku, cam.name, cam.msrp, 'Kamera', cam.color)}
+                    <button onClick={() => toggleCart(cam.sku, cam.name, cam.msrp, 'Camera', cam.color)}
                       className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(cam.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
-                      {isInCart(cam.sku) ? '✓ Gemerkt' : '+ Merken'}
+                      {isInCart(cam.sku) ? '✓ Saved' : '+ Save'}
                     </button>
                   </div>
                   <div className="text-xs text-gray-400">{cam.sku}</div>
@@ -2987,7 +2987,7 @@ export default function UniFiNetworkPortal() {
               {/* Camera Details Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
                 <div className="bg-gray-700/50 rounded p-2">
-                  <h4 className="text-xs font-semibold text-blue-400 mb-1">Verbindung</h4>
+                  <h4 className="text-xs font-semibold text-blue-400 mb-1">Connection</h4>
                   <div className="text-xs">{cam.connection}</div>
                 </div>
                 <div className="bg-gray-700/50 rounded p-2">
@@ -3013,14 +3013,14 @@ export default function UniFiNetworkPortal() {
 
             {/* Camera Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
-              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Vergleichstabelle</h3>
+              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
               <div className="overflow-x-auto max-h-64">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700 sticky top-0">
                     <tr>
-                      <th className="p-1 text-left">Modell</th>
+                      <th className="p-1 text-left">Model</th>
                       <th className="p-1">Gen</th>
-                      <th className="p-1">Preis</th>
+                      <th className="p-1">Price</th>
                       <th className="p-1">Resolution</th>
                       <th className="p-1">FoV</th>
                       <th className="p-1">IR</th>
@@ -3081,7 +3081,7 @@ export default function UniFiNetworkPortal() {
                 <div className="relative flex-1">
                   <input
                     type="text"
-                    placeholder="🔍 NVR suchen (Name, SKU...)"
+                    placeholder="🔍 Search NVRs (name, SKU...)"
                     value={nvrFilters.searchText}
                     onChange={(e) => updateNvrFilter('searchText', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
@@ -3102,17 +3102,17 @@ export default function UniFiNetworkPortal() {
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Min Bays</label>
-                  <input type="number" placeholder="z.B. 4" value={nvrFilters.minBays} onChange={(e) => updateNvrFilter('minBays', e.target.value)}
+                  <input type="number" placeholder="e.g. 4" value={nvrFilters.minBays} onChange={(e) => updateNvrFilter('minBays', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Min Kameras</label>
-                  <input type="number" placeholder="z.B. 30" value={nvrFilters.minCameras} onChange={(e) => updateNvrFilter('minCameras', e.target.value)}
+                  <label className="text-xs text-gray-400 block mb-1">Min Cameras</label>
+                  <input type="number" placeholder="e.g. 30" value={nvrFilters.minCameras} onChange={(e) => updateNvrFilter('minCameras', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Max Preis (€)</label>
-                  <input type="number" placeholder="z.B. 1000" value={nvrFilters.maxPrice} onChange={(e) => updateNvrFilter('maxPrice', e.target.value)}
+                  <label className="text-xs text-gray-400 block mb-1">Max Price (€)</label>
+                  <input type="number" placeholder="e.g. 1000" value={nvrFilters.maxPrice} onChange={(e) => updateNvrFilter('maxPrice', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -3143,8 +3143,8 @@ export default function UniFiNetworkPortal() {
 
             {/* Results Count */}
             <div className="text-center text-sm text-gray-400 mb-2">
-              {filteredNVRs.length} von {Object.keys(nvrData).length} NVRs gefunden
-              {activeNvrFilterCount > 0 && <span className="text-blue-400 ml-2">({activeNvrFilterCount} Filter aktiv)</span>}
+              {filteredNVRs.length} of {Object.keys(nvrData).length} NVRs
+              {activeNvrFilterCount > 0 && <span className="text-blue-400 ml-2">({activeNvrFilterCount} filter(s) active)</span>}
             </div>
 
             {/* NVR Grid */}
@@ -3172,7 +3172,7 @@ export default function UniFiNetworkPortal() {
                     </a>
                     <button onClick={() => toggleCart(nvr.sku, nvr.name, nvr.msrp, 'NVR', nvr.color)}
                       className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(nvr.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
-                      {isInCart(nvr.sku) ? '✓ Gemerkt' : '+ Merken'}
+                      {isInCart(nvr.sku) ? '✓ Saved' : '+ Save'}
                     </button>
                   </div>
                   <div className="text-xs text-gray-400">{nvr.sku}</div>
@@ -3184,7 +3184,7 @@ export default function UniFiNetworkPortal() {
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
                   <div><div className="text-gray-500">Bays</div><div className="font-bold text-lg text-blue-400">{nvr.bays}x</div></div>
                   <div><div className="text-gray-500">Max Storage</div><div className="font-bold">{nvr.maxStorage}</div></div>
-                  <div><div className="text-gray-500">Kameras</div><div className="font-bold text-lg">{nvr.cameras}</div></div>
+                  <div><div className="text-gray-500">Cameras</div><div className="font-bold text-lg">{nvr.cameras}</div></div>
                   <div><div className="text-gray-500">Streams</div><div className="font-bold">{nvr.streams}</div></div>
                 </div>
               </div>
@@ -3192,7 +3192,7 @@ export default function UniFiNetworkPortal() {
               {/* NVR Details Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
                 <div className="bg-gray-700/50 rounded p-2">
-                  <h4 className="text-xs font-semibold text-blue-400 mb-1">Netzwerk</h4>
+                  <h4 className="text-xs font-semibold text-blue-400 mb-1">Network</h4>
                   <div className="text-xs">{nvr.network}</div>
                 </div>
                 <div className="bg-gray-700/50 rounded p-2">
@@ -3214,18 +3214,18 @@ export default function UniFiNetworkPortal() {
 
             {/* NVR Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
-              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Vergleichstabelle</h3>
+              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
               <div className="overflow-x-auto max-h-64">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700 sticky top-0">
                     <tr>
-                      <th className="p-1 text-left">Modell</th>
-                      <th className="p-1">Preis</th>
+                      <th className="p-1 text-left">Model</th>
+                      <th className="p-1">Price</th>
                       <th className="p-1">Bays</th>
                       <th className="p-1">Max TB</th>
-                      <th className="p-1">Kameras</th>
+                      <th className="p-1">Cameras</th>
                       <th className="p-1">Streams</th>
-                      <th className="p-1">Netzwerk</th>
+                      <th className="p-1">Network</th>
                       <th className="p-1">RAID</th>
                       <th className="p-1">🛒</th>
                     </tr>
@@ -3280,7 +3280,7 @@ export default function UniFiNetworkPortal() {
                 <div className="relative flex-1">
                   <input
                     type="text"
-                    placeholder="🔍 NAS suchen (Name, SKU...)"
+                    placeholder="🔍 Search NAS (name, SKU...)"
                     value={nasFilters.searchText}
                     onChange={(e) => updateNasFilter('searchText', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-violet-500"
@@ -3301,12 +3301,12 @@ export default function UniFiNetworkPortal() {
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Min Bays</label>
-                  <input type="number" placeholder="z.B. 4" value={nasFilters.minBays} onChange={(e) => updateNasFilter('minBays', e.target.value)}
+                  <input type="number" placeholder="e.g. 4" value={nasFilters.minBays} onChange={(e) => updateNasFilter('minBays', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Max Preis (€)</label>
-                  <input type="number" placeholder="z.B. 1500" value={nasFilters.maxPrice} onChange={(e) => updateNasFilter('maxPrice', e.target.value)}
+                  <label className="text-xs text-gray-400 block mb-1">Max Price (€)</label>
+                  <input type="number" placeholder="e.g. 1500" value={nasFilters.maxPrice} onChange={(e) => updateNasFilter('maxPrice', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -3337,8 +3337,8 @@ export default function UniFiNetworkPortal() {
 
             {/* Results Count */}
             <div className="text-center text-sm text-gray-400 mb-2">
-              {filteredNAS.length} von {Object.keys(nasData).length} NAS gefunden
-              {activeNasFilterCount > 0 && <span className="text-violet-400 ml-2">({activeNasFilterCount} Filter aktiv)</span>}
+              {filteredNAS.length} of {Object.keys(nasData).length} NAS
+              {activeNasFilterCount > 0 && <span className="text-violet-400 ml-2">({activeNasFilterCount} filter(s) active)</span>}
             </div>
 
             {/* NAS Grid */}
@@ -3366,7 +3366,7 @@ export default function UniFiNetworkPortal() {
                     </a>
                     <button onClick={() => toggleCart(nas.sku, nas.name, nas.msrp, 'NAS', nas.color)}
                       className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(nas.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
-                      {isInCart(nas.sku) ? '✓ Gemerkt' : '+ Merken'}
+                      {isInCart(nas.sku) ? '✓ Saved' : '+ Save'}
                     </button>
                   </div>
                   <div className="text-xs text-gray-400">{nas.sku}</div>
@@ -3378,7 +3378,7 @@ export default function UniFiNetworkPortal() {
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
                   <div><div className="text-gray-500">Bays</div><div className="font-bold text-lg text-violet-400">{nas.bays}x</div></div>
                   <div><div className="text-gray-500">Max Storage</div><div className="font-bold">{nas.maxStorage}</div></div>
-                  <div><div className="text-gray-500">Netzwerk</div><div className="font-bold">{nas.network}</div></div>
+                  <div><div className="text-gray-500">Network</div><div className="font-bold">{nas.network}</div></div>
                   <div><div className="text-gray-500">NVMe Slots</div><div className="font-bold">{nas.cacheSlots || '-'}</div></div>
                 </div>
               </div>
@@ -3415,16 +3415,16 @@ export default function UniFiNetworkPortal() {
 
             {/* NAS Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
-              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Vergleichstabelle</h3>
+              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
               <div className="overflow-x-auto max-h-64">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700 sticky top-0">
                     <tr>
-                      <th className="p-1 text-left">Modell</th>
-                      <th className="p-1">Preis</th>
+                      <th className="p-1 text-left">Model</th>
+                      <th className="p-1">Price</th>
                       <th className="p-1">Bays</th>
                       <th className="p-1">Max TB</th>
-                      <th className="p-1">Netzwerk</th>
+                      <th className="p-1">Network</th>
                       <th className="p-1">CPU</th>
                       <th className="p-1">RAM</th>
                       <th className="p-1">Cache</th>
@@ -3481,7 +3481,7 @@ export default function UniFiNetworkPortal() {
                 <div className="relative flex-1">
                   <input
                     type="text"
-                    placeholder="🔍 Richtfunk suchen (Name, SKU...)"
+                    placeholder="🔍 Search PTP links (name, SKU...)"
                     value={bridgeFilters.searchText}
                     onChange={(e) => updateBridgeFilter('searchText', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-cyan-500"
@@ -3501,23 +3501,23 @@ export default function UniFiNetworkPortal() {
               {/* Filter Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Frequenz</label>
+                  <label className="text-xs text-gray-400 block mb-1">Frequency</label>
                   <select value={bridgeFilters.frequency} onChange={(e) => updateBridgeFilter('frequency', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
-                    <option value="all">Alle</option>
+                    <option value="all">All</option>
                     <option value="5 GHz">5 GHz</option>
                     <option value="24 GHz">24 GHz</option>
                     <option value="60 GHz">60 GHz</option>
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Min Reichweite (km)</label>
-                  <input type="number" placeholder="z.B. 10" value={bridgeFilters.minRange} onChange={(e) => updateBridgeFilter('minRange', e.target.value)}
+                  <label className="text-xs text-gray-400 block mb-1">Min Range (km)</label>
+                  <input type="number" placeholder="e.g. 10" value={bridgeFilters.minRange} onChange={(e) => updateBridgeFilter('minRange', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-400 block mb-1">Max Preis (€)</label>
-                  <input type="number" placeholder="z.B. 500" value={bridgeFilters.maxPrice} onChange={(e) => updateBridgeFilter('maxPrice', e.target.value)}
+                  <label className="text-xs text-gray-400 block mb-1">Max Price (€)</label>
+                  <input type="number" placeholder="e.g. 500" value={bridgeFilters.maxPrice} onChange={(e) => updateBridgeFilter('maxPrice', e.target.value)}
                     className="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -3543,8 +3543,8 @@ export default function UniFiNetworkPortal() {
 
             {/* Results Count */}
             <div className="text-center text-sm text-gray-400 mb-2">
-              {filteredBridges.length} von {Object.keys(bridgeData).length} Richtfunk-Produkte gefunden
-              {activeBridgeFilterCount > 0 && <span className="text-cyan-400 ml-2">({activeBridgeFilterCount} Filter aktiv)</span>}
+              {filteredBridges.length} of {Object.keys(bridgeData).length} PTP Links
+              {activeBridgeFilterCount > 0 && <span className="text-cyan-400 ml-2">({activeBridgeFilterCount} filter(s) active)</span>}
             </div>
 
             {/* Bridge Grid */}
@@ -3565,14 +3565,14 @@ export default function UniFiNetworkPortal() {
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
                     <h2 className="text-lg font-bold" style={{ color: br.color }}>{br.name}</h2>
-                    {br.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">NEU</span>}
+                    {br.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">NEW</span>}
                     <a href={getGeizhalsLink(br.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
-                    <button onClick={() => toggleCart(br.sku, br.name, br.msrp, 'Richtfunk', br.color)}
+                    <button onClick={() => toggleCart(br.sku, br.name, br.msrp, 'PTP Link', br.color)}
                       className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(br.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
-                      {isInCart(br.sku) ? '✓ Gemerkt' : '+ Merken'}
+                      {isInCart(br.sku) ? '✓ Saved' : '+ Save'}
                     </button>
                   </div>
                   <div className="text-xs text-gray-400">{br.sku}</div>
@@ -3582,8 +3582,8 @@ export default function UniFiNetworkPortal() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
-                  <div><div className="text-gray-500">Frequenz</div><div className="font-bold text-lg text-cyan-400">{br.frequency}</div></div>
-                  <div><div className="text-gray-500">Reichweite</div><div className="font-bold text-lg">{br.range ? `${br.range} ${br.rangeUnit}` : '-'}</div></div>
+                  <div><div className="text-gray-500">Frequency</div><div className="font-bold text-lg text-cyan-400">{br.frequency}</div></div>
+                  <div><div className="text-gray-500">Range</div><div className="font-bold text-lg">{br.range ? `${br.range} ${br.rangeUnit}` : '-'}</div></div>
                   <div><div className="text-gray-500">Bandwidth</div><div className="font-bold">{br.bandwidth || '-'}</div></div>
                   <div><div className="text-gray-500">Gain</div><div className="font-bold text-amber-400">{br.antennaGain ? `${br.antennaGain} dBi` : '-'}</div></div>
                 </div>
@@ -3621,7 +3621,7 @@ export default function UniFiNetworkPortal() {
               {br.elevation && br.azimuth && (
                 <div className="mt-4 p-3 bg-gray-700/30 rounded-lg border border-cyan-500/30">
                   <h4 className="text-sm font-semibold text-cyan-400 mb-3 flex items-center gap-2">
-                    📡 Strahlungsdiagramme
+                    📡 Radiation Patterns
                     <span className="text-xs font-normal text-gray-400">
                       Beamwidth: {br.beamwidthH}° H / {br.beamwidthV}° V
                     </span>
@@ -3629,7 +3629,7 @@ export default function UniFiNetworkPortal() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Elevation Pattern - Seitenansicht */}
                     <div className="flex flex-col items-center">
-                      <div className="text-xs text-gray-400 mb-2">Elevation (Vertikalschnitt)</div>
+                      <div className="text-xs text-gray-400 mb-2">Elevation (Vertical cut)</div>
                       <svg viewBox="0 0 200 120" className="w-full max-w-xs" style={{ background: 'transparent' }}>
                         {/* Grid lines */}
                         <line x1="100" y1="10" x2="100" y2="110" stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
@@ -3659,7 +3659,7 @@ export default function UniFiNetworkPortal() {
                         </defs>
                         
                         {/* Labels */}
-                        <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="8">← Rückseite | Hauptstrahlrichtung →</text>
+                        <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="8">← Back | Main beam direction →</text>
                         <text x="178" y="64" textAnchor="start" fill={br.color} fontSize="9" fontWeight="bold">{br.antennaGain} dBi</text>
                         
                         {/* Beamwidth indicator */}
@@ -3671,7 +3671,7 @@ export default function UniFiNetworkPortal() {
                     
                     {/* Azimuth Pattern - Draufsicht */}
                     <div className="flex flex-col items-center">
-                      <div className="text-xs text-gray-400 mb-2">Azimuth (Horizontalschnitt)</div>
+                      <div className="text-xs text-gray-400 mb-2">Azimuth (Horizontal cut)</div>
                       <svg viewBox="0 0 200 120" className="w-full max-w-xs" style={{ background: 'transparent' }}>
                         {/* Grid lines */}
                         <line x1="100" y1="10" x2="100" y2="110" stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
@@ -3708,11 +3708,11 @@ export default function UniFiNetworkPortal() {
                         
                         {/* Direction indicator */}
                         <text x="178" y="64" textAnchor="start" fill={br.color} fontSize="9" fontWeight="bold">{br.beamwidthH}°</text>
-                        <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="8">Draufsicht (von oben)</text>
-                        
+                        <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="8">Top-down view</text>
+
                         {/* Compass points */}
                         <text x="100" y="8" textAnchor="middle" fill="#6B7280" fontSize="7">N</text>
-                        <text x="190" y="63" textAnchor="middle" fill="#6B7280" fontSize="7">O</text>
+                        <text x="190" y="63" textAnchor="middle" fill="#6B7280" fontSize="7">E</text>
                       </svg>
                     </div>
                   </div>
@@ -3742,7 +3742,7 @@ export default function UniFiNetworkPortal() {
               {/* Hinweis für Geräte ohne integrierte Antenne */}
               {!br.elevation && br.category !== 'antenna' && (
                 <div className="mt-3 p-2 bg-gray-700/30 rounded border border-gray-600 text-xs text-gray-400">
-                  ⚠️ Dieses Gerät benötigt eine externe Antenne. Das Strahlungsdiagramm hängt von der verwendeten Antenne ab.
+                  ⚠️ This device requires an external antenna. The radiation pattern depends on the antenna used.
                 </div>
               )}
 
@@ -3751,13 +3751,13 @@ export default function UniFiNetworkPortal() {
 
             {/* Bridge Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
-              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Vergleichstabelle</h3>
+              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
               <div className="overflow-x-auto max-h-72">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700 sticky top-0">
                     <tr>
-                      <th className="p-1 text-left">Modell</th>
-                      <th className="p-1">Preis</th>
+                      <th className="p-1 text-left">Model</th>
+                      <th className="p-1">Price</th>
                       <th className="p-1">Freq</th>
                       <th className="p-1">Range</th>
                       <th className="p-1">Speed</th>
@@ -3787,7 +3787,7 @@ export default function UniFiNetworkPortal() {
             {/* Bridge Recommendations */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
               <div className="bg-gray-800 rounded p-2 border-l-4 border-blue-500">
-                <h4 className="font-semibold text-blue-400 text-xs">Gebäude-zu-Gebäude</h4>
+                <h4 className="font-semibold text-blue-400 text-xs">Building-to-Building</h4>
                 <p className="text-xs text-gray-300">UBB ~499 € (60 GHz)</p>
               </div>
               <div className="bg-gray-800 rounded p-2 border-l-4 border-orange-500">
@@ -3806,32 +3806,32 @@ export default function UniFiNetworkPortal() {
 
             {/* Info Box */}
             <div className="bg-gray-800 rounded-lg p-3 mt-3 border border-gray-700">
-              <h4 className="font-semibold text-sm mb-2">📡 Richtfunk Übersicht</h4>
+              <h4 className="font-semibold text-sm mb-2">📡 PTP Overview</h4>
               <div className="grid md:grid-cols-3 gap-3 text-xs">
                 <div>
                   <h5 className="text-purple-400 font-medium">60 GHz (V-Band)</h5>
                   <ul className="text-gray-400 space-y-0.5">
-                    <li>• Sehr hohe Bandbreite (bis 10 Gbps)</li>
-                    <li>• Kurze Distanz (≤1.5 km)</li>
-                    <li>• Regenempfindlich</li>
+                    <li>• Very high throughput (up to 10 Gbps)</li>
+                    <li>• Short distance (≤1.5 km)</li>
+                    <li>• Rain-sensitive</li>
                     <li>• UBB, GigaBeam, AF60</li>
                   </ul>
                 </div>
                 <div>
                   <h5 className="text-pink-400 font-medium">24 GHz</h5>
                   <ul className="text-gray-400 space-y-0.5">
-                    <li>• Hohe Bandbreite (1-2 Gbps)</li>
-                    <li>• Mittlere Distanz (≤20 km)</li>
-                    <li>• Licensed Light (Anmeldepflicht)</li>
+                    <li>• High throughput (1-2 Gbps)</li>
+                    <li>• Medium distance (≤20 km)</li>
+                    <li>• Licensed Light (registration required)</li>
                     <li>• airFiber 24/24HD</li>
                   </ul>
                 </div>
                 <div>
                   <h5 className="text-blue-400 font-medium">5 GHz</h5>
                   <ul className="text-gray-400 space-y-0.5">
-                    <li>• Mittlere Bandbreite (≤1 Gbps)</li>
-                    <li>• Lange Distanz (≤100 km)</li>
-                    <li>• Lizenzfrei (in DE: DFS!)</li>
+                    <li>• Medium throughput (≤1 Gbps)</li>
+                    <li>• Long distance (≤100 km)</li>
+                    <li>• License-free (DE: DFS applies)</li>
                     <li>• airMAX AC, LTU, airFiber 5X</li>
                   </ul>
                 </div>
@@ -3843,16 +3843,16 @@ export default function UniFiNetworkPortal() {
         {/* Cart / Merkliste */}
         {activeSection === 'cart' && (
           <>
-            <h2 className="text-xl font-bold mb-4">🛒 Merkliste</h2>
+            <h2 className="text-xl font-bold mb-4">🛒 Saved Items</h2>
             {cart.length === 0 ? (
               <div className="bg-gray-800 rounded-lg p-8 text-center text-gray-400">
                 <div className="text-4xl mb-3">🛒</div>
-                <div className="text-lg font-medium mb-1">Merkliste ist leer</div>
-                <div className="text-sm">Klicke bei einem Produkt auf <span className="bg-gray-600 px-1.5 py-0.5 rounded text-xs font-bold">+ Merken</span> um es hinzuzufügen.</div>
+                <div className="text-lg font-medium mb-1">Your saved list is empty</div>
+                <div className="text-sm">Click <span className="bg-gray-600 px-1.5 py-0.5 rounded text-xs font-bold">+ Save</span> on any product to add it.</div>
               </div>
             ) : (
               <>
-                {['Gateway', 'Switch', 'Access Point', 'Richtfunk', 'Kamera', 'NVR', 'NAS'].map(section => {
+                {['Gateway', 'Switch', 'Access Point', 'PTP Link', 'Camera', 'NVR', 'NAS'].map(section => {
                   const items = cart.filter(i => i.section === section);
                   if (items.length === 0) return null;
                   return (
@@ -3887,10 +3887,10 @@ export default function UniFiNetworkPortal() {
                 <div className="bg-gray-800 rounded-lg p-3 flex items-center justify-between mt-2">
                   <button onClick={() => setCart([])}
                     className="px-3 py-1.5 bg-red-800 hover:bg-red-700 rounded text-xs font-medium transition-colors">
-                    Alle entfernen
+                    Remove all
                   </button>
                   <div className="text-right">
-                    <div className="text-xs text-gray-400 mb-0.5">{cart.reduce((s, i) => s + i.qty, 0)} Artikel · Geschätzter Gesamtpreis (MSRP)</div>
+                    <div className="text-xs text-gray-400 mb-0.5">{cart.reduce((s, i) => s + i.qty, 0)} items · Estimated total (MSRP)</div>
                     <div className="text-xl font-bold text-green-400">
                       {formatPrice(cart.reduce((s, i) => s + i.msrp * i.qty, 0))}
                     </div>
@@ -3903,7 +3903,7 @@ export default function UniFiNetworkPortal() {
 
         {/* Footer */}
         <div className="mt-6 pt-4 border-t border-gray-700 text-center text-xs text-gray-500">
-          ui-choicer • {Object.keys(apData).length} APs • {Object.keys(switchData).length} Switches • {Object.keys(gatewayData).length} Gateways • {Object.keys(cameraData).length} Cameras • {Object.keys(nvrData).length} NVRs • {Object.keys(nasData).length} NAS • {Object.keys(bridgeData).length} Richtfunk • Prices ~MSRP in €
+          ui-choicer • {Object.keys(apData).length} APs • {Object.keys(switchData).length} Switches • {Object.keys(gatewayData).length} Gateways • {Object.keys(cameraData).length} Cameras • {Object.keys(nvrData).length} NVRs • {Object.keys(nasData).length} NAS • {Object.keys(bridgeData).length} PTP Links • Prices ~MSRP in €
         </div>
       </div>
     </div>
