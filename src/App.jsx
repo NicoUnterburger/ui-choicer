@@ -2159,10 +2159,10 @@ export default function UniFiNetworkPortal() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
-                  <div><div className="text-gray-500">{T.card_coverage}</div><div className="font-bold text-lg">{ap.coverage}m²</div></div>
-                  <div><div className="text-gray-500">{T.card_streams}</div><div className="font-bold text-lg">{ap.streams}x</div></div>
-                  <div><div className="text-gray-500">{T.card_clients}</div><div className="font-bold text-lg">{ap.clients}</div></div>
-                  <div><div className="text-gray-500">{T.card_uplink}</div><div className="font-bold">{ap.ethernet}</div></div>
+                  <div><div className="text-gray-500">{T.card_coverage}</div><div className="font-bold text-sm">{ap.coverage}m²</div></div>
+                  <div><div className="text-gray-500">{T.card_streams}</div><div className="font-bold text-sm">{ap.streams}x</div></div>
+                  <div><div className="text-gray-500">{T.card_clients}</div><div className="font-bold text-sm">{ap.clients}</div></div>
+                  <div><div className="text-gray-500">{T.card_uplink}</div><div className="font-bold text-sm">{ap.ethernet}</div></div>
                 </div>
               </div>
 
@@ -2554,10 +2554,10 @@ export default function UniFiNetworkPortal() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
-                  <div><div className="text-gray-500">Ports</div><div className="font-bold text-lg">{sw.portCount}</div></div>
-                  <div><div className="text-gray-500">Speed</div><div className="font-bold">{sw.speed}</div></div>
-                  <div><div className="text-gray-500">Layer</div><div className="font-bold">{sw.layer}</div></div>
-                  <div><div className="text-gray-500">PoE Budget</div><div className="font-bold text-orange-400">{sw.poeBudget > 0 ? `${sw.poeBudget}W` : '-'}</div></div>
+                  <div><div className="text-gray-500">Ports</div><div className="font-bold text-sm">{sw.portCount}</div></div>
+                  <div><div className="text-gray-500">Speed</div><div className="font-bold text-sm">{sw.speed}</div></div>
+                  <div><div className="text-gray-500">Layer</div><div className="font-bold text-sm">{sw.layer}</div></div>
+                  <div><div className="text-gray-500">PoE Budget</div><div className="font-bold text-sm text-orange-400">{sw.poeBudget > 0 ? `${sw.poeBudget}W` : '-'}</div></div>
                 </div>
               </div>
 
@@ -2761,10 +2761,10 @@ export default function UniFiNetworkPortal() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
-                  <div><div className="text-gray-500">{T.card_ipsspeed}</div><div className="font-bold text-lg text-cyan-400">{gw.ipsSpeed} Gbps</div></div>
-                  <div><div className="text-gray-500">{T.card_devices}</div><div className="font-bold text-lg">{gw.devices}+</div></div>
-                  <div><div className="text-gray-500">{T.card_clients}</div><div className="font-bold">{gw.clients}+</div></div>
-                  <div><div className="text-gray-500">{T.card_formlabel}</div><div className="font-bold">{gw.formFactor}</div></div>
+                  <div><div className="text-gray-500">{T.card_ipsspeed}</div><div className="font-bold text-sm text-cyan-400">{gw.ipsSpeed} Gbps</div></div>
+                  <div><div className="text-gray-500">{T.card_devices}</div><div className="font-bold text-sm">{gw.devices}+</div></div>
+                  <div><div className="text-gray-500">{T.card_clients}</div><div className="font-bold text-sm">{gw.clients}+</div></div>
+                  <div><div className="text-gray-500">{T.card_formlabel}</div><div className="font-bold text-sm">{gw.formFactor}</div></div>
                 </div>
               </div>
 
@@ -3022,10 +3022,10 @@ export default function UniFiNetworkPortal() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
-                  <div><div className="text-gray-500">Resolution</div><div className="font-bold">{cam.resolution}</div></div>
-                  <div><div className="text-gray-500">Sensor</div><div className="font-bold">{cam.sensor}</div></div>
-                  <div><div className="text-gray-500">FoV</div><div className="font-bold">{cam.fov}</div></div>
-                  <div><div className="text-gray-500">IR Range</div><div className="font-bold">{cam.irRange}m</div></div>
+                  <div><div className="text-gray-500">Resolution</div><div className="font-bold text-sm">{cam.resolution}</div></div>
+                  <div><div className="text-gray-500">Sensor</div><div className="font-bold text-sm">{cam.sensor}</div></div>
+                  <div><div className="text-gray-500">FoV</div><div className="font-bold text-sm">{cam.fov}</div></div>
+                  <div><div className="text-gray-500">IR Range</div><div className="font-bold text-sm">{cam.irRange}m</div></div>
                 </div>
               </div>
 
@@ -3231,10 +3231,10 @@ export default function UniFiNetworkPortal() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
-                  <div><div className="text-gray-500">Bays</div><div className="font-bold text-lg text-blue-400">{nvr.bays}x</div></div>
-                  <div><div className="text-gray-500">Max Storage</div><div className="font-bold">{nvr.maxStorage}</div></div>
-                  <div><div className="text-gray-500">Cameras</div><div className="font-bold text-lg">{nvr.cameras}</div></div>
-                  <div><div className="text-gray-500">Streams</div><div className="font-bold">{nvr.streams}</div></div>
+                  <div><div className="text-gray-500">Bays</div><div className="font-bold text-sm text-blue-400">{nvr.bays}x</div></div>
+                  <div><div className="text-gray-500">Max Storage</div><div className="font-bold text-sm">{nvr.maxStorage}</div></div>
+                  <div><div className="text-gray-500">Cameras</div><div className="font-bold text-sm">{nvr.cameras}</div></div>
+                  <div><div className="text-gray-500">Streams</div><div className="font-bold text-sm">{nvr.streams}</div></div>
                 </div>
               </div>
 
@@ -3425,10 +3425,10 @@ export default function UniFiNetworkPortal() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
-                  <div><div className="text-gray-500">Bays</div><div className="font-bold text-lg text-violet-400">{nas.bays}x</div></div>
-                  <div><div className="text-gray-500">Max Storage</div><div className="font-bold">{nas.maxStorage}</div></div>
-                  <div><div className="text-gray-500">Network</div><div className="font-bold">{nas.network}</div></div>
-                  <div><div className="text-gray-500">NVMe Slots</div><div className="font-bold">{nas.cacheSlots || '-'}</div></div>
+                  <div><div className="text-gray-500">Bays</div><div className="font-bold text-sm text-violet-400">{nas.bays}x</div></div>
+                  <div><div className="text-gray-500">Max Storage</div><div className="font-bold text-sm">{nas.maxStorage}</div></div>
+                  <div><div className="text-gray-500">Network</div><div className="font-bold text-sm">{nas.network}</div></div>
+                  <div><div className="text-gray-500">NVMe Slots</div><div className="font-bold text-sm">{nas.cacheSlots || '-'}</div></div>
                 </div>
               </div>
 
@@ -3631,10 +3631,10 @@ export default function UniFiNetworkPortal() {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 gap-3 text-center text-xs">
-                  <div><div className="text-gray-500">Frequency</div><div className="font-bold text-lg text-cyan-400">{br.frequency}</div></div>
-                  <div><div className="text-gray-500">Range</div><div className="font-bold text-lg">{br.range ? `${br.range} ${br.rangeUnit}` : '-'}</div></div>
-                  <div><div className="text-gray-500">Bandwidth</div><div className="font-bold">{br.bandwidth || '-'}</div></div>
-                  <div><div className="text-gray-500">Gain</div><div className="font-bold text-amber-400">{br.antennaGain ? `${br.antennaGain} dBi` : '-'}</div></div>
+                  <div><div className="text-gray-500">Frequency</div><div className="font-bold text-sm text-cyan-400">{br.frequency}</div></div>
+                  <div><div className="text-gray-500">Range</div><div className="font-bold text-sm">{br.range ? `${br.range} ${br.rangeUnit}` : '-'}</div></div>
+                  <div><div className="text-gray-500">Bandwidth</div><div className="font-bold text-sm">{br.bandwidth || '-'}</div></div>
+                  <div><div className="text-gray-500">Gain</div><div className="font-bold text-sm text-amber-400">{br.antennaGain ? `${br.antennaGain} dBi` : '-'}</div></div>
                 </div>
               </div>
 
