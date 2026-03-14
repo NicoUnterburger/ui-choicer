@@ -2095,47 +2095,37 @@ export default function UniFiNetworkPortal() {
             </div>
 
             {/* AP Detail Card */}
-            <div className="bg-gray-800 rounded-lg p-4 mb-4">
-              <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
+            <div className="bg-gray-800 rounded-lg p-3 mb-2">
+              <div className="flex flex-wrap justify-between items-start gap-2">
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <h2 className="text-xl font-bold text-white">{ap.name}</h2>
-                    {ap.status === 'new' && <span className="bg-green-600 text-xs px-2 py-0.5 rounded">NEW</span>}
-                    {ap.status === 'legacy' && <span className="bg-gray-600 text-xs px-2 py-0.5 rounded">LEGACY</span>}
-                  </div>
-                  <div className="text-gray-400 text-sm mb-2">{ap.sku} • {ap.generation}</div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xl font-bold text-green-400">~{formatPrice(ap.msrp)}</span>
-                    <a href={getDatasheetLink(ap.sku, 'ap')} target="_blank" rel="noopener noreferrer" 
-                      className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-xs">Specs</a>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h2 className="text-lg font-bold" style={{ color: ap.color }}>{ap.name}</h2>
+                    {ap.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">NEW</span>}
+                    {ap.status === 'legacy' && <span className="bg-gray-600 text-xs px-1 rounded">LEGACY</span>}
+                    <a href={getDatasheetLink(ap.sku, 'ap')} target="_blank" rel="noopener noreferrer"
+                      className="bg-blue-600 hover:bg-blue-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
+                      📋 Specs
+                    </a>
                     <a href={getGeizhalsLink(ap.sku)} target="_blank" rel="noopener noreferrer"
-                      className="bg-orange-600 hover:bg-orange-700 px-3 py-1 rounded text-xs">Geizhals</a>
+                      className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
+                      🛒 Geizhals
+                    </a>
                     <button onClick={() => toggleCart(ap.sku, ap.name, ap.msrp, 'Access Point', ap.color)}
-                      className={`px-3 py-1 rounded text-xs font-medium transition-colors ${isInCart(ap.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                      className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(ap.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
                       {isInCart(ap.sku) ? '✓ Saved' : '+ Save'}
                     </button>
                   </div>
-                  <div className="flex gap-1 flex-wrap">
+                  <div className="text-xs text-gray-400 mt-0.5">{ap.sku} • {ap.generation}</div>
+                  <div className="flex gap-1 flex-wrap mt-1">
+                    <span className="bg-green-700 px-1.5 py-0.5 rounded text-xs font-bold">~{formatPrice(ap.msrp)}</span>
                     {ap.features.map(f => <FeatureBadge key={f} feature={f} />)}
                   </div>
                 </div>
-                <div className="grid grid-cols-4 gap-4 text-center">
-                  <div className="bg-gray-700 rounded p-3">
-                    <div className="text-gray-400 text-xs">Coverage</div>
-                    <div className="text-white font-bold text-lg">{ap.coverage}m²</div>
-                  </div>
-                  <div className="bg-gray-700 rounded p-3">
-                    <div className="text-gray-400 text-xs">Streams</div>
-                    <div className="text-white font-bold text-lg">{ap.streams}x</div>
-                  </div>
-                  <div className="bg-gray-700 rounded p-3">
-                    <div className="text-gray-400 text-xs">Clients</div>
-                    <div className="text-white font-bold text-lg">{ap.clients}</div>
-                  </div>
-                  <div className="bg-gray-700 rounded p-3">
-                    <div className="text-gray-400 text-xs">Uplink</div>
-                    <div className="text-white font-bold">{ap.ethernet}</div>
-                  </div>
+                <div className="grid grid-cols-4 gap-3 text-center text-xs">
+                  <div><div className="text-gray-500">Coverage</div><div className="font-bold text-lg">{ap.coverage}m²</div></div>
+                  <div><div className="text-gray-500">Streams</div><div className="font-bold text-lg">{ap.streams}x</div></div>
+                  <div><div className="text-gray-500">Clients</div><div className="font-bold text-lg">{ap.clients}</div></div>
+                  <div><div className="text-gray-500">Uplink</div><div className="font-bold">{ap.ethernet}</div></div>
                 </div>
               </div>
 
@@ -2495,7 +2485,7 @@ export default function UniFiNetworkPortal() {
                     {sw.status === 'legacy' && <span className="bg-gray-600 text-xs px-1 rounded">VINTAGE</span>}
                     <a href={getDatasheetLink(sw.sku, 'switch')} target="_blank" rel="noopener noreferrer" 
                       className="bg-blue-600 hover:bg-blue-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
-                      📋 Datenblatt
+                      📋 Specs
                     </a>
                     <a href={getGeizhalsLink(sw.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
@@ -2522,7 +2512,7 @@ export default function UniFiNetworkPortal() {
 
               {/* Port Details */}
               <div className="bg-gray-700/50 rounded p-2 mt-3">
-                <h4 className="text-xs font-semibold mb-2">Port-Konfiguration</h4>
+                <h4 className="text-xs font-semibold mb-2">Port Configuration</h4>
                 <div className="text-xs text-gray-300">{sw.ports}</div>
                 <div className="grid grid-cols-6 gap-2 mt-2">
                   {sw.ethernet1g > 0 && <div className="bg-gray-600 rounded p-1.5 text-center"><div className="text-lg font-bold">{sw.ethernet1g}</div><div className="text-xs text-gray-400">1G</div></div>}
@@ -2701,7 +2691,7 @@ export default function UniFiNetworkPortal() {
                     {gw.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">NEU</span>}
                     <a href={getDatasheetLink(gw.sku, 'gateway')} target="_blank" rel="noopener noreferrer" 
                       className="bg-blue-600 hover:bg-blue-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
-                      📋 Datenblatt
+                      📋 Specs
                     </a>
                     <a href={getGeizhalsLink(gw.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
@@ -2958,7 +2948,7 @@ export default function UniFiNetworkPortal() {
                     {cam.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">NEU</span>}
                     <a href={getDatasheetLink(cam.sku, 'camera')} target="_blank" rel="noopener noreferrer" 
                       className="bg-blue-600 hover:bg-blue-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
-                      📋 Datenblatt
+                      📋 Specs
                     </a>
                     <a href={getGeizhalsLink(cam.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
