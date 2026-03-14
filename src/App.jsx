@@ -2032,26 +2032,46 @@ export default function UniFiNetworkPortal() {
 
       {/* Navigation */}
       <div className="bg-gray-800 border-b border-gray-700 sticky top-0 z-40 overflow-x-auto">
-        <div className="max-w-7xl mx-auto px-4 flex gap-1">
-          {[
-            { id: 'gateways', label: T.nav_gateways, count: Object.keys(gatewayData).length },
-            { id: 'switching', label: T.nav_switches, count: Object.keys(switchData).length },
-            { id: 'wifi', label: T.nav_aps, count: Object.keys(apData).length },
-            { id: 'bridges', label: T.nav_ptplinks, count: Object.keys(bridgeData).length },
-            { id: 'cameras', label: T.nav_cameras, count: Object.keys(cameraData).length },
-            { id: 'nvr', label: T.nav_nvr, count: Object.keys(nvrData).length },
-            { id: 'nas', label: T.nav_unas, count: Object.keys(nasData).length },
-            { id: 'cart', label: T.nav_saved, count: cart.reduce((s, i) => s + i.qty, 0) || null },
-          ].map(tab => (
-            <button key={tab.id} onClick={() => setActiveSection(tab.id)}
-              className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                activeSection === tab.id 
-                  ? 'text-blue-400 border-blue-400' 
-                  : 'text-gray-400 border-transparent hover:text-gray-200'
-              }`}>
-              {tab.label} <span className="text-gray-500 ml-1">({tab.count})</span>
-            </button>
-          ))}
+        <div className="max-w-7xl mx-auto px-4 flex items-center">
+          <div className="flex gap-1 flex-1">
+            {[
+              { id: 'gateways', label: T.nav_gateways, count: Object.keys(gatewayData).length },
+              { id: 'switching', label: T.nav_switches, count: Object.keys(switchData).length },
+              { id: 'wifi', label: T.nav_aps, count: Object.keys(apData).length },
+              { id: 'bridges', label: T.nav_ptplinks, count: Object.keys(bridgeData).length },
+              { id: 'cameras', label: T.nav_cameras, count: Object.keys(cameraData).length },
+              { id: 'nvr', label: T.nav_nvr, count: Object.keys(nvrData).length },
+              { id: 'nas', label: T.nav_unas, count: Object.keys(nasData).length },
+            ].map(tab => (
+              <button key={tab.id} onClick={() => setActiveSection(tab.id)}
+                className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                  activeSection === tab.id
+                    ? 'text-blue-400 border-blue-400'
+                    : 'text-gray-400 border-transparent hover:text-gray-200'
+                }`}>
+                {tab.label} <span className="text-gray-500 ml-1">({tab.count})</span>
+              </button>
+            ))}
+          </div>
+          {/* Cart — far right, emoji only */}
+          {(() => {
+            const cartCount = cart.reduce((s, i) => s + i.qty, 0);
+            return (
+              <button onClick={() => setActiveSection('cart')}
+                className={`relative px-3 py-3 text-lg border-b-2 transition-colors flex-shrink-0 ${
+                  activeSection === 'cart'
+                    ? 'text-blue-400 border-blue-400'
+                    : 'text-gray-400 border-transparent hover:text-gray-200'
+                }`}>
+                🛒
+                {cartCount > 0 && (
+                  <span className="absolute top-1.5 right-0.5 bg-blue-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center leading-none">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+            );
+          })()}
         </div>
       </div>
 
@@ -2335,7 +2355,6 @@ export default function UniFiNetworkPortal() {
                     <tr>
                       <th className="p-1 text-left">{T.tbl_model}</th>
                       <th className="p-1">Gen</th>
-                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">m²</th>
                       <th className="p-1">Streams</th>
                       <th className="p-1">5G Gain</th>
@@ -2344,6 +2363,7 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1">BLE</th>
                       <th className="p-1">Uplink</th>
                       <th className="p-1">PoE</th>
+                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">📋</th>
                       <th className="p-1">🛒</th>
                     </tr>
@@ -2353,7 +2373,6 @@ export default function UniFiNetworkPortal() {
                       <tr key={k} className={`border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${selectedAP === k ? 'bg-gray-700' : ''}`} onClick={() => setSelectedAP(k)}>
                         <td className="p-1 font-semibold" style={{ color: d.color }}>{d.status === 'new' && '★ '}{d.name}</td>
                         <td className="p-1 text-center">{d.generation.replace('Wi-Fi ', '')}</td>
-                        <td className="p-1 text-center text-green-400">{formatPrice(d.msrp)}</td>
                         <td className="p-1 text-center">{d.coverage}</td>
                         <td className="p-1 text-center text-purple-400">{d.streams}</td>
                         <td className="p-1 text-center text-yellow-400">{d.radio5.gain}</td>
@@ -2362,6 +2381,7 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center">{d.features.includes('BLE') ? '✓' : '-'}</td>
                         <td className="p-1 text-center">{d.ethernet}</td>
                         <td className="p-1 text-center">{d.poe.replace(/\s*\([^)]*\)/, '')}</td>
+                        <td className="p-1 text-center text-green-400">{formatPrice(d.msrp)}</td>
                         <td className="p-1 text-center"><a href={getDatasheetLink(d.sku, 'ap')} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-blue-400 hover:text-blue-300">→</a></td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(d.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
@@ -2597,10 +2617,10 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1 text-teal-400">10G</th>
                       <th className="p-1 text-purple-400">SFP+</th>
                       <th className="p-1 text-yellow-400">SFP28</th>
-                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">PoE</th>
                       <th className="p-1">Budget</th>
                       <th className="p-1">Layer</th>
+                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">📋</th>
                       <th className="p-1">🛒</th>
                     </tr>
@@ -2615,10 +2635,10 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center text-teal-400">{d.ethernet10g > 0 ? d.ethernet10g : '-'}</td>
                         <td className="p-1 text-center text-purple-400">{d.sfpPlus > 0 ? d.sfpPlus : '-'}</td>
                         <td className="p-1 text-center text-yellow-400">{d.sfp28 > 0 ? d.sfp28 : '-'}</td>
-                        <td className="p-1 text-center text-green-400">{formatPrice(d.msrp)}</td>
                         <td className="p-1 text-center">{d.poe || '-'}</td>
                         <td className="p-1 text-center text-orange-400">{d.poeBudget > 0 ? d.poeBudget : '-'}</td>
                         <td className="p-1 text-center">{d.layer}</td>
+                        <td className="p-1 text-center text-green-400">{formatPrice(d.msrp)}</td>
                         <td className="p-1 text-center"><a href={getDatasheetLink(d.sku, 'switch')} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-blue-400 hover:text-blue-300">→</a></td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(d.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
@@ -2806,7 +2826,6 @@ export default function UniFiNetworkPortal() {
                   <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">IPS</th>
                       <th className="p-1">Clients</th>
                       <th className="p-1">WAN</th>
@@ -2815,6 +2834,7 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1">Wi-Fi</th>
                       <th className="p-1">PoE</th>
                       <th className="p-1">Form</th>
+                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">📋</th>
                       <th className="p-1">🛒</th>
                     </tr>
@@ -2823,7 +2843,6 @@ export default function UniFiNetworkPortal() {
                     {filteredGateways.map(([k, g]) => (
                       <tr key={k} className={`border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${selectedGateway === k ? 'bg-gray-700' : ''}`} onClick={() => setSelectedGateway(k)}>
                         <td className="p-1 font-semibold" style={{ color: g.color }}>{g.status === 'new' && '★ '}{g.name}</td>
-                        <td className="p-1 text-center text-green-400">{formatPrice(g.msrp)}</td>
                         <td className="p-1 text-center text-cyan-400">{g.ipsSpeed}</td>
                         <td className="p-1 text-center">{g.clients}</td>
                         <td className="p-1 text-center text-xs">{g.wan}</td>
@@ -2832,6 +2851,7 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center">{g.wifi ? '✓' : '-'}</td>
                         <td className="p-1 text-center">{g.poe ? '✓' : '-'}</td>
                         <td className="p-1 text-center">{g.formFactor}</td>
+                        <td className="p-1 text-center text-green-400">{formatPrice(g.msrp)}</td>
                         <td className="p-1 text-center"><a href={getDatasheetLink(g.sku, 'gateway')} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-blue-400 hover:text-blue-300">→</a></td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(g.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
@@ -3065,7 +3085,6 @@ export default function UniFiNetworkPortal() {
                     <tr>
                       <th className="p-1 text-left">{T.tbl_model}</th>
                       <th className="p-1">Gen</th>
-                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">Resolution</th>
                       <th className="p-1">FoV</th>
                       <th className="p-1">IR</th>
@@ -3073,6 +3092,7 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1">Audio</th>
                       <th className="p-1">AI</th>
                       <th className="p-1">LPR</th>
+                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">📋</th>
                       <th className="p-1">🛒</th>
                     </tr>
@@ -3082,7 +3102,6 @@ export default function UniFiNetworkPortal() {
                       <tr key={k} className={`border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${selectedCamera === k ? 'bg-gray-700' : ''}`} onClick={() => setSelectedCamera(k)}>
                         <td className="p-1 font-semibold" style={{ color: c.color }}>{c.status === 'new' && '★ '}{c.name}</td>
                         <td className="p-1 text-center">{c.generation}</td>
-                        <td className="p-1 text-center text-green-400">{formatPrice(c.msrp)}</td>
                         <td className="p-1 text-center">{c.resolution}</td>
                         <td className="p-1 text-center">{c.fov}</td>
                         <td className="p-1 text-center">{c.irRange}m</td>
@@ -3090,6 +3109,7 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center">{c.audio || '-'}</td>
                         <td className="p-1 text-center">{c.ai ? '✓' : '-'}</td>
                         <td className="p-1 text-center">{c.lpr ? '✓' : '-'}</td>
+                        <td className="p-1 text-center text-green-400">{formatPrice(c.msrp)}</td>
                         <td className="p-1 text-center"><a href={getDatasheetLink(c.sku, 'camera')} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-blue-400 hover:text-blue-300">→</a></td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(c.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
@@ -3269,13 +3289,13 @@ export default function UniFiNetworkPortal() {
                   <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">Bays</th>
                       <th className="p-1">Max TB</th>
                       <th className="p-1">Cameras</th>
                       <th className="p-1">Streams</th>
                       <th className="p-1">Network</th>
                       <th className="p-1">RAID</th>
+                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">🛒</th>
                     </tr>
                   </thead>
@@ -3283,13 +3303,13 @@ export default function UniFiNetworkPortal() {
                     {filteredNVRs.map(([k, n]) => (
                       <tr key={k} className={`border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${selectedNVR === k ? 'bg-gray-700' : ''}`} onClick={() => setSelectedNVR(k)}>
                         <td className="p-1 font-semibold" style={{ color: n.color }}>{n.status === 'new' && '★ '}{n.name}</td>
-                        <td className="p-1 text-center text-green-400">{formatPrice(n.msrp)}</td>
                         <td className="p-1 text-center text-blue-400">{n.bays}</td>
                         <td className="p-1 text-center">{n.maxStorage}</td>
                         <td className="p-1 text-center">{n.cameras}</td>
                         <td className="p-1 text-center">{n.streams}</td>
                         <td className="p-1 text-center">{n.network}</td>
                         <td className="p-1 text-center">{n.raidSupport ? '✓' : '-'}</td>
+                        <td className="p-1 text-center text-green-400">{formatPrice(n.msrp)}</td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(n.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
                     ))}
@@ -3470,13 +3490,13 @@ export default function UniFiNetworkPortal() {
                   <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">Bays</th>
                       <th className="p-1">Max TB</th>
                       <th className="p-1">Network</th>
                       <th className="p-1">CPU</th>
                       <th className="p-1">RAM</th>
                       <th className="p-1">Cache</th>
+                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">🛒</th>
                     </tr>
                   </thead>
@@ -3484,13 +3504,13 @@ export default function UniFiNetworkPortal() {
                     {filteredNAS.map(([k, n]) => (
                       <tr key={k} className={`border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${selectedNAS === k ? 'bg-gray-700' : ''}`} onClick={() => setSelectedNAS(k)}>
                         <td className="p-1 font-semibold" style={{ color: n.color }}>{n.status === 'new' && '★ '}{n.name}</td>
-                        <td className="p-1 text-center text-green-400">{formatPrice(n.msrp)}</td>
                         <td className="p-1 text-center text-violet-400">{n.bays}</td>
                         <td className="p-1 text-center">{n.maxStorage}</td>
                         <td className="p-1 text-center">{n.network}</td>
                         <td className="p-1 text-center">{n.cpu}</td>
                         <td className="p-1 text-center">{n.ram}</td>
                         <td className="p-1 text-center">{n.cacheSlots > 0 ? `${n.cacheSlots}x` : '-'}</td>
+                        <td className="p-1 text-center text-green-400">{formatPrice(n.msrp)}</td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(n.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
                     ))}
@@ -3806,7 +3826,6 @@ export default function UniFiNetworkPortal() {
                   <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">Freq</th>
                       <th className="p-1">Range</th>
                       <th className="p-1">Speed</th>
@@ -3814,6 +3833,7 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1">Interface</th>
                       <th className="p-1">IP</th>
                       <th className="p-1">PoE</th>
+                      <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">🛒</th>
                     </tr>
                   </thead>
@@ -3821,7 +3841,6 @@ export default function UniFiNetworkPortal() {
                     {filteredBridges.map(([k, b]) => (
                       <tr key={k} className={`border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${selectedBridge === k ? 'bg-gray-700' : ''}`} onClick={() => setSelectedBridge(k)}>
                         <td className="p-1 font-semibold" style={{ color: b.color }}>{b.status === 'new' && '★ '}{b.name}</td>
-                        <td className="p-1 text-center text-green-400">{formatPrice(b.msrp)}</td>
                         <td className="p-1 text-center text-cyan-400">{b.frequency}</td>
                         <td className="p-1 text-center">{b.range ? `${b.range} ${b.rangeUnit}` : '-'}</td>
                         <td className="p-1 text-center">{b.bandwidth || '-'}</td>
@@ -3829,6 +3848,7 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center">{b.interface || '-'}</td>
                         <td className="p-1 text-center text-sky-400">{b.weatherproof || '-'}</td>
                         <td className="p-1 text-center text-xs">{b.poe || '-'}</td>
+                        <td className="p-1 text-center text-green-400">{formatPrice(b.msrp)}</td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(b.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
                     ))}
