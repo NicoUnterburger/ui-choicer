@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 
 export default function UniFiNetworkPortal() {
-  const [activeSection, setActiveSection] = useState('wifi');
+  const [activeSection, setActiveSection] = useState('gateway');
   const [selectedAP, setSelectedAP] = useState('U7-Pro');
   const [selectedSwitch, setSelectedSwitch] = useState('USW-Pro-Max-24-PoE');
   const [selectedCamera, setSelectedCamera] = useState('G6-Bullet');
