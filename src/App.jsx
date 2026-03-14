@@ -19,7 +19,7 @@ export default function UniFiNetworkPortal() {
   const [nasCategoryFilter, setNasCategoryFilter] = useState('all');
   const [bridgeCategoryFilter, setBridgeCategoryFilter] = useState('all');
   const [showHelp, setShowHelp] = useState(false);
-  const [showRadiationModal, setShowRadiationModal] = useState(false);
+
   const [cart, setCart] = useState([]);
 
   const toggleCart = (sku, name, msrp, section, color) => {
@@ -1825,114 +1825,6 @@ export default function UniFiNetworkPortal() {
   const nasCategories = { 'all': 'All', 'standard': 'Standard', 'pro': 'Pro', 'rackmount': 'Rackmount', 'special': 'Special' };
   const bridgeCategories = { 'all': 'All', 'unifi-ptp': 'UniFi Building', 'ltu-basestation': 'LTU Base Station', 'ltu-client': 'LTU Client', 'airmax-ptp': 'airMAX AC', 'airfiber': 'airFiber', 'gigabeam': 'GigaBeam', 'antenna': 'Antennas' };
 
-  // Polar Plot Component für Strahlungsdiagramme
-  const PolarPlot = ({ data, title, type, color, size = 140, onClick }) => {
-    const center = size / 2;
-    const maxRadius = size / 2 - 20;
-    const minGain = -10;
-    const maxGain = 15;
-
-    const gainToRadius = (gain) => {
-      const normalized = (gain - minGain) / (maxGain - minGain);
-      return normalized * maxRadius;
-    };
-
-    const generatePath = (values, isAzimuth = false) => {
-      const points = values.map((gain, i) => {
-        const angle = isAzimuth 
-          ? (i * 30 - 90) * (Math.PI / 180)
-          : (i * 10 - 90) * (Math.PI / 180);
-        const r = gainToRadius(gain);
-        return { x: center + r * Math.cos(angle), y: center + r * Math.sin(angle) };
-      });
-      if (isAzimuth) points.push(points[0]);
-      return points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + (isAzimuth ? ' Z' : '');
-    };
-
-    const gridCircles = [0, 5, 10].map(gain => ({ radius: gainToRadius(gain), label: `${gain}` }));
-
-    return (
-      <div className={`flex flex-col items-center ${onClick ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`} onClick={onClick}>
-        <h4 className="text-xs font-semibold mb-0.5 text-gray-400">{title}</h4>
-        <svg width={size} height={size} className="bg-gray-800 rounded-lg">
-          {gridCircles.map((circle, i) => (
-            <g key={i}>
-              <circle cx={center} cy={center} r={circle.radius} fill="none" stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
-              <text x={center + 3} y={center - circle.radius + 8} fill="#6B7280" fontSize="8">{circle.label}</text>
-            </g>
-          ))}
-          <path d={generatePath(data, type === 'azimuth')} fill={`${color}33`} stroke={color} strokeWidth="2" />
-          <circle cx={center} cy={center} r="3" fill={color} />
-        </svg>
-        {onClick && <span className="text-xs text-gray-500 mt-0.5">🔍 Klick zum Vergrößern</span>}
-      </div>
-    );
-  };
-
-  // Large Polar Plot for Modal
-  const LargePolarPlot = ({ data, title, type, color, size = 280 }) => {
-    const center = size / 2;
-    const maxRadius = size / 2 - 35;
-    const minGain = -10;
-    const maxGain = 15;
-
-    const gainToRadius = (gain) => {
-      const normalized = (gain - minGain) / (maxGain - minGain);
-      return normalized * maxRadius;
-    };
-
-    const generatePath = (values, isAzimuth = false) => {
-      const points = values.map((gain, i) => {
-        const angle = isAzimuth 
-          ? (i * 30 - 90) * (Math.PI / 180)
-          : (i * 10 - 90) * (Math.PI / 180);
-        const r = gainToRadius(gain);
-        return { x: center + r * Math.cos(angle), y: center + r * Math.sin(angle) };
-      });
-      if (isAzimuth) points.push(points[0]);
-      return points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + (isAzimuth ? ' Z' : '');
-    };
-
-    const gridCircles = [-5, 0, 5, 10, 15].map(gain => ({ radius: gainToRadius(gain), label: `${gain} dBi` }));
-    const angleLabels = type === 'azimuth' 
-      ? [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(a => ({ angle: a, label: `${a}°` }))
-      : [0, 10, 20, 30, 40, 50, 60, 70, 80, 90].map(a => ({ angle: a * 10 - 90, label: `${a * 10}°` }));
-
-    return (
-      <div className="flex flex-col items-center">
-        <h4 className="text-sm font-semibold mb-2" style={{ color }}>{title}</h4>
-        <svg width={size} height={size} className="bg-gray-900 rounded-xl">
-          {/* Grid circles */}
-          {gridCircles.map((circle, i) => (
-            <g key={i}>
-              <circle cx={center} cy={center} r={circle.radius} fill="none" stroke="#374151" strokeWidth="1" strokeDasharray={i === 2 ? "none" : "3,3"} />
-              <text x={center + 5} y={center - circle.radius + 12} fill="#9CA3AF" fontSize="10">{circle.label}</text>
-            </g>
-          ))}
-          {/* Angle lines */}
-          {type === 'azimuth' && [0, 45, 90, 135].map(angle => {
-            const rad = (angle - 90) * Math.PI / 180;
-            const r = maxRadius + 10;
-            return (
-              <line key={angle} x1={center} y1={center} 
-                x2={center + r * Math.cos(rad)} y2={center + r * Math.sin(rad)}
-                stroke="#4B5563" strokeWidth="1" strokeDasharray="2,4" />
-            );
-          })}
-          {/* Data path */}
-          <path d={generatePath(data, type === 'azimuth')} fill={`${color}40`} stroke={color} strokeWidth="3" />
-          {/* Center point */}
-          <circle cx={center} cy={center} r="5" fill={color} />
-          <text x={center} y={center + 4} textAnchor="middle" fill="white" fontSize="8">AP</text>
-        </svg>
-        <div className="text-xs text-gray-400 mt-2 text-center max-w-xs">
-          {type === 'elevation' 
-            ? '↑ Vertikalschnitt: 0° = unter AP, 90° = Horizont' 
-            : '↻ Horizontalschnitt: 360° Rundum-Abstrahlung'}
-        </div>
-      </div>
-    );
-  };
 
   const FeatureBadge = ({ feature }) => {
     const colors = {
@@ -2168,107 +2060,98 @@ export default function UniFiNetworkPortal() {
 
               {/* Radiation Patterns */}
               {ap.elevation && (
-                <div className="mt-4">
-                  <h4 className="text-sm text-gray-400 mb-2">Radiation Patterns (click to enlarge)</h4>
-                  <div className="flex flex-wrap justify-center gap-3 cursor-pointer" onClick={() => setShowRadiationModal(true)}>
-                    {/* 2.4 GHz */}
-                    <div className="flex gap-2">
-                      <PolarPlot data={ap.elevation['2.4GHz']} title="2.4G Elev" type="elevation" color="#F97316" size={100} />
-                      <PolarPlot data={ap.azimuth['2.4GHz']} title="2.4G Azim" type="azimuth" color="#F97316" size={100} />
-                    </div>
-                    {/* 5 GHz */}
-                    <div className="flex gap-2">
-                      <PolarPlot data={ap.elevation['5GHz']} title="5G Elev" type="elevation" color="#3B82F6" size={100} />
-                      <PolarPlot data={ap.azimuth['5GHz']} title="5G Azim" type="azimuth" color="#3B82F6" size={100} />
-                    </div>
-                    {/* 6 GHz (wenn vorhanden) */}
-                    {ap.elevation['6GHz'] && (
-                      <div className="flex gap-2">
-                        <PolarPlot data={ap.elevation['6GHz']} title="6G Elev" type="elevation" color="#A855F7" size={100} />
-                        <PolarPlot data={ap.azimuth['6GHz']} title="6G Azim" type="azimuth" color="#A855F7" size={100} />
-                      </div>
-                    )}
+                <div className="mt-4 p-3 bg-gray-700/30 rounded-lg border border-blue-500/30">
+                  <h4 className="text-sm font-semibold text-blue-400 mb-3 flex items-center gap-2">
+                    📡 Radiation Patterns
+                    <span className="text-xs font-normal text-gray-400">Beamwidth: {ap.beamwidth?.h}° H / {ap.beamwidth?.v}° V</span>
+                  </h4>
+                  {/* Band selector */}
+                  <div className="flex gap-2 mb-3">
+                    {['2.4GHz', '5GHz', ...(ap.elevation['6GHz'] ? ['6GHz'] : [])].map(band => (
+                      <button key={band} onClick={() => setSelectedBand(band)}
+                        className={`px-3 py-1 rounded text-xs font-medium transition-all ${selectedBand === band
+                          ? band === '2.4GHz' ? 'bg-orange-600' : band === '5GHz' ? 'bg-blue-600' : 'bg-purple-600'
+                          : 'bg-gray-700 hover:bg-gray-600'}`}>
+                        {band}
+                      </button>
+                    ))}
                   </div>
-                  {ap.beamwidth && (
-                    <div className="text-center text-xs text-gray-500 mt-1">
-                      Beamwidth: H {ap.beamwidth.h}° / V {ap.beamwidth.v}° • <span className="text-blue-400 cursor-pointer hover:underline" onClick={() => setShowRadiationModal(true)}>🔍 Vergrößern</span>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Radiation Pattern Modal */}
-              {showRadiationModal && ap.elevation && (
-                <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={() => setShowRadiationModal(false)}>
-                  <div className="bg-gray-900 rounded-2xl p-4 max-w-5xl w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
-                    <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-xl font-bold" style={{ color: ap.color }}>📡 {ap.name} - Radiation Patterns</h3>
-                      <button onClick={() => setShowRadiationModal(false)} className="text-2xl hover:text-red-400">✕</button>
-                    </div>
-                    
-                    {/* Band selector tabs */}
-                    <div className="flex justify-center gap-2 mb-4">
-                      {['2.4GHz', '5GHz', ...(ap.elevation['6GHz'] ? ['6GHz'] : [])].map(band => (
-                        <button key={band} onClick={() => setSelectedBand(band)}
-                          className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedBand === band 
-                            ? band === '2.4GHz' ? 'bg-orange-600' : band === '5GHz' ? 'bg-blue-600' : 'bg-purple-600'
-                            : 'bg-gray-700 hover:bg-gray-600'}`}>
-                          {band}
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Large diagrams */}
-                    <div className="flex flex-wrap justify-center gap-6">
-                      <LargePolarPlot 
-                        data={ap.elevation[selectedBand]} 
-                        title={`${selectedBand} Elevation (Vertical)`}
-                        type="elevation" 
-                        color={selectedBand === '2.4GHz' ? '#F97316' : selectedBand === '5GHz' ? '#3B82F6' : '#A855F7'} 
-                        size={280} 
-                      />
-                      <LargePolarPlot 
-                        data={ap.azimuth[selectedBand]} 
-                        title={`${selectedBand} Azimuth (Horizontal)`}
-                        type="azimuth" 
-                        color={selectedBand === '2.4GHz' ? '#F97316' : selectedBand === '5GHz' ? '#3B82F6' : '#A855F7'} 
-                        size={280} 
-                      />
-                    </div>
-
-                    {/* Legend and info */}
-                    <div className="mt-4 bg-gray-800 rounded-lg p-3">
-                      <h4 className="font-semibold mb-2">📖 Legend</h4>
-                      <div className="grid md:grid-cols-2 gap-3 text-sm">
-                        <div>
-                          <h5 className="text-blue-400 font-medium">Elevation (Vertical)</h5>
-                          <ul className="text-gray-400 text-xs space-y-1">
-                            <li>• Side view of the radiation pattern</li>
-                            <li>• 0° = directly below the AP</li>
-                            <li>• 90° = horizontal plane</li>
-                            <li>• Important for ceiling height &amp; vertical coverage</li>
-                          </ul>
+                  {(() => {
+                    const bandColor = selectedBand === '2.4GHz' ? '#F97316' : selectedBand === '5GHz' ? '#3B82F6' : '#A855F7';
+                    const bandGain = selectedBand === '2.4GHz' ? ap.radio24.gain : selectedBand === '5GHz' ? ap.radio5.gain : ap.radio6?.gain;
+                    const lobeH = 88;
+                    const lobeW = Math.min(72, (ap.beamwidth?.v || 75) * 0.92);
+                    return (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Elevation — side view, ceiling mount */}
+                        <div className="flex flex-col items-center">
+                          <div className="text-xs text-gray-400 mb-2">Elevation (Side view)</div>
+                          <svg viewBox="0 0 200 120" className="w-full max-w-xs" style={{ background: 'transparent' }}>
+                            <line x1="20" y1="14" x2="180" y2="14" stroke="#4B5563" strokeWidth="1" strokeDasharray="3,3" />
+                            <text x="22" y="12" fill="#6B7280" fontSize="7">ceiling</text>
+                            <rect x="94" y="16" width="12" height="6" fill={bandColor} rx="1" />
+                            <text x="100" y="21" textAnchor="middle" fill="white" fontSize="5" fontWeight="bold">AP</text>
+                            <path
+                              d={`M 100 22 Q ${100 - lobeW * 0.9} ${22 + lobeH * 0.5} ${100 - lobeW * 0.82} ${22 + lobeH} Q 100 ${22 + lobeH + 6} ${100 + lobeW * 0.82} ${22 + lobeH} Q ${100 + lobeW * 0.9} ${22 + lobeH * 0.5} 100 22 Z`}
+                              fill={`${bandColor}40`} stroke={bandColor} strokeWidth="1.5"
+                            />
+                            <text x={Math.min(193, 100 + lobeW * 0.82 + 3)} y={22 + lobeH} textAnchor="start" fill={bandColor} fontSize="9" fontWeight="bold">{bandGain} dBi</text>
+                            <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="7">floor coverage</text>
+                          </svg>
                         </div>
-                        <div>
-                          <h5 className="text-green-400 font-medium">Azimuth (Horizontal)</h5>
-                          <ul className="text-gray-400 text-xs space-y-1">
-                            <li>• Top-down view of the radiation pattern</li>
-                            <li>• 360° omnidirectional radiation</li>
-                            <li>• Shows uniformity of coverage</li>
-                            <li>• Ideal: uniform circle</li>
-                          </ul>
+                        {/* Azimuth — top-down view */}
+                        <div className="flex flex-col items-center">
+                          <div className="text-xs text-gray-400 mb-2">Azimuth (Top-down view)</div>
+                          <svg viewBox="0 0 200 120" className="w-full max-w-xs" style={{ background: 'transparent' }}>
+                            <line x1="100" y1="10" x2="100" y2="110" stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
+                            <line x1="20" y1="60" x2="180" y2="60" stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
+                            {ap.beamwidth?.h === 360 ? (
+                              <>
+                                <circle cx="100" cy="60" r="50" fill={`${bandColor}40`} stroke={bandColor} strokeWidth="1.5" />
+                                <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="7">360° Omnidirectional</text>
+                              </>
+                            ) : (
+                              <>
+                                {(() => {
+                                  const halfAngle = ((ap.beamwidth?.h || 90) / 2) * Math.PI / 180;
+                                  const r = 52;
+                                  const x1 = 100 + r * Math.sin(-halfAngle);
+                                  const y1 = 60 - r * Math.cos(-halfAngle);
+                                  const x2 = 100 + r * Math.sin(halfAngle);
+                                  const y2 = 60 - r * Math.cos(halfAngle);
+                                  const largeArc = (ap.beamwidth?.h || 90) > 180 ? 1 : 0;
+                                  return (
+                                    <path d={`M 100 60 L ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} Z`}
+                                      fill={`${bandColor}40`} stroke={bandColor} strokeWidth="1.5" />
+                                  );
+                                })()}
+                                <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="7">{ap.beamwidth?.h}° Directional</text>
+                              </>
+                            )}
+                            <circle cx="100" cy="60" r="4" fill={bandColor} />
+                          </svg>
                         </div>
                       </div>
-                      <div className="mt-3 text-xs text-gray-500">
-                        <strong>Beamwidth:</strong> H {ap.beamwidth?.h}° | V {ap.beamwidth?.v}° •
-                        <strong className="ml-2">Max Gain:</strong> 2.4G {ap.radio24.gain} dBi | 5G {ap.radio5.gain} dBi {ap.radio6 && `| 6G ${ap.radio6.gain} dBi`}
-                      </div>
+                    );
+                  })()}
+                  {/* Stats grid */}
+                  <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+                    <div className="bg-gray-700/50 rounded p-1.5 text-center">
+                      <div className="text-gray-400">H-Beamwidth</div>
+                      <div className="font-bold text-blue-400">{ap.beamwidth?.h}°</div>
                     </div>
-
-                    <button onClick={() => setShowRadiationModal(false)} 
-                      className="mt-4 w-full bg-gray-700 hover:bg-gray-600 py-2 rounded-lg font-medium">
-                      Close
-                    </button>
+                    <div className="bg-gray-700/50 rounded p-1.5 text-center">
+                      <div className="text-gray-400">V-Beamwidth</div>
+                      <div className="font-bold text-blue-400">{ap.beamwidth?.v}°</div>
+                    </div>
+                    <div className="bg-gray-700/50 rounded p-1.5 text-center">
+                      <div className="text-gray-400">{selectedBand} Gain</div>
+                      <div className="font-bold text-amber-400">{selectedBand === '2.4GHz' ? ap.radio24.gain : selectedBand === '5GHz' ? ap.radio5.gain : ap.radio6?.gain} dBi</div>
+                    </div>
+                    <div className="bg-gray-700/50 rounded p-1.5 text-center">
+                      <div className="text-gray-400">Type</div>
+                      <div className="font-bold">{ap.beamwidth?.h === 360 ? 'Omni' : 'Directional'}</div>
+                    </div>
                   </div>
                 </div>
               )}
