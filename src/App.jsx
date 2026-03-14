@@ -2294,9 +2294,9 @@ export default function UniFiNetworkPortal() {
             {/* AP Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
               <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
-              <div className="overflow-x-auto max-h-64">
+              <div className="overflow-x-auto">
                 <table className="w-full text-xs">
-                  <thead className="bg-gray-700 sticky top-0">
+                  <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">Model</th>
                       <th className="p-1">Gen</th>
@@ -2545,9 +2545,9 @@ export default function UniFiNetworkPortal() {
             {/* Switch Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
               <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
-              <div className="overflow-x-auto max-h-72">
+              <div className="overflow-x-auto">
                 <table className="w-full text-xs">
-                  <thead className="bg-gray-700 sticky top-0">
+                  <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">Model</th>
                       <th className="p-1">Ports</th>
@@ -2760,9 +2760,9 @@ export default function UniFiNetworkPortal() {
             {/* Gateway Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
               <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
-              <div className="overflow-x-auto max-h-64">
+              <div className="overflow-x-auto">
                 <table className="w-full text-xs">
-                  <thead className="bg-gray-700 sticky top-0">
+                  <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">Model</th>
                       <th className="p-1">Price</th>
@@ -3014,9 +3014,9 @@ export default function UniFiNetworkPortal() {
             {/* Camera Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
               <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
-              <div className="overflow-x-auto max-h-64">
+              <div className="overflow-x-auto">
                 <table className="w-full text-xs">
-                  <thead className="bg-gray-700 sticky top-0">
+                  <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">Model</th>
                       <th className="p-1">Gen</th>
@@ -3215,9 +3215,9 @@ export default function UniFiNetworkPortal() {
             {/* NVR Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
               <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
-              <div className="overflow-x-auto max-h-64">
+              <div className="overflow-x-auto">
                 <table className="w-full text-xs">
-                  <thead className="bg-gray-700 sticky top-0">
+                  <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">Model</th>
                       <th className="p-1">Price</th>
@@ -3416,9 +3416,9 @@ export default function UniFiNetworkPortal() {
             {/* NAS Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
               <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
-              <div className="overflow-x-auto max-h-64">
+              <div className="overflow-x-auto">
                 <table className="w-full text-xs">
-                  <thead className="bg-gray-700 sticky top-0">
+                  <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">Model</th>
                       <th className="p-1">Price</th>
@@ -3752,9 +3752,9 @@ export default function UniFiNetworkPortal() {
             {/* Bridge Comparison Table */}
             <div className="bg-gray-800 rounded-lg overflow-hidden">
               <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">Comparison</h3>
-              <div className="overflow-x-auto max-h-72">
+              <div className="overflow-x-auto">
                 <table className="w-full text-xs">
-                  <thead className="bg-gray-700 sticky top-0">
+                  <thead className="bg-gray-700">
                     <tr>
                       <th className="p-1 text-left">Model</th>
                       <th className="p-1">Price</th>
