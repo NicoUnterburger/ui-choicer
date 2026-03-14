@@ -2337,8 +2337,11 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1">Gen</th>
                       <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">m²</th>
+                      <th className="p-1">Streams</th>
                       <th className="p-1">5G Gain</th>
                       <th className="p-1">6 GHz</th>
+                      <th className="p-1">IP</th>
+                      <th className="p-1">BLE</th>
                       <th className="p-1">Uplink</th>
                       <th className="p-1">PoE</th>
                       <th className="p-1">📋</th>
@@ -2352,8 +2355,11 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center">{d.generation.replace('Wi-Fi ', '')}</td>
                         <td className="p-1 text-center text-green-400">{formatPrice(d.msrp)}</td>
                         <td className="p-1 text-center">{d.coverage}</td>
+                        <td className="p-1 text-center text-purple-400">{d.streams}</td>
                         <td className="p-1 text-center text-yellow-400">{d.radio5.gain}</td>
                         <td className="p-1 text-center">{d.radio6 ? '✓' : '-'}</td>
+                        <td className="p-1 text-center text-sky-400">{d.features.find(f => f.startsWith('IP')) || '-'}</td>
+                        <td className="p-1 text-center">{d.features.includes('BLE') ? '✓' : '-'}</td>
                         <td className="p-1 text-center">{d.ethernet}</td>
                         <td className="p-1 text-center">{d.poe.replace(/\s*\([^)]*\)/, '')}</td>
                         <td className="p-1 text-center"><a href={getDatasheetLink(d.sku, 'ap')} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-blue-400 hover:text-blue-300">→</a></td>
@@ -2802,9 +2808,11 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1 text-left">{T.tbl_model}</th>
                       <th className="p-1">{T.tbl_price}</th>
                       <th className="p-1">IPS</th>
-                      <th className="p-1">Devices</th>
+                      <th className="p-1">Clients</th>
+                      <th className="p-1">WAN</th>
+                      <th className="p-1">LAN</th>
+                      <th className="p-1">SFP</th>
                       <th className="p-1">Wi-Fi</th>
-                      <th className="p-1">10G+</th>
                       <th className="p-1">PoE</th>
                       <th className="p-1">Form</th>
                       <th className="p-1">📋</th>
@@ -2817,9 +2825,11 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 font-semibold" style={{ color: g.color }}>{g.status === 'new' && '★ '}{g.name}</td>
                         <td className="p-1 text-center text-green-400">{formatPrice(g.msrp)}</td>
                         <td className="p-1 text-center text-cyan-400">{g.ipsSpeed}</td>
-                        <td className="p-1 text-center">{g.devices}+</td>
+                        <td className="p-1 text-center">{g.clients}</td>
+                        <td className="p-1 text-center text-xs">{g.wan}</td>
+                        <td className="p-1 text-center text-xs">{g.lan}</td>
+                        <td className="p-1 text-center text-amber-400">{g.sfp || '-'}</td>
                         <td className="p-1 text-center">{g.wifi ? '✓' : '-'}</td>
-                        <td className="p-1 text-center">{g.sfp ? '✓' : '-'}</td>
                         <td className="p-1 text-center">{g.poe ? '✓' : '-'}</td>
                         <td className="p-1 text-center">{g.formFactor}</td>
                         <td className="p-1 text-center"><a href={getDatasheetLink(g.sku, 'gateway')} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-blue-400 hover:text-blue-300">→</a></td>
@@ -3059,6 +3069,8 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1">Resolution</th>
                       <th className="p-1">FoV</th>
                       <th className="p-1">IR</th>
+                      <th className="p-1">IP</th>
+                      <th className="p-1">Audio</th>
                       <th className="p-1">AI</th>
                       <th className="p-1">LPR</th>
                       <th className="p-1">📋</th>
@@ -3074,6 +3086,8 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center">{c.resolution}</td>
                         <td className="p-1 text-center">{c.fov}</td>
                         <td className="p-1 text-center">{c.irRange}m</td>
+                        <td className="p-1 text-center text-sky-400">{c.ip || '-'}</td>
+                        <td className="p-1 text-center">{c.audio || '-'}</td>
                         <td className="p-1 text-center">{c.ai ? '✓' : '-'}</td>
                         <td className="p-1 text-center">{c.lpr ? '✓' : '-'}</td>
                         <td className="p-1 text-center"><a href={getDatasheetLink(c.sku, 'camera')} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-blue-400 hover:text-blue-300">→</a></td>
@@ -3798,6 +3812,8 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1">Speed</th>
                       <th className="p-1">Gain</th>
                       <th className="p-1">Interface</th>
+                      <th className="p-1">IP</th>
+                      <th className="p-1">PoE</th>
                       <th className="p-1">🛒</th>
                     </tr>
                   </thead>
@@ -3811,6 +3827,8 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center">{b.bandwidth || '-'}</td>
                         <td className="p-1 text-center text-amber-400">{b.antennaGain || '-'}</td>
                         <td className="p-1 text-center">{b.interface || '-'}</td>
+                        <td className="p-1 text-center text-sky-400">{b.weatherproof || '-'}</td>
+                        <td className="p-1 text-center text-xs">{b.poe || '-'}</td>
                         <td className="p-1 text-center"><a href={getGeizhalsLink(b.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
                       </tr>
                     ))}
