@@ -2081,11 +2081,12 @@ export default function UniFiNetworkPortal() {
                     const bandGain = selectedBand === '2.4GHz' ? ap.radio24.gain : selectedBand === '5GHz' ? ap.radio5.gain : ap.radio6?.gain;
                     const lobeH = 88;
                     const lobeW = Math.min(72, (ap.beamwidth?.v || 75) * 0.92);
+                    const vHalf = (ap.beamwidth?.v || 75) * 0.9;
                     return (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {/* Elevation — side view, ceiling mount */}
                         <div className="flex flex-col items-center">
-                          <div className="text-xs text-gray-400 mb-2">Elevation (Side view)</div>
+                          <div className="text-xs text-gray-400 mb-2">Elevation (Ceiling mount)</div>
                           <svg viewBox="0 0 200 120" className="w-full max-w-xs" style={{ background: 'transparent' }}>
                             <line x1="20" y1="14" x2="180" y2="14" stroke="#4B5563" strokeWidth="1" strokeDasharray="3,3" />
                             <text x="22" y="12" fill="#6B7280" fontSize="7">ceiling</text>
@@ -2097,6 +2098,22 @@ export default function UniFiNetworkPortal() {
                             />
                             <text x={Math.min(193, 100 + lobeW * 0.82 + 3)} y={22 + lobeH} textAnchor="start" fill={bandColor} fontSize="9" fontWeight="bold">{bandGain} dBi</text>
                             <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="7">floor coverage</text>
+                          </svg>
+                        </div>
+                        {/* Elevation — standard horizontal side view */}
+                        <div className="flex flex-col items-center">
+                          <div className="text-xs text-gray-400 mb-2">Elevation (Side view)</div>
+                          <svg viewBox="0 0 200 120" className="w-full max-w-xs" style={{ background: 'transparent' }}>
+                            <line x1="10" y1="60" x2="190" y2="60" stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
+                            <line x1="100" y1="10" x2="100" y2="110" stroke="#374151" strokeWidth="1" strokeDasharray="2,2" />
+                            <rect x="93" y="55" width="10" height="10" fill={bandColor} rx="1" />
+                            <text x="98" y="62" textAnchor="middle" fill="white" fontSize="5" fontWeight="bold">AP</text>
+                            <path
+                              d={`M 105 60 Q 140 ${60 - vHalf * 1.4} 172 ${60 - vHalf * 0.28} Q 178 60 172 ${60 + vHalf * 0.28} Q 140 ${60 + vHalf * 1.4} 105 60 Z`}
+                              fill={`${bandColor}40`} stroke={bandColor} strokeWidth="1.5"
+                            />
+                            <text x="173" y={60 - vHalf * 0.28 - 2} textAnchor="start" fill={bandColor} fontSize="9" fontWeight="bold">{bandGain} dBi</text>
+                            <text x="100" y="118" textAnchor="middle" fill="#9CA3AF" fontSize="7">← Back | Forward →</text>
                           </svg>
                         </div>
                         {/* Azimuth — top-down view */}
