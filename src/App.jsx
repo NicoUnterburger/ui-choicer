@@ -85,6 +85,8 @@ export default function UniFiNetworkPortal() {
       section_ptplink: 'PTP Link', section_camera: 'Camera', section_nvr: 'NVR', section_nas: 'NAS',
       // Footer
       footer_prices: 'Prices ~MSRP in €',
+      footer_disclaimer: 'ui-choicer is not affiliated with, endorsed by, or sponsored by Ubiquiti Inc. All product names, logos, and trademarks are the property of their respective owners. Prices are approximate MSRP and may differ from current retail prices. All information is provided without warranty of accuracy or completeness. Use at your own risk.',
+      footer_disclaimer_label: 'Legal notice',
     },
     de: {
       // Nav
@@ -147,6 +149,8 @@ export default function UniFiNetworkPortal() {
       section_ptplink: 'Richtfunk', section_camera: 'Kamera', section_nvr: 'NVR', section_nas: 'NAS',
       // Footer
       footer_prices: 'Preise ~UVP in €',
+      footer_disclaimer: 'ui-choicer steht in keiner Verbindung zu Ubiquiti Inc. und wird von dieser nicht gesponsert oder empfohlen. Alle Produktnamen, Logos und Marken sind Eigentum ihrer jeweiligen Inhaber. Die angezeigten Preise sind ungefähre UVP-Angaben und können von aktuellen Marktpreisen abweichen. Alle Angaben ohne Gewähr.',
+      footer_disclaimer_label: 'Rechtlicher Hinweis',
     },
   };
   const T = translations[lang];
@@ -3941,8 +3945,13 @@ export default function UniFiNetworkPortal() {
         )}
 
         {/* Footer */}
-        <div className="mt-6 pt-4 border-t border-gray-700 text-center text-xs text-gray-500">
-          ui-choicer • {Object.keys(apData).length} APs • {Object.keys(switchData).length} Switches • {Object.keys(gatewayData).length} Gateways • {Object.keys(cameraData).length} Cameras • {Object.keys(nvrData).length} NVRs • {Object.keys(nasData).length} NAS • {Object.keys(bridgeData).length} PTP Links • {T.footer_prices}
+        <div className="mt-6 pt-4 border-t border-gray-700 text-xs text-gray-500 space-y-2">
+          <div className="text-center">
+            ui-choicer • {Object.keys(apData).length} APs • {Object.keys(switchData).length} Switches • {Object.keys(gatewayData).length} Gateways • {Object.keys(cameraData).length} Cameras • {Object.keys(nvrData).length} NVRs • {Object.keys(nasData).length} NAS • {Object.keys(bridgeData).length} PTP Links • {T.footer_prices}
+          </div>
+          <div className="border-t border-gray-800 pt-2 text-gray-600 leading-relaxed">
+            <span className="font-semibold text-gray-500">{T.footer_disclaimer_label}: </span>{T.footer_disclaimer}
+          </div>
         </div>
       </div>
     </div>
