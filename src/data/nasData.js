@@ -1,71 +1,59 @@
 export const nasData = {
-  // Standard Series
-  'UNAS': {
-    name: 'UniFi NAS', sku: 'UNAS', category: 'standard', color: '#3B82F6', msrp: 449, status: 'current',
-    bays: 4, baySize: '3.5"/2.5"', maxStorage: '80 TB',
+  // Desktop Series
+  'UNAS-2': {
+    name: 'UniFi NAS 2', sku: 'UNAS-2', category: 'desktop', color: '#3B82F6', msrp: 189, status: 'current',
+    bays: 2, baySize: '3.5"', maxStorage: '40 TB',
     network: '2.5 GbE', networkPorts: 1, cacheSlots: 0,
-    cpu: 'Intel N100', ram: '8 GB DDR5', ramMax: '16 GB',
-    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10'],
-    formFactor: 'Desktop Tower', power: 65,
-    features: ['SMB', 'NFS', 'AFP', 'iSCSI'],
+    cpu: 'ARM Cortex-A55 (Quad-Core, 1.7 GHz)', ram: '4 GB', ramMax: '4 GB',
+    raidSupport: ['RAID 0', 'RAID 1'],
+    formFactor: 'Desktop', power: 60,
+    features: ['PoE++ Powered', 'SMB', 'NFS'],
     apps: ['UniFi Protect', 'File Sharing', 'Backup'],
-    notes: 'Entry-level 4-bay NAS'
+    notes: 'PoE++ powered — no AC adapter needed'
   },
-  'UNAS-Pro': {
-    name: 'UniFi NAS Pro', sku: 'UNAS-Pro', category: 'pro', color: '#8B5CF6', msrp: 999, status: 'current',
-    bays: 8, baySize: '3.5"/2.5"', maxStorage: '184 TB',
-    network: '10G SFP+', networkPorts: 2, cacheSlots: 2,
-    cpu: 'Intel Core i3', ram: '16 GB DDR5', ramMax: '64 GB',
-    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10', 'RAIDZ'],
-    formFactor: 'Desktop Tower', power: 120,
-    features: ['10G SFP+', 'NVMe Cache', 'ECC Option', 'SMB', 'NFS', 'iSCSI'],
-    apps: ['UniFi Protect', 'File Sharing', 'Backup', 'VM Storage'],
-    notes: 'Best value - 8 bays + 10G + NVMe cache'
-  },
-  'UNAS-Pro-Max': {
-    name: 'UniFi NAS Pro Max', sku: 'UNAS-Pro-Max', category: 'pro', color: '#8B5CF6', msrp: 1499, status: 'new',
-    bays: 12, baySize: '3.5"/2.5"', maxStorage: '276 TB',
-    network: '10G SFP+', networkPorts: 2, cacheSlots: 2,
-    cpu: 'Intel Core i5', ram: '32 GB DDR5', ramMax: '128 GB',
-    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10', 'RAIDZ', 'RAIDZ2'],
-    formFactor: 'Desktop Tower', power: 180,
-    features: ['Dual 10G SFP+', 'NVMe Cache', 'ECC RAM', 'SMB', 'NFS', 'iSCSI', 'Hot-Swap'],
-    apps: ['UniFi Protect', 'File Sharing', 'Backup', 'VM Storage', 'Surveillance'],
-    notes: '12-bay powerhouse with dual 10G'
+  'UNAS-4': {
+    name: 'UniFi NAS 4', sku: 'UNAS-4', category: 'desktop', color: '#3B82F6', msrp: 359, status: 'current',
+    bays: 4, baySize: '3.5"', maxStorage: '80 TB',
+    network: '2.5 GbE', networkPorts: 1, cacheSlots: 2,
+    cpu: 'ARM Cortex-A55 (Quad-Core, 1.7 GHz)', ram: '4 GB', ramMax: '4 GB',
+    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10'],
+    formFactor: 'Desktop', power: 90,
+    features: ['PoE+++ Powered', 'NVMe Cache', 'SMB', 'NFS'],
+    apps: ['UniFi Protect', 'File Sharing', 'Backup'],
+    notes: 'PoE+++ powered with NVMe cache support'
   },
   // Rackmount Series
-  'UNAS-Rack': {
-    name: 'UniFi NAS Rack', sku: 'UNAS-Rack', category: 'rackmount', color: '#14B8A6', msrp: 1299, status: 'current',
-    bays: 8, baySize: '3.5"', maxStorage: '184 TB',
-    network: '10G SFP+', networkPorts: 2, cacheSlots: 2,
-    cpu: 'Intel Core i3', ram: '16 GB DDR5', ramMax: '64 GB',
-    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10', 'RAIDZ'],
-    formFactor: '2U Rack', power: 150,
-    features: ['10G SFP+', 'NVMe Cache', 'Hot-Swap', 'SMB', 'NFS', 'iSCSI'],
+  'UNAS-Pro': {
+    name: 'UniFi NAS Pro', sku: 'UNAS-Pro', category: 'legacy', color: '#6B7280', msrp: 469, status: 'legacy',
+    bays: 7, baySize: '3.5"/2.5"', maxStorage: '140 TB',
+    network: '10G SFP+ + 1 GbE', networkPorts: 2, cacheSlots: 0,
+    cpu: 'ARM Cortex-A57 (Quad-Core, 1.7 GHz)', ram: '8 GB', ramMax: '8 GB',
+    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10'],
+    formFactor: '2U Rack', power: 100,
+    features: ['10G SFP+', 'Hot-Swap', 'SMB', 'NFS', 'iSCSI'],
+    apps: ['UniFi Protect', 'File Sharing', 'Backup'],
+    notes: 'Original model — superseded by Pro 4 / Pro 8'
+  },
+  'UNAS-Pro-4': {
+    name: 'UniFi NAS Pro 4', sku: 'UNAS-Pro-4', category: 'rackmount', color: '#8B5CF6', msrp: 469, status: 'current',
+    bays: 4, baySize: '3.5"/2.5"', maxStorage: '80 TB',
+    network: '2× 10G SFP+ + 1 GbE', networkPorts: 3, cacheSlots: 2,
+    cpu: 'ARM Cortex-A57 (Quad-Core, 2.0 GHz)', ram: '8 GB', ramMax: '8 GB',
+    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10'],
+    formFactor: '1U Rack', power: 150,
+    features: ['Dual 10G SFP+', 'NVMe Cache', 'Hot-Swap', 'SMB', 'NFS', 'iSCSI'],
     apps: ['UniFi Protect', 'File Sharing', 'Backup', 'VM Storage'],
-    notes: '8-bay rackmount with hot-swap'
+    notes: '1U rackmount with dual 10G and NVMe cache'
   },
-  'UNAS-Rack-Pro': {
-    name: 'UniFi NAS Rack Pro', sku: 'UNAS-Rack-Pro', category: 'rackmount', color: '#14B8A6', msrp: 2499, status: 'new',
-    bays: 16, baySize: '3.5"', maxStorage: '368 TB',
-    network: '25G SFP28', networkPorts: 2, cacheSlots: 4,
-    cpu: 'Intel Xeon', ram: '32 GB ECC DDR5', ramMax: '256 GB',
-    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10', 'RAIDZ', 'RAIDZ2', 'RAIDZ3'],
-    formFactor: '3U Rack', power: 350,
-    features: ['Dual 25G SFP28', 'NVMe Cache', 'ECC RAM', 'Hot-Swap', 'Redundant PSU'],
-    apps: ['UniFi Protect', 'File Sharing', 'Backup', 'VM Storage', 'Enterprise'],
-    notes: 'Enterprise - 16 bays + 25G + Xeon'
+  'UNAS-Pro-8': {
+    name: 'UniFi NAS Pro 8', sku: 'UNAS-Pro-8', category: 'rackmount', color: '#8B5CF6', msrp: 749, status: 'current',
+    bays: 8, baySize: '3.5"/2.5"', maxStorage: '160 TB',
+    network: '2× 10G SFP+ + 10 GbE', networkPorts: 3, cacheSlots: 2,
+    cpu: 'ARM Cortex-A57 (Quad-Core, 2.0 GHz)', ram: '16 GB', ramMax: '16 GB',
+    raidSupport: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6', 'RAID 10'],
+    formFactor: '2U Rack', power: 550,
+    features: ['Dual 10G SFP+', '10G RJ45', 'NVMe Cache', 'Redundant PSU', 'Hot-Swap', 'SMB', 'NFS', 'iSCSI'],
+    apps: ['UniFi Protect', 'File Sharing', 'Backup', 'VM Storage'],
+    notes: 'Redundant PSU (2× 550W) — 2U rackmount'
   },
-  // Special
-  'UNAS-Backup': {
-    name: 'UniFi NAS Backup', sku: 'UNAS-Backup', category: 'special', color: '#F97316', msrp: 699, status: 'new',
-    bays: 2, baySize: '3.5"/2.5"', maxStorage: '40 TB',
-    network: '2.5 GbE', networkPorts: 1, cacheSlots: 0,
-    cpu: 'ARM Cortex-A76', ram: '4 GB DDR4', ramMax: '4 GB',
-    raidSupport: ['RAID 0', 'RAID 1'],
-    formFactor: 'Compact Desktop', power: 25,
-    features: ['Low Power', 'Silent', 'Auto Backup'],
-    apps: ['Time Machine', 'Backup', 'File Sharing'],
-    notes: 'Silent backup appliance - 25W'
-  }
 };

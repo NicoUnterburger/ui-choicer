@@ -16,7 +16,7 @@ export default function UniFiNetworkPortal() {
   const [selectedCamera, setSelectedCamera] = useState('G6-Bullet');
   const [selectedGateway, setSelectedGateway] = useState('UDM-Pro-Max');
   const [selectedNVR, setSelectedNVR] = useState('UNVR-Pro');
-  const [selectedNAS, setSelectedNAS] = useState('UNAS-Pro');
+  const [selectedNAS, setSelectedNAS] = useState('UNAS-Pro-8');
   const [selectedBridge, setSelectedBridge] = useState('PBE-5AC-Gen2');
   const [selectedBand, setSelectedBand] = useState('5GHz');
   const [activeTab, setActiveTab] = useState('overview');
@@ -99,7 +99,7 @@ export default function UniFiNetworkPortal() {
     // NVR
     if (type === 'nvr') {
      const nvrMappings = {
-        'enterprise-nvr': 'envr'
+        'unvr-enterprise': 'envr'
       };
       const mapped = nvrMappings[skuLower] || skuLower;
       return `${baseUrl}/cameras-nvrs/${mapped}`;
@@ -2019,6 +2019,7 @@ export default function UniFiNetworkPortal() {
                   <div className="flex items-center gap-2 flex-wrap">
                     <h2 className="text-lg font-bold" style={{ color: nas.color }}>{nas.name}</h2>
                     {nas.status === 'new' && <span className="bg-yellow-500 text-black text-xs px-1 rounded">{T.status_new}</span>}
+                    {nas.status === 'legacy' && <span className="bg-gray-600 text-gray-300 text-xs px-1 rounded">{T.status_legacy}</span>}
                     <a href={getGeizhalsLink(nas.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
