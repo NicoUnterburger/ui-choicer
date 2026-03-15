@@ -34,6 +34,17 @@ export default function UniFiNetworkPortal() {
 
   const T = translations[lang];
 
+  const [apSort,     setApSort]     = useState({ col: null, dir: 'asc' });
+  const [switchSort, setSwitchSort] = useState({ col: null, dir: 'asc' });
+  const [gwSort,     setGwSort]     = useState({ col: null, dir: 'asc' });
+  const [camSort,    setCamSort]    = useState({ col: null, dir: 'asc' });
+  const [nvrSort,    setNvrSort]    = useState({ col: null, dir: 'asc' });
+  const [nasSort,    setNasSort]    = useState({ col: null, dir: 'asc' });
+  const [bridgeSort, setBridgeSort] = useState({ col: null, dir: 'asc' });
+
+  const handleSort = (setter) => (col) =>
+    setter(prev => ({ col, dir: prev.col === col && prev.dir === 'asc' ? 'desc' : 'asc' }));
+
   const [cart, setCart] = useState([]);
 
   const toggleCart = (sku, name, msrp, section, color) => {
@@ -168,7 +179,12 @@ export default function UniFiNetworkPortal() {
 
   // Advanced AP Filtering
   const filteredAPs = useMemo(() => {
-    return Object.entries(apData).filter(([k, ap]) => {
+    const apGetter = (d, col) => {
+      if (col === 'gain5')  return d.radio5?.gain ?? -1;
+      if (col === 'radio6') return d.radio6 ? 1 : 0;
+      return d[col] ?? null;
+    };
+    const filtered = Object.entries(apData).filter(([k, ap]) => {
       // Category filter
       if (categoryFilter !== 'all' && ap.category !== categoryFilter) return false;
       
@@ -203,10 +219,12 @@ export default function UniFiNetworkPortal() {
       
       // Spectral
       if (apFilters.spectral && !ap.features.includes('Spectral')) return false;
-      
+
       return true;
     });
-  }, [apData, categoryFilter, apFilters]);
+    if (!apSort.col) return filtered;
+    return [...filtered].sort((a, b) => compareEntries(a, b, apSort.col, apSort.dir, apGetter));
+  }, [apData, categoryFilter, apFilters, apSort]);
 
   const activeApFilterCount = useMemo(() => {
     let count = 0;
@@ -224,7 +242,8 @@ export default function UniFiNetworkPortal() {
   
   // Advanced Switch Filtering
   const filteredSwitches = useMemo(() => {
-    return Object.entries(switchData).filter(([k, sw]) => {
+    const swGetter = (d, col) => d[col] ?? null;
+    const filtered = Object.entries(switchData).filter(([k, sw]) => {
       // Category filter
       if (switchCategoryFilter !== 'all' && sw.category !== switchCategoryFilter) return false;
       
@@ -273,10 +292,12 @@ export default function UniFiNetworkPortal() {
       if (switchFilters.formFactor === 'rack' && !sw.formFactor.includes('Rack')) return false;
       if (switchFilters.formFactor === 'desktop' && !sw.formFactor.includes('Desktop')) return false;
       if (switchFilters.formFactor === 'compact' && !sw.formFactor.includes('Compact')) return false;
-      
+
       return true;
     });
-  }, [switchData, switchCategoryFilter, switchFilters]);
+    if (!switchSort.col) return filtered;
+    return [...filtered].sort((a, b) => compareEntries(a, b, switchSort.col, switchSort.dir, swGetter));
+  }, [switchData, switchCategoryFilter, switchFilters, switchSort]);
 
   const activeFilterCount = useMemo(() => {
     let count = 0;
@@ -324,7 +345,8 @@ export default function UniFiNetworkPortal() {
 
   // Advanced Camera Filtering
   const filteredCameras = useMemo(() => {
-    return Object.entries(cameraData).filter(([k, cam]) => {
+    const camGetter = (d, col) => d[col] ?? null;
+    const filtered = Object.entries(cameraData).filter(([k, cam]) => {
       if (cameraCategoryFilter !== 'all' && cam.category !== cameraCategoryFilter) return false;
       if (cameraFilters.searchText) {
         const search = cameraFilters.searchText.toLowerCase();
@@ -342,7 +364,9 @@ export default function UniFiNetworkPortal() {
       if (cameraFilters.maxPrice && cam.msrp > parseInt(cameraFilters.maxPrice)) return false;
       return true;
     });
-  }, [cameraData, cameraCategoryFilter, cameraFilters]);
+    if (!camSort.col) return filtered;
+    return [...filtered].sort((a, b) => compareEntries(a, b, camSort.col, camSort.dir, camGetter));
+  }, [cameraData, cameraCategoryFilter, cameraFilters, camSort]);
 
   const activeCameraFilterCount = useMemo(() => {
     let count = 0;
@@ -377,7 +401,8 @@ export default function UniFiNetworkPortal() {
   };
 
   const filteredGateways = useMemo(() => {
-    return Object.entries(gatewayData).filter(([k, gw]) => {
+    const gwGetter = (d, col) => d[col] ?? null;
+    const filtered = Object.entries(gatewayData).filter(([k, gw]) => {
       if (gatewayCategoryFilter !== 'all' && gw.category !== gatewayCategoryFilter) return false;
       if (gatewayFilters.searchText) {
         const search = gatewayFilters.searchText.toLowerCase();
@@ -390,7 +415,9 @@ export default function UniFiNetworkPortal() {
       if (gatewayFilters.maxPrice && gw.msrp > parseInt(gatewayFilters.maxPrice)) return false;
       return true;
     });
-  }, [gatewayData, gatewayCategoryFilter, gatewayFilters]);
+    if (!gwSort.col) return filtered;
+    return [...filtered].sort((a, b) => compareEntries(a, b, gwSort.col, gwSort.dir, gwGetter));
+  }, [gatewayData, gatewayCategoryFilter, gatewayFilters, gwSort]);
 
   const activeGatewayFilterCount = useMemo(() => {
     let count = 0;
@@ -423,7 +450,8 @@ export default function UniFiNetworkPortal() {
   };
 
   const filteredNVRs = useMemo(() => {
-    return Object.entries(nvrData).filter(([k, nvr]) => {
+    const nvrGetter = (d, col) => d[col] ?? null;
+    const filtered = Object.entries(nvrData).filter(([k, nvr]) => {
       if (nvrCategoryFilter !== 'all' && nvr.category !== nvrCategoryFilter) return false;
       if (nvrFilters.searchText) {
         const search = nvrFilters.searchText.toLowerCase();
@@ -436,7 +464,9 @@ export default function UniFiNetworkPortal() {
       if (nvrFilters.maxPrice && nvr.msrp > parseInt(nvrFilters.maxPrice)) return false;
       return true;
     });
-  }, [nvrData, nvrCategoryFilter, nvrFilters]);
+    if (!nvrSort.col) return filtered;
+    return [...filtered].sort((a, b) => compareEntries(a, b, nvrSort.col, nvrSort.dir, nvrGetter));
+  }, [nvrData, nvrCategoryFilter, nvrFilters, nvrSort]);
 
   const activeNvrFilterCount = useMemo(() => {
     let count = 0;
@@ -469,7 +499,8 @@ export default function UniFiNetworkPortal() {
   };
 
   const filteredNAS = useMemo(() => {
-    return Object.entries(nasData).filter(([k, nas]) => {
+    const nasGetter = (d, col) => d[col] ?? null;
+    const filtered = Object.entries(nasData).filter(([k, nas]) => {
       if (nasCategoryFilter !== 'all' && nas.category !== nasCategoryFilter) return false;
       if (nasFilters.searchText) {
         const search = nasFilters.searchText.toLowerCase();
@@ -481,7 +512,9 @@ export default function UniFiNetworkPortal() {
       if (nasFilters.maxPrice && nas.msrp > parseInt(nasFilters.maxPrice)) return false;
       return true;
     });
-  }, [nasData, nasCategoryFilter, nasFilters]);
+    if (!nasSort.col) return filtered;
+    return [...filtered].sort((a, b) => compareEntries(a, b, nasSort.col, nasSort.dir, nasGetter));
+  }, [nasData, nasCategoryFilter, nasFilters, nasSort]);
 
   const activeNasFilterCount = useMemo(() => {
     let count = 0;
@@ -514,7 +547,8 @@ export default function UniFiNetworkPortal() {
   };
 
   const filteredBridges = useMemo(() => {
-    return Object.entries(bridgeData).filter(([k, br]) => {
+    const brGetter = (d, col) => d[col] ?? null;
+    const filtered = Object.entries(bridgeData).filter(([k, br]) => {
       if (bridgeCategoryFilter !== 'all' && br.category !== bridgeCategoryFilter) return false;
       if (bridgeFilters.searchText) {
         const search = bridgeFilters.searchText.toLowerCase();
@@ -526,7 +560,9 @@ export default function UniFiNetworkPortal() {
       if (bridgeFilters.maxPrice && br.msrp > parseInt(bridgeFilters.maxPrice)) return false;
       return true;
     });
-  }, [bridgeData, bridgeCategoryFilter, bridgeFilters]);
+    if (!bridgeSort.col) return filtered;
+    return [...filtered].sort((a, b) => compareEntries(a, b, bridgeSort.col, bridgeSort.dir, brGetter));
+  }, [bridgeData, bridgeCategoryFilter, bridgeFilters, bridgeSort]);
 
   const activeBridgeFilterCount = useMemo(() => {
     let count = 0;
@@ -538,6 +574,17 @@ export default function UniFiNetworkPortal() {
     if (bridgeCategoryFilter !== 'all') count++;
     return count;
   }, [bridgeFilters, bridgeCategoryFilter]);
+
+  const compareEntries = ([, a], [, b], col, dir, getter) => {
+    const av = getter(a, col);
+    const bv = getter(b, col);
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    const cmp = typeof av === 'number' && typeof bv === 'number'
+      ? av - bv
+      : String(av).localeCompare(String(bv), undefined, { numeric: true });
+    return dir === 'asc' ? cmp : -cmp;
+  };
 
   const ap = apData[selectedAP];
   const sw = switchData[selectedSwitch];
@@ -944,22 +991,28 @@ export default function UniFiNetworkPortal() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700">
-                    <tr>
-                      <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">Gen</th>
-                      <th className="p-1">m²</th>
-                      <th className="p-1">Streams</th>
-                      <th className="p-1">5G Gain</th>
-                      <th className="p-1">6 GHz</th>
-                      <th className="p-1">IP</th>
-                      <th className="p-1">BLE</th>
-                      <th className="p-1">{T.card_mountlabel.replace(':', '')}</th>
-                      <th className="p-1">Uplink</th>
-                      <th className="p-1">PoE</th>
-                      <th className="p-1">{T.tbl_price}</th>
-                      <th className="p-1">📋</th>
-                      <th className="p-1">🛒</th>
-                    </tr>
+                    {(() => {
+                      const S = (col, label, cls='') => {
+                        const active = apSort.col === col;
+                        return <th onClick={() => handleSort(setApSort)(col)} className={`p-1 cursor-pointer select-none hover:text-white ${cls}`}>{label}{active ? (apSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</th>;
+                      };
+                      return (<tr>
+                        {S('name', T.tbl_model, 'text-left')}
+                        {S('generation', 'Gen')}
+                        {S('coverage', 'm²')}
+                        {S('streams', 'Streams')}
+                        {S('gain5', '5G Gain')}
+                        {S('radio6', '6 GHz')}
+                        <th className="p-1">IP</th>
+                        <th className="p-1">BLE</th>
+                        {S('mount', T.card_mountlabel.replace(':', ''))}
+                        <th className="p-1">Uplink</th>
+                        {S('poe', 'PoE')}
+                        {S('msrp', T.tbl_price)}
+                        <th className="p-1">📋</th>
+                        <th className="p-1">🛒</th>
+                      </tr>);
+                    })()}
                   </thead>
                   <tbody>
                     {filteredAPs.map(([k, d]) => (
@@ -1204,22 +1257,28 @@ export default function UniFiNetworkPortal() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700">
-                    <tr>
-                      <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">Ports</th>
-                      <th className="p-1 text-gray-400">1G</th>
-                      <th className="p-1 text-blue-400">2.5G</th>
-                      <th className="p-1 text-teal-400">10G</th>
-                      <th className="p-1 text-purple-400">SFP+</th>
-                      <th className="p-1 text-yellow-400">SFP28</th>
-                      <th className="p-1 text-rose-400">QSFP28</th>
-                      <th className="p-1">PoE</th>
-                      <th className="p-1">Budget</th>
-                      <th className="p-1">Layer</th>
-                      <th className="p-1">{T.tbl_price}</th>
-                      <th className="p-1">📋</th>
-                      <th className="p-1">🛒</th>
-                    </tr>
+                    {(() => {
+                      const S = (col, label, cls='') => {
+                        const active = switchSort.col === col;
+                        return <th onClick={() => handleSort(setSwitchSort)(col)} className={`p-1 cursor-pointer select-none hover:text-white ${cls}`}>{label}{active ? (switchSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</th>;
+                      };
+                      return (<tr>
+                        {S('name', T.tbl_model, 'text-left')}
+                        {S('portCount', 'Ports')}
+                        {S('ethernet1g', '1G', 'text-gray-400')}
+                        {S('ethernet2_5g', '2.5G', 'text-blue-400')}
+                        {S('ethernet10g', '10G', 'text-teal-400')}
+                        {S('sfpPlus', 'SFP+', 'text-purple-400')}
+                        {S('sfp28', 'SFP28', 'text-yellow-400')}
+                        {S('qsfp28', 'QSFP28', 'text-rose-400')}
+                        {S('poe', 'PoE')}
+                        {S('poeBudget', 'Budget')}
+                        {S('layer', 'Layer')}
+                        {S('msrp', T.tbl_price)}
+                        <th className="p-1">📋</th>
+                        <th className="p-1">🛒</th>
+                      </tr>);
+                    })()}
                   </thead>
                   <tbody>
                     {filteredSwitches.map(([k, d]) => (
@@ -1421,20 +1480,26 @@ export default function UniFiNetworkPortal() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700">
-                    <tr>
-                      <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">IPS</th>
-                      <th className="p-1">Clients</th>
-                      <th className="p-1">WAN</th>
-                      <th className="p-1">LAN</th>
-                      <th className="p-1">SFP</th>
-                      <th className="p-1">Wi-Fi</th>
-                      <th className="p-1">PoE</th>
-                      <th className="p-1">Form</th>
-                      <th className="p-1">{T.tbl_price}</th>
-                      <th className="p-1">📋</th>
-                      <th className="p-1">🛒</th>
-                    </tr>
+                    {(() => {
+                      const S = (col, label, cls='') => {
+                        const active = gwSort.col === col;
+                        return <th onClick={() => handleSort(setGwSort)(col)} className={`p-1 cursor-pointer select-none hover:text-white ${cls}`}>{label}{active ? (gwSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</th>;
+                      };
+                      return (<tr>
+                        {S('name', T.tbl_model, 'text-left')}
+                        {S('ipsSpeed', 'IPS')}
+                        {S('clients', 'Clients')}
+                        {S('wan', 'WAN')}
+                        {S('lan', 'LAN')}
+                        {S('sfp', 'SFP')}
+                        {S('wifi', 'Wi-Fi')}
+                        {S('poe', 'PoE')}
+                        {S('formFactor', 'Form')}
+                        {S('msrp', T.tbl_price)}
+                        <th className="p-1">📋</th>
+                        <th className="p-1">🛒</th>
+                      </tr>);
+                    })()}
                   </thead>
                   <tbody>
                     {filteredGateways.map(([k, g]) => (
@@ -1679,20 +1744,26 @@ export default function UniFiNetworkPortal() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700">
-                    <tr>
-                      <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">Gen</th>
-                      <th className="p-1">Resolution</th>
-                      <th className="p-1">FoV</th>
-                      <th className="p-1">IR</th>
-                      <th className="p-1">IP</th>
-                      <th className="p-1">Audio</th>
-                      <th className="p-1">AI</th>
-                      <th className="p-1">LPR</th>
-                      <th className="p-1">{T.tbl_price}</th>
-                      <th className="p-1">📋</th>
-                      <th className="p-1">🛒</th>
-                    </tr>
+                    {(() => {
+                      const S = (col, label, cls='') => {
+                        const active = camSort.col === col;
+                        return <th onClick={() => handleSort(setCamSort)(col)} className={`p-1 cursor-pointer select-none hover:text-white ${cls}`}>{label}{active ? (camSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</th>;
+                      };
+                      return (<tr>
+                        {S('name', T.tbl_model, 'text-left')}
+                        {S('generation', 'Gen')}
+                        {S('resolution', 'Resolution')}
+                        {S('fov', 'FoV')}
+                        {S('irRange', 'IR')}
+                        {S('ip', 'IP')}
+                        <th className="p-1">Audio</th>
+                        <th className="p-1">AI</th>
+                        <th className="p-1">LPR</th>
+                        {S('msrp', T.tbl_price)}
+                        <th className="p-1">📋</th>
+                        <th className="p-1">🛒</th>
+                      </tr>);
+                    })()}
                   </thead>
                   <tbody>
                     {filteredCameras.map(([k, c]) => (
@@ -1888,17 +1959,23 @@ export default function UniFiNetworkPortal() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700">
-                    <tr>
-                      <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">Bays</th>
-                      <th className="p-1">Max TB</th>
-                      <th className="p-1">Cameras</th>
-                      <th className="p-1">Streams</th>
-                      <th className="p-1">Network</th>
-                      <th className="p-1">RAID</th>
-                      <th className="p-1">{T.tbl_price}</th>
-                      <th className="p-1">🛒</th>
-                    </tr>
+                    {(() => {
+                      const S = (col, label, cls='') => {
+                        const active = nvrSort.col === col;
+                        return <th onClick={() => handleSort(setNvrSort)(col)} className={`p-1 cursor-pointer select-none hover:text-white ${cls}`}>{label}{active ? (nvrSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</th>;
+                      };
+                      return (<tr>
+                        {S('name', T.tbl_model, 'text-left')}
+                        {S('bays', 'Bays')}
+                        {S('maxStorage', 'Max TB')}
+                        {S('cameras', 'Cameras')}
+                        {S('streams', 'Streams')}
+                        <th className="p-1">Network</th>
+                        <th className="p-1">RAID</th>
+                        {S('msrp', T.tbl_price)}
+                        <th className="p-1">🛒</th>
+                      </tr>);
+                    })()}
                   </thead>
                   <tbody>
                     {filteredNVRs.map(([k, n]) => (
@@ -2094,17 +2171,23 @@ export default function UniFiNetworkPortal() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700">
-                    <tr>
-                      <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">Bays</th>
-                      <th className="p-1">Max TB</th>
-                      <th className="p-1">Network</th>
-                      <th className="p-1">CPU</th>
-                      <th className="p-1">RAM</th>
-                      <th className="p-1">Cache</th>
-                      <th className="p-1">{T.tbl_price}</th>
-                      <th className="p-1">🛒</th>
-                    </tr>
+                    {(() => {
+                      const S = (col, label, cls='') => {
+                        const active = nasSort.col === col;
+                        return <th onClick={() => handleSort(setNasSort)(col)} className={`p-1 cursor-pointer select-none hover:text-white ${cls}`}>{label}{active ? (nasSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</th>;
+                      };
+                      return (<tr>
+                        {S('name', T.tbl_model, 'text-left')}
+                        {S('bays', 'Bays')}
+                        {S('maxStorage', 'Max TB')}
+                        {S('network', 'Network')}
+                        <th className="p-1">CPU</th>
+                        {S('ram', 'RAM')}
+                        {S('cacheSlots', 'Cache')}
+                        {S('msrp', T.tbl_price)}
+                        <th className="p-1">🛒</th>
+                      </tr>);
+                    })()}
                   </thead>
                   <tbody>
                     {filteredNAS.map(([k, n]) => (
@@ -2430,18 +2513,24 @@ export default function UniFiNetworkPortal() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead className="bg-gray-700">
-                    <tr>
-                      <th className="p-1 text-left">{T.tbl_model}</th>
-                      <th className="p-1">Freq</th>
-                      <th className="p-1">Range</th>
-                      <th className="p-1">Speed</th>
-                      <th className="p-1">Gain</th>
-                      <th className="p-1">Interface</th>
-                      <th className="p-1">IP</th>
-                      <th className="p-1">PoE</th>
-                      <th className="p-1">{T.tbl_price}</th>
-                      <th className="p-1">🛒</th>
-                    </tr>
+                    {(() => {
+                      const S = (col, label, cls='') => {
+                        const active = bridgeSort.col === col;
+                        return <th onClick={() => handleSort(setBridgeSort)(col)} className={`p-1 cursor-pointer select-none hover:text-white ${cls}`}>{label}{active ? (bridgeSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</th>;
+                      };
+                      return (<tr>
+                        {S('name', T.tbl_model, 'text-left')}
+                        {S('frequency', 'Freq')}
+                        {S('range', 'Range')}
+                        {S('bandwidth', 'Speed')}
+                        {S('antennaGain', 'Gain')}
+                        {S('interface', 'Interface')}
+                        <th className="p-1">IP</th>
+                        {S('poe', 'PoE')}
+                        {S('msrp', T.tbl_price)}
+                        <th className="p-1">🛒</th>
+                      </tr>);
+                    })()}
                   </thead>
                   <tbody>
                     {filteredBridges.map(([k, b]) => (
