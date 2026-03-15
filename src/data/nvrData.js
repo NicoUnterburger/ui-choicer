@@ -19,18 +19,5 @@ export const nvrData = {
     bays: 16, baySize: '3.5"', maxStorage: '368 TB', cameras: 200, streams: 400,
     network: '2x 10G SFP+', raidSupport: true, formFactor: '3U Rack', power: 500,
     features: ['Dual 10G', 'RAID', '16 Bays', 'Hot-Swap', 'Redundant PSU'], notes: 'Large deployments - 16 hot-swap bays'
-  },
-  // AI Series
-  'AI-NVR': {
-    name: 'AI NVR', sku: 'AI-NVR', category: 'ai', color: '#22C55E', msrp: 999, status: 'new',
-    bays: 4, baySize: '3.5"', maxStorage: '80 TB', cameras: 50, streams: 100,
-    network: '2.5 GbE', raidSupport: true, formFactor: 'Desktop', power: 80,
-    features: ['AI Processing', 'RAID', 'Local AI'], notes: 'Local AI processing - no cloud required'
-  },
-  'AI-NVR-Pro': {
-    name: 'AI NVR Pro', sku: 'AI-NVR-Pro', category: 'ai', color: '#22C55E', msrp: 1499, status: 'new',
-    bays: 7, baySize: '3.5"', maxStorage: '140 TB', cameras: 100, streams: 200,
-    network: '10G SFP+', raidSupport: true, formFactor: '1U Rack', power: 150,
-    features: ['AI Processing', '10G SFP+', 'RAID', 'Local AI'], notes: 'Rackmount AI NVR with 10G'
   }
 };

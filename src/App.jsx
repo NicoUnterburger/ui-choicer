@@ -98,7 +98,11 @@ export default function UniFiNetworkPortal() {
     
     // NVR
     if (type === 'nvr') {
-      return `${baseUrl}/cameras-nvrs/${skuLower}`;
+     const nvrMappings = {
+        'enterprise-nvr': 'envr'
+      };
+      const mapped = nvrMappings[skuLower] || skuLower;
+      return `${baseUrl}/cameras-nvrs/${mapped}`;
     }
 
     // NAS
@@ -1915,8 +1919,8 @@ export default function UniFiNetworkPortal() {
                 <p className="text-xs text-gray-300">UNVR-Pro ~499 €</p>
               </div>
               <div className="bg-gray-800 rounded p-2 border-l-4 border-green-500">
-                <h4 className="font-semibold text-green-400 text-xs">Mit AI</h4>
-                <p className="text-xs text-gray-300">AI-NVR ~999 €</p>
+                <h4 className="font-semibold text-green-400 text-xs">For small users</h4>
+                <p className="text-xs text-gray-300">use youre gatway</p>
               </div>
               <div className="bg-gray-800 rounded p-2 border-l-4 border-red-500">
                 <h4 className="font-semibold text-red-400 text-xs">Enterprise</h4>
