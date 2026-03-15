@@ -1,0 +1,57 @@
+export const gatewayData = {
+  // Compact / Desktop
+  'UCG-Ultra': { name: 'Cloud Gateway Ultra', sku: 'UCG-Ultra', category: 'compact', color: '#22C55E', msrp: 129, status: 'current',
+    ipsSpeed: 1, devices: 30, clients: 300, wan: '2.5 GbE', lan: '4x 1GbE', sfp: null,
+    wifi: null, poe: null, storage: null, formFactor: 'Desktop', power: 12,
+    features: ['USB-C', 'LCD'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Budget gateway - full app suite' },
+  'UCG-Max': { name: 'Cloud Gateway Max', sku: 'UCG-Max', category: 'compact', color: '#22C55E', msrp: 199, status: 'current',
+    ipsSpeed: 2.3, devices: 50, clients: 500, wan: '2.5 GbE', lan: '4x 2.5GbE', sfp: null,
+    wifi: null, poe: null, storage: 'NVMe (opt)', formFactor: 'Desktop', power: 20,
+    features: ['NVMe Slot', 'Fanless'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Fanless with NVMe option' },
+  'UX7': { name: 'Express 7', sku: 'UX7', category: 'compact', color: '#8B5CF6', msrp: 199, status: 'new',
+    ipsSpeed: 2.3, devices: 30, clients: 300, wan: '10G RJ45', lan: '1x 2.5GbE', sfp: null,
+    wifi: 'Wi-Fi 7 (6-stream)', poe: null, storage: null, formFactor: 'Desktop', power: 15,
+    features: ['Wi-Fi 7', 'Fanless', 'Mesh'], apps: ['Network'], notes: 'Compact Wi-Fi 7 - can be mesh node' },
+  'UCG-Fiber': { name: 'Cloud Gateway Fiber', sku: 'UCG-Fiber', category: 'compact', color: '#14B8A6', msrp: 279, status: 'new',
+    ipsSpeed: 5, devices: 100, clients: 1000, wan: '2x 10G SFP+', lan: '4x 2.5GbE + 10G RJ45', sfp: '2x 10G SFP+',
+    wifi: null, poe: '1x PoE+ (30W)', storage: 'NVMe (opt)', formFactor: 'Desktop', power: 40,
+    features: ['10G', 'PoE+', 'NVMe'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Best compact - 5 Gbps IPS' },
+  'UDR7': { name: 'Dream Router 7', sku: 'UDR7', category: 'compact', color: '#8B5CF6', msrp: 279, status: 'new',
+    ipsSpeed: 2.3, devices: 50, clients: 300, wan: '10G SFP+', lan: '3x 2.5GbE', sfp: '1x 10G SFP+',
+    wifi: 'Wi-Fi 7 (Tri-band)', poe: '1x PoE (15W)', storage: '64GB microSD', formFactor: 'Tower', power: 30,
+    features: ['Wi-Fi 7', '10G', 'PoE'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'All-in-one Wi-Fi 7 gateway' },
+
+  // Rackmount
+  'UDM-Pro': { name: 'Dream Machine Pro', sku: 'UDM-Pro', category: 'rackmount', color: '#3B82F6', msrp: 379, status: 'current',
+    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+ / 1G RJ45', lan: '8x 1GbE', sfp: '1x 10G SFP+',
+    wifi: null, poe: null, storage: '1x 3.5" HDD', formFactor: '1U Rack', power: 48,
+    features: ['10G SFP+', 'NVR'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Standard rackmount gateway' },
+  'UDM-SE': { name: 'Dream Machine SE', sku: 'UDM-SE', category: 'rackmount', color: '#3B82F6', msrp: 499, status: 'current',
+    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+ / 2.5G RJ45', lan: '8x 1GbE', sfp: '1x 10G SFP+',
+    wifi: null, poe: '2x PoE+ (60W)', storage: '1x 3.5" HDD', formFactor: '1U Rack', power: 140,
+    features: ['10G SFP+', 'PoE+', 'NVR', '2.5G WAN'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'With PoE+ ports' },
+  'UDM-Pro-Max': { name: 'Dream Machine Pro Max', sku: 'UDM-Pro-Max', category: 'rackmount', color: '#8B5CF6', msrp: 599, status: 'current',
+    ipsSpeed: 5, devices: 200, clients: 2000, wan: '10G SFP+ / 2.5G RJ45', lan: '8x 1GbE', sfp: '2x 10G SFP+',
+    wifi: null, poe: null, storage: '2x 3.5" HDD (RAID)', formFactor: '1U Rack', power: 60,
+    features: ['10G SFP+', 'RAID', 'Shadow Mode'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Best prosumer - Shadow Mode HA' },
+
+  // Enterprise
+  'EFG': { name: 'Enterprise Fortress Gateway', sku: 'EFG', category: 'enterprise', color: '#DC2626', msrp: 1999, status: 'current',
+    ipsSpeed: 12.5, devices: 500, clients: 5000, wan: '2x 25G SFP28', lan: '2x 2.5GbE', sfp: '2x 10G SFP+ + 2x 25G SFP28',
+    wifi: null, poe: null, storage: null, formFactor: '1U Rack', power: 200,
+    features: ['25G', 'Shadow Mode', 'SSL Inspect', 'Dual PSU'], apps: ['Network'], notes: 'Enterprise flagship - 12.5 Gbps IPS' },
+  'UXG-Enterprise': { name: 'UXG Enterprise', sku: 'UXG-Enterprise', category: 'enterprise', color: '#DC2626', msrp: 1999, status: 'current',
+    ipsSpeed: 12.5, devices: 500, clients: 5000, wan: '2x 25G SFP28', lan: '2x 2.5GbE', sfp: '2x 10G SFP+ + 2x 25G SFP28',
+    wifi: null, poe: null, storage: null, formFactor: '1U Rack', power: 200,
+    features: ['25G', 'Shadow Mode', 'SSL Inspect', 'Dual PSU', 'External Controller'], apps: ['Network (external)'], notes: 'Like EFG but external controller' },
+
+  // Special
+  'UDW': { name: 'Dream Wall', sku: 'UDW', category: 'special', color: '#F97316', msrp: 1299, status: 'current',
+    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+', lan: '12x 1GbE', sfp: '2x 10G SFP+',
+    wifi: 'Wi-Fi 6 (4x4)', poe: '8x PoE+ (120W)', storage: '128GB SSD', formFactor: 'Wall-mount', power: 200,
+    features: ['Wi-Fi 6', '10G', 'PoE+', 'Touchscreen'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Wall-mounted all-in-one' },
+  'UDR-5G-Max': { name: 'Dream Router 5G Max', sku: 'UDR-5G-Max', category: 'special', color: '#F97316', msrp: 499, status: 'new',
+    ipsSpeed: 2.3, devices: 50, clients: 500, wan: '5G Cellular + 2.5G', lan: '4x 2.5GbE', sfp: null,
+    wifi: 'Wi-Fi 7 (Tri-band)', poe: '1x PoE (15W)', storage: 'NVMe (opt)', formFactor: 'Tower', power: 35,
+    features: ['5G Cellular', 'Wi-Fi 7', 'Dual SIM'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: '5G cellular failover' }
+};
