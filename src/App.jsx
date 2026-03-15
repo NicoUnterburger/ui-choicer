@@ -947,6 +947,7 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1">6 GHz</th>
                       <th className="p-1">IP</th>
                       <th className="p-1">BLE</th>
+                      <th className="p-1">{T.card_mountlabel.replace(':', '')}</th>
                       <th className="p-1">Uplink</th>
                       <th className="p-1">PoE</th>
                       <th className="p-1">{T.tbl_price}</th>
@@ -965,6 +966,7 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center">{d.radio6 ? '✓' : '-'}</td>
                         <td className="p-1 text-center text-sky-400">{d.features.find(f => f.startsWith('IP')) || '-'}</td>
                         <td className="p-1 text-center">{d.features.includes('BLE') ? '✓' : '-'}</td>
+                        <td className="p-1 text-center text-gray-300">{d.mount}</td>
                         <td className="p-1 text-center">{d.ethernet}</td>
                         <td className="p-1 text-center">{d.poe.replace(/\s*\([^)]*\)/, '')}</td>
                         <td className="p-1 text-center text-green-400">{formatPrice(d.msrp)}</td>

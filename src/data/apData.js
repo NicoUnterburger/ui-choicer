@@ -336,7 +336,7 @@ export const apData = {
     radio5: { mimo: '8x8', txPower: 30, gain: 11, maxRate: 23000 },
     radio6: { mimo: '8x8', txPower: 36, gain: 15, maxRate: 23000 },
     streams: 20, coverage: 465, clients: '1500+',
-    ethernet: '4x 10 GbE', poe: 'PoE++ (90W)', mount: 'Pole/Truss',
+    ethernet: '10 GbE + 1 GbE', poe: 'PoE++ (90W)', mount: 'Pole/Truss',
     features: ['6 GHz', 'AFC', 'Stadium', 'IP68'], notes: 'Stadium - 4x 10G',
     elevation: { '2.4GHz': [-2, 4, 5.5, 6, 5.5, 4, 2.5, 0.5, -2, -5], '5GHz': [-4, 7, 10, 11, 10, 7.5, 4.5, 1, -3, -8], '6GHz': [-5, 10, 13.5, 15, 13.5, 10.5, 6, 1.5, -4, -10] },
     azimuth: { '2.4GHz': [6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7], '5GHz': [11, 10.8, 10.9, 10.7, 11, 10.8, 10.9, 10.7, 11, 10.8, 10.9, 10.7], '6GHz': [15, 14.8, 14.9, 14.7, 15, 14.8, 14.9, 14.7, 15, 14.8, 14.9, 14.7] },
