@@ -6,7 +6,8 @@ import { gatewayData } from './data/gatewayData.js';
 import { nvrData } from './data/nvrData.js';
 import { nasData } from './data/nasData.js';
 import { bridgeData } from './data/bridgeData.js';
-import { apCategories, switchCategories, cameraCategories, gatewayCategories, nvrCategories, nasCategories, bridgeCategories } from './data/categories.js';
+import { accessData } from './data/accessData.js';
+import { apCategories, switchCategories, cameraCategories, gatewayCategories, nvrCategories, nasCategories, bridgeCategories, accessCategories } from './data/categories.js';
 import { translations } from './data/translations.js';
 
 function compareEntries([, a], [, b], col, dir, getter) {
@@ -38,6 +39,7 @@ export default function UniFiNetworkPortal() {
   const [nvrCategoryFilter, setNvrCategoryFilter] = useState('all');
   const [nasCategoryFilter, setNasCategoryFilter] = useState('all');
   const [bridgeCategoryFilter, setBridgeCategoryFilter] = useState('all');
+  const [accessCategoryFilter, setAccessCategoryFilter] = useState('all');
   const [showHelp, setShowHelp] = useState(false);
   const [lang, setLang] = useState(() => localStorage.getItem('ui-choicer-lang') || 'en');
 
@@ -52,6 +54,9 @@ export default function UniFiNetworkPortal() {
   const [nvrSort,    setNvrSort]    = useState({ col: null, dir: 'asc' });
   const [nasSort,    setNasSort]    = useState({ col: null, dir: 'asc' });
   const [bridgeSort, setBridgeSort] = useState({ col: null, dir: 'asc' });
+  const [accessSort, setAccessSort] = useState({ col: null, dir: 'asc' });
+  const [selectedAccess, setSelectedAccess] = useState('Doorbell-Pro');
+  const [accessFilters, setAccessFilters] = useState({ search: '' });
 
   const handleSort = (setter) => (col) =>
     setter(prev => ({ col, dir: prev.col === col && prev.dir === 'asc' ? 'desc' : 'asc' }));
@@ -586,6 +591,20 @@ export default function UniFiNetworkPortal() {
     return count;
   }, [bridgeFilters, bridgeCategoryFilter]);
 
+  const filteredAccess = useMemo(() => {
+    const getter = (d, col) => d[col] ?? null;
+    const filtered = Object.entries(accessData).filter(([, d]) => {
+      if (accessCategoryFilter !== 'all' && d.category !== accessCategoryFilter) return false;
+      if (accessFilters.search) {
+        const q = accessFilters.search.toLowerCase();
+        if (!d.name.toLowerCase().includes(q) && !d.sku.toLowerCase().includes(q)) return false;
+      }
+      return true;
+    });
+    if (!accessSort.col) return filtered;
+    return [...filtered].sort((a, b) => compareEntries(a, b, accessSort.col, accessSort.dir, getter));
+  }, [accessCategoryFilter, accessFilters, accessSort]);
+
   const ap = apData[selectedAP];
   const sw = switchData[selectedSwitch];
   const cam = cameraData[selectedCamera];
@@ -593,6 +612,7 @@ export default function UniFiNetworkPortal() {
   const nvr = nvrData[selectedNVR];
   const nas = nasData[selectedNAS];
   const br = bridgeData[selectedBridge];
+  const acc = accessData[selectedAccess];
 
   const FeatureBadge = ({ feature }) => {
     const colors = {
@@ -674,6 +694,7 @@ export default function UniFiNetworkPortal() {
               { id: 'wifi', label: T.nav_aps, count: Object.keys(apData).length },
               { id: 'bridges', label: T.nav_ptplinks, count: Object.keys(bridgeData).length },
               { id: 'cameras', label: T.nav_cameras, count: Object.keys(cameraData).length },
+              { id: 'access', label: T.nav_access, count: Object.keys(accessData).length },
               { id: 'nvr', label: T.nav_nvr, count: Object.keys(nvrData).length },
               { id: 'nas', label: T.nav_unas, count: Object.keys(nasData).length },
             ].map(tab => (
@@ -1805,6 +1826,170 @@ export default function UniFiNetworkPortal() {
               <div className="bg-gray-800 rounded p-2 border-l-4 border-red-500">
                 <h4 className="font-semibold text-red-400 text-xs">PTZ Premium</h4>
                 <p className="text-xs text-gray-300">AI PTZ Precision ~1.999 €</p>
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* ==================== ACCESS SECTION ==================== */}
+        {activeSection === 'access' && (
+          <>
+            {/* Search + Category Filter */}
+            <div className="bg-gray-800 rounded-lg p-3 mb-2">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder={T.search_access}
+                  value={accessFilters.search}
+                  onChange={(e) => setAccessFilters(prev => ({ ...prev, search: e.target.value }))}
+                  className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-purple-500"
+                />
+                {accessFilters.search && (
+                  <button onClick={() => setAccessFilters({ search: '' })} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">✕</button>
+                )}
+              </div>
+            </div>
+
+            {/* Category Filter */}
+            <div className="flex flex-wrap justify-center gap-1 mb-2">
+              {Object.entries(accessCategories).map(([k, v]) => (
+                <button key={k} onClick={() => setAccessCategoryFilter(k)}
+                  className={`px-2 py-0.5 rounded text-xs font-medium ${accessCategoryFilter === k ? 'bg-purple-600' : 'bg-gray-700'}`}>{v}</button>
+              ))}
+            </div>
+
+            {/* Results Count */}
+            <div className="text-center text-sm text-gray-400 mb-2">
+              {filteredAccess.length} {T.results_of} {Object.keys(accessData).length} Access Devices
+            </div>
+
+            {/* Product Selector */}
+            <div className="flex flex-wrap justify-center gap-1 mb-2 max-h-24 overflow-y-auto">
+              {filteredAccess.map(([k, d]) => (
+                <button key={k} onClick={() => setSelectedAccess(k)}
+                  className={`px-1.5 py-0.5 rounded text-xs font-medium transition-all flex items-center gap-0.5 ${selectedAccess === k ? 'text-white shadow-lg' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+                  style={selectedAccess === k ? { backgroundColor: d.color } : {}}>
+                  {d.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Detail Card */}
+            {acc && (
+              <div className="bg-gray-800 rounded-lg p-3 mb-2">
+                <div className="flex flex-wrap justify-between items-start gap-2">
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h2 className="text-lg font-bold" style={{ color: acc.color }}>{acc.name}</h2>
+                      <a href={getGeizhalsLink(acc.sku)} target="_blank" rel="noopener noreferrer"
+                        className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
+                        🛒 Geizhals
+                      </a>
+                      <button onClick={() => toggleCart(acc.sku, acc.name, acc.msrp, T.section_access, acc.color)}
+                        className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(acc.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
+                        {isInCart(acc.sku) ? T.btn_saved : T.btn_save}
+                      </button>
+                    </div>
+                    <div className="text-xs text-gray-400">{acc.sku}</div>
+                    <div className="flex gap-1 flex-wrap mt-1">
+                      <span className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">{acc.generation}</span>
+                      <span className="bg-green-700 px-1.5 py-0.5 rounded text-xs font-bold">~{formatPrice(acc.msrp)}</span>
+                      {acc.features.map(f => <FeatureBadge key={f} feature={f} />)}
+                    </div>
+                  </div>
+
+                  {/* Specs tiles */}
+                  <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                    {acc.resolution && <div><div className="text-gray-500">Resolution</div><div className="font-bold text-sm">{acc.resolution}</div></div>}
+                    {acc.fov && <div><div className="text-gray-500">FoV</div><div className="font-bold text-sm">{acc.fov}</div></div>}
+                    {acc.irRange != null && <div><div className="text-gray-500">IR Range</div><div className="font-bold text-sm">{acc.irRange}m</div></div>}
+                  </div>
+                </div>
+
+                {/* Details Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
+                  <div className="bg-gray-700/50 rounded p-2">
+                    <h4 className="text-xs font-semibold text-blue-400 mb-1">Connection</h4>
+                    <div className="text-xs">{acc.connection}</div>
+                  </div>
+                  <div className="bg-gray-700/50 rounded p-2">
+                    <h4 className="text-xs font-semibold text-cyan-400 mb-1">IP Rating</h4>
+                    <div className="text-xs">{acc.ip}</div>
+                  </div>
+                  {acc.display && (
+                    <div className="bg-gray-700/50 rounded p-2">
+                      <h4 className="text-xs font-semibold text-yellow-400 mb-1">Display</h4>
+                      <div className="text-xs">{acc.display}</div>
+                    </div>
+                  )}
+                  {acc.audio && (
+                    <div className="bg-gray-700/50 rounded p-2">
+                      <h4 className="text-xs font-semibold text-purple-400 mb-1">Audio</h4>
+                      <div className="text-xs">{acc.audio}</div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Auth method tiles */}
+                <div className="flex flex-wrap gap-2 mt-3">
+                  <div className={`px-2 py-1 rounded text-xs font-semibold ${acc.nfc ? 'bg-teal-700 text-teal-200' : 'bg-gray-700/40 text-gray-500'}`}>NFC {acc.nfc ? '✓' : '✗'}</div>
+                  <div className={`px-2 py-1 rounded text-xs font-semibold ${acc.pin ? 'bg-blue-700 text-blue-200' : 'bg-gray-700/40 text-gray-500'}`}>PIN {acc.pin ? '✓' : '✗'}</div>
+                  <div className={`px-2 py-1 rounded text-xs font-semibold ${acc.ble ? 'bg-indigo-700 text-indigo-200' : 'bg-gray-700/40 text-gray-500'}`}>BLE {acc.ble ? '✓' : '✗'}</div>
+                  <div className={`px-2 py-1 rounded text-xs font-semibold ${acc.faceId ? 'bg-pink-700 text-pink-200' : 'bg-gray-700/40 text-gray-500'}`}>Face ID {acc.faceId ? '✓' : '✗'}</div>
+                </div>
+
+                {acc.notes && <div className="text-yellow-400 text-xs mt-2">💡 {acc.notes}</div>}
+              </div>
+            )}
+
+            {/* Comparison Table */}
+            <div className="bg-gray-800 rounded-lg overflow-hidden">
+              <h3 className="bg-gray-700 px-3 py-1.5 font-semibold text-sm">{T.tbl_comparison}</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs">
+                  <thead className="bg-gray-700">
+                    {(() => {
+                      const S = (col, label, cls='') => {
+                        const active = accessSort.col === col;
+                        return <th onClick={() => handleSort(setAccessSort)(col)} className={`p-1 cursor-pointer select-none hover:text-white ${cls}`}>{label}{active ? (accessSort.dir === 'asc' ? ' ▲' : ' ▼') : ''}</th>;
+                      };
+                      return (<tr>
+                        {S('name', T.tbl_model, 'text-left')}
+                        {S('category', 'Type')}
+                        {S('resolution', 'Resolution')}
+                        {S('fov', 'FoV')}
+                        {S('ip', 'IP')}
+                        {S('connection', 'Connection')}
+                        <th className="p-1">NFC</th>
+                        <th className="p-1">PIN</th>
+                        <th className="p-1">BLE</th>
+                        <th className="p-1">Face ID</th>
+                        {S('display', 'Display')}
+                        {S('msrp', T.tbl_price)}
+                        <th className="p-1">🛒</th>
+                      </tr>);
+                    })()}
+                  </thead>
+                  <tbody>
+                    {filteredAccess.map(([k, d]) => (
+                      <tr key={k} className={`border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${selectedAccess === k ? 'bg-gray-700' : ''}`} onClick={() => setSelectedAccess(k)}>
+                        <td className="p-1 font-semibold" style={{ color: d.color }}>{d.name}</td>
+                        <td className="p-1 text-center capitalize">{d.category}</td>
+                        <td className="p-1 text-center">{d.resolution || '—'}</td>
+                        <td className="p-1 text-center">{d.fov || '—'}</td>
+                        <td className="p-1 text-center text-sky-400">{d.ip}</td>
+                        <td className="p-1 text-center">{d.connection}</td>
+                        <td className="p-1 text-center">{d.nfc ? '✓' : '—'}</td>
+                        <td className="p-1 text-center">{d.pin ? '✓' : '—'}</td>
+                        <td className="p-1 text-center">{d.ble ? '✓' : '—'}</td>
+                        <td className="p-1 text-center">{d.faceId ? '✓' : '—'}</td>
+                        <td className="p-1 text-center">{d.display || '—'}</td>
+                        <td className="p-1 text-center text-green-400">{formatPrice(d.msrp)}</td>
+                        <td className="p-1 text-center"><a href={getGeizhalsLink(d.sku)} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-orange-400 hover:text-orange-300">→</a></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </>

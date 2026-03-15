@@ -1,6 +1,6 @@
 # ui-choicer
 
-Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 137 Produkte in 7 Kategorien.
+Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 142 Produkte in 8 Kategorien.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwindcss)
@@ -9,8 +9,8 @@ Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 137 Prod
 
 ## Features
 
-- **7 Produktkategorien**: Gateways, Switches, Access Points, Richtfunk, Cameras, NVR, UNAS
-- **137 Produkte** mit detaillierten Spezifikationen und Vergleichstabellen
+- **8 Produktkategorien**: Gateways, Switches, Access Points, Richtfunk, Cameras, Access, NVR, UNAS
+- **142 Produkte** mit detaillierten Spezifikationen und Vergleichstabellen
 - **SVG Strahlungsdiagramme** für Access Points (Elevation + Azimuth) und Richtfunk-Antennen
 - **Merkliste** mit Mengensteuerung, Gesamtpreisberechnung und Gruppen nach Kategorie
 - **EN/DE Sprachumschaltung** mit Flaggen-Toggle, localStorage-Persistenz
@@ -26,7 +26,8 @@ Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 137 Prod
 | **Switches** | 41 | PoE/PoE+/PoE++, L2/L3, 1G/2.5G/10G/25G |
 | **Access Points** | 27 | Wi-Fi 5/6/6E/7, Strahlungsdiagramme, BLE |
 | **Richtfunk** | 22 | 5/24/60 GHz, Strahlungsdiagramme, bis 100 km |
-| **Cameras** | 26 | 4K/8K, AI, LPR, PTZ, Audio |
+| **Cameras** | 23 | 4K/8K, AI, LPR, PTZ, Audio |
+| **Access** | 8 | Türklingeln, Intercoms, Reader (NFC/PIN/Face ID) |
 | **NVR** | 4 | RAID, bis 210 Streams, 16 Bays |
 | **UNAS** | 5 | NVMe Cache, 10G/25G, iSCSI |
 
@@ -40,7 +41,7 @@ Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 137 Prod
 ```text
 ui-choicer/
 ├── src/
-│   ├── App.jsx              # Hauptkomponente (~2800 Zeilen)
+│   ├── App.jsx              # Hauptkomponente (~3000 Zeilen)
 │   ├── main.jsx             # React Entry Point
 │   ├── index.css            # Tailwind + Custom Styles
 │   └── data/                # Produktdaten (ausgelagert)
@@ -48,6 +49,7 @@ ui-choicer/
 │       ├── switchData.js
 │       ├── cameraData.js
 │       ├── gatewayData.js
+│       ├── accessData.js
 │       ├── nvrData.js
 │       ├── nasData.js
 │       ├── bridgeData.js

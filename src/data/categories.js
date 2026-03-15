@@ -5,3 +5,4 @@ export const gatewayCategories = { 'all': 'All', 'compact': 'Compact/Desktop', '
 export const nvrCategories = { 'all': 'All', 'compact': 'Compact', 'rackmount': 'Rackmount', 'enterprise': 'Enterprise' };
 export const nasCategories = { 'all': 'All', 'desktop': 'Desktop', 'rackmount': 'Rackmount', 'legacy': 'Legacy' };
 export const bridgeCategories = { 'all': 'All', 'unifi-ptp': 'UniFi Building', 'ltu-basestation': 'LTU Base Station', 'ltu-client': 'LTU Client', 'airmax-ptp': 'airMAX AC', 'airfiber': 'airFiber', 'gigabeam': 'GigaBeam', 'antenna': 'Antennas' };
+export const accessCategories = { 'all': 'All', 'doorbell': 'Doorbell', 'intercom': 'Intercom', 'reader': 'Reader' };

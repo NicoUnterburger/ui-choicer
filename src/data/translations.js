@@ -3,7 +3,7 @@ export const translations = {
     // Nav
     nav_saved: '🛒 Saved', nav_ptplinks: 'PTP Links', nav_cameras: 'Cameras',
     nav_gateways: 'Gateways', nav_switches: 'Switches', nav_aps: 'Access Points',
-    nav_nvr: 'NVR', nav_unas: 'UNAS',
+    nav_nvr: 'NVR', nav_unas: 'UNAS', nav_access: 'Access',
     // Status
     status_new: 'NEW', status_legacy: 'LEGACY',
     // Buttons
@@ -57,7 +57,8 @@ export const translations = {
     cart_removeall: 'Remove all', cart_total_suffix: 'items · Estimated total (MSRP)',
     // Cart section labels (display only)
     section_gateway: 'Gateway', section_switch: 'Switch', section_ap: 'Access Point',
-    section_ptplink: 'PTP Link', section_camera: 'Camera', section_nvr: 'NVR', section_nas: 'NAS',
+    section_ptplink: 'PTP Link', section_camera: 'Camera', section_nvr: 'NVR', section_nas: 'NAS', section_access: 'Access',
+    search_access: '🔍 Search access devices (name, SKU...)',
     // Footer
     footer_prices: 'Prices ~MSRP in €',
     footer_disclaimer: 'ui-choicer is not affiliated with, endorsed by, or sponsored by Ubiquiti Inc. All product names, logos, and trademarks are the property of their respective owners. Prices are approximate MSRP and may differ from current retail prices. All information is provided without warranty of accuracy or completeness. Use at your own risk.',
@@ -67,7 +68,7 @@ export const translations = {
     // Nav
     nav_saved: '🛒 Merkliste', nav_ptplinks: 'Richtfunk', nav_cameras: 'Kameras',
     nav_gateways: 'Gateways', nav_switches: 'Switches', nav_aps: 'Access Points',
-    nav_nvr: 'NVR', nav_unas: 'UNAS',
+    nav_nvr: 'NVR', nav_unas: 'UNAS', nav_access: 'Access',
     // Status
     status_new: 'NEU', status_legacy: 'LEGACY',
     // Buttons
@@ -121,7 +122,8 @@ export const translations = {
     cart_removeall: 'Alle entfernen', cart_total_suffix: 'Artikel · Geschätzter Gesamtpreis (UVP)',
     // Cart section labels (display only)
     section_gateway: 'Gateway', section_switch: 'Switch', section_ap: 'Access Point',
-    section_ptplink: 'Richtfunk', section_camera: 'Kamera', section_nvr: 'NVR', section_nas: 'NAS',
+    section_ptplink: 'Richtfunk', section_camera: 'Kamera', section_nvr: 'NVR', section_nas: 'NAS', section_access: 'Access',
+    search_access: '🔍 Access-Geräte suchen (Name, SKU...)',
     // Footer
     footer_prices: 'Preise ~UVP in €',
     footer_disclaimer: 'ui-choicer steht in keiner Verbindung zu Ubiquiti Inc. und wird von dieser nicht gesponsert oder empfohlen. Alle Produktnamen, Logos und Marken sind Eigentum ihrer jeweiligen Inhaber. Die angezeigten Preise sind ungefähre UVP-Angaben und können von aktuellen Marktpreisen abweichen. Alle Angaben ohne Gewähr.',

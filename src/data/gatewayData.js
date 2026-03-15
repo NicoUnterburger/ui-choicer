@@ -23,7 +23,7 @@ export const gatewayData = {
 
   // Rackmount
   'UDM-Pro': { name: 'Dream Machine Pro', sku: 'UDM-Pro', category: 'rackmount', color: '#3B82F6', msrp: 379, status: 'current',
-    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+ / 1G RJ45', lan: '8x 1GbE', sfp: '1x 10G SFP+',
+    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+ / 1G RJ45', lan: '8x 1GbE', sfp: '2x 10G SFP+',
     wifi: null, poe: null, storage: '1x 3.5" HDD', formFactor: '1U Rack', power: 48,
     features: ['10G SFP+', 'NVR'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Standard rackmount gateway' },
   'UDM-SE': { name: 'Dream Machine SE', sku: 'UDM-SE', category: 'rackmount', color: '#3B82F6', msrp: 499, status: 'current',
@@ -51,7 +51,7 @@ export const gatewayData = {
     wifi: 'Wi-Fi 6 (4x4)', poe: '12x PoE (420W)', storage: '128GB SSD', formFactor: 'Wall-mount', power: 532,
     features: ['Wi-Fi 6', '10G', 'PoE+', 'Touchscreen'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Wall-mounted all-in-one' },
   'UDR-5G-Max': { name: 'Dream Router 5G Max', sku: 'UDR-5G-Max', category: 'special', color: '#F97316', msrp: 499, status: 'new',
-    ipsSpeed: 2.3, devices: 50, clients: 500, wan: '5G Cellular + 2.5G', lan: '4x 2.5GbE', sfp: null,
+    ipsSpeed: 2.3, devices: 50, clients: 500, wan: '5G Cellular + 2.5G', lan: '4x 2.5GbE', sfp: '1x 10G SFP+',
     wifi: 'Wi-Fi 7 (Tri-band)', poe: '1x PoE (15W)', storage: 'NVMe (opt)', formFactor: 'Tower', power: 35,
     features: ['5G Cellular', 'Wi-Fi 7', 'Dual SIM'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: '5G cellular failover' }
 };
