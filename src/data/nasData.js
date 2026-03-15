@@ -1,7 +1,7 @@
 export const nasData = {
   // Desktop Series
   'UNAS-2': {
-    name: 'UniFi NAS 2', sku: 'UNAS-2', category: 'desktop', color: '#3B82F6', msrp: 189, status: 'current',
+    name: 'UNAS 2', sku: 'UNAS-2', category: 'desktop', color: '#3B82F6', msrp: 189, status: 'current',
     bays: 2, baySize: '3.5"', maxStorage: '40 TB',
     network: '2.5 GbE', networkPorts: 1, cacheSlots: 0,
     cpu: 'ARM Cortex-A55 (Quad-Core, 1.7 GHz)', ram: '4 GB', ramMax: '4 GB',
@@ -12,7 +12,7 @@ export const nasData = {
     notes: 'PoE++ powered — no AC adapter needed'
   },
   'UNAS-4': {
-    name: 'UniFi NAS 4', sku: 'UNAS-4', category: 'desktop', color: '#3B82F6', msrp: 359, status: 'current',
+    name: 'UNAS 4', sku: 'UNAS-4', category: 'desktop', color: '#3B82F6', msrp: 359, status: 'current',
     bays: 4, baySize: '3.5"', maxStorage: '80 TB',
     network: '2.5 GbE', networkPorts: 1, cacheSlots: 2,
     cpu: 'ARM Cortex-A55 (Quad-Core, 1.7 GHz)', ram: '4 GB', ramMax: '4 GB',
@@ -24,7 +24,7 @@ export const nasData = {
   },
   // Rackmount Series
   'UNAS-Pro': {
-    name: 'UniFi NAS Pro', sku: 'UNAS-Pro', category: 'legacy', color: '#6B7280', msrp: 469, status: 'legacy',
+    name: 'UNAS Pro', sku: 'UNAS-Pro', category: 'legacy', color: '#6B7280', msrp: 469, status: 'legacy',
     bays: 7, baySize: '3.5"/2.5"', maxStorage: '140 TB',
     network: '10G SFP+ + 1 GbE', networkPorts: 2, cacheSlots: 0,
     cpu: 'ARM Cortex-A57 (Quad-Core, 1.7 GHz)', ram: '8 GB', ramMax: '8 GB',
@@ -35,7 +35,7 @@ export const nasData = {
     notes: 'Original model — superseded by Pro 4 / Pro 8'
   },
   'UNAS-Pro-4': {
-    name: 'UniFi NAS Pro 4', sku: 'UNAS-Pro-4', category: 'rackmount', color: '#8B5CF6', msrp: 469, status: 'current',
+    name: 'UNAS Pro 4', sku: 'UNAS-Pro-4', category: 'rackmount', color: '#8B5CF6', msrp: 469, status: 'current',
     bays: 4, baySize: '3.5"/2.5"', maxStorage: '80 TB',
     network: '2× 10G SFP+ + 1 GbE', networkPorts: 3, cacheSlots: 2,
     cpu: 'ARM Cortex-A57 (Quad-Core, 2.0 GHz)', ram: '8 GB', ramMax: '8 GB',
@@ -46,7 +46,7 @@ export const nasData = {
     notes: '1U rackmount with dual 10G and NVMe cache'
   },
   'UNAS-Pro-8': {
-    name: 'UniFi NAS Pro 8', sku: 'UNAS-Pro-8', category: 'rackmount', color: '#8B5CF6', msrp: 749, status: 'current',
+    name: 'UNAS Pro 8', sku: 'UNAS-Pro-8', category: 'rackmount', color: '#8B5CF6', msrp: 749, status: 'current',
     bays: 8, baySize: '3.5"/2.5"', maxStorage: '160 TB',
     network: '2× 10G SFP+ + 10 GbE', networkPorts: 3, cacheSlots: 2,
     cpu: 'ARM Cortex-A57 (Quad-Core, 2.0 GHz)', ram: '16 GB', ramMax: '16 GB',

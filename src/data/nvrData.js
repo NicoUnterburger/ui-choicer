@@ -8,13 +8,13 @@ export const nvrData = {
   },
   // Standard Rackmount
   'UNVR': {
-    name: 'UniFi NVR', sku: 'UNVR', category: 'rackmount', color: '#3B82F6', msrp: 279, status: 'current',
+    name: 'NVR', sku: 'UNVR', category: 'rackmount', color: '#3B82F6', msrp: 279, status: 'current',
     bays: 4, baySize: '3.5"/2.5"', maxStorage: '80 TB', cameras: 18, streams: 60,
     network: '10G SFP+ + 1 GbE', raidSupport: true, formFactor: '1U Rack', power: 100,
     features: ['10G SFP+', 'RAID', 'DC Backup'], notes: '18×4K or 60×FHD cameras'
   },
   'UNVR-Pro': {
-    name: 'UniFi NVR Pro', sku: 'UNVR-Pro', category: 'rackmount', color: '#8B5CF6', msrp: 469, status: 'current',
+    name: 'NVR Pro', sku: 'UNVR-Pro', category: 'rackmount', color: '#8B5CF6', msrp: 469, status: 'current',
     bays: 7, baySize: '3.5"/2.5"', maxStorage: '168 TB', cameras: 24, streams: 70,
     network: '10G SFP+ + 1 GbE', raidSupport: true, formFactor: '2U Rack', power: 100,
     features: ['10G SFP+', 'RAID 1/5/10', '7 Bays', 'Touchscreen'], notes: '24×4K or 70×FHD cameras'

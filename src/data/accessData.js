@@ -17,12 +17,12 @@ export const accessData = {
     features: ['Budget'], notes: 'Budget Türklingel' },
 
   // Intercoms
-  'UA-Intercom': { name: 'Access Intercom', sku: 'UA-Intercom', generation: 'UA',
+  'UA-Intercom': { name: 'Intercom', sku: 'UA-Intercom', generation: 'UA',
     category: 'intercom', color: '#8B5CF6', msrp: 399, status: 'current',
     resolution: '8MP', fov: '118°', irRange: 9, connection: 'PoE',
     audio: '2-way', faceId: true, nfc: true, pin: true, ble: false, display: '7"', ip: 'IP65',
     features: ['Face ID', 'NFC', 'PIN', 'QR Code', 'Touchscreen'], notes: 'Outdoor Intercom, 8MP, Face Unlock' },
-  'UA-Intercom-Viewer': { name: 'Access Intercom Viewer', sku: 'UA-Intercom-Viewer', generation: 'UA',
+  'UA-Intercom-Viewer': { name: 'Intercom Viewer', sku: 'UA-Intercom-Viewer', generation: 'UA',
     category: 'intercom', color: '#8B5CF6', msrp: 199, status: 'current',
     resolution: null, fov: null, irRange: null, connection: 'PoE',
     audio: '2-way', faceId: false, nfc: false, pin: false, ble: false, display: '5"', ip: 'Indoor',
