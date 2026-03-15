@@ -306,11 +306,11 @@ export const apData = {
   'E7': {
     name: 'E7', sku: 'E7', generation: 'Wi-Fi 7', category: 'enterprise',
     color: '#DC2626', msrp: 499, eur: 489, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-7-e7-a3271242.html', status: 'current',
-    radio24: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 688 },
+    radio24: { mimo: '2x2', txPower: 23, gain: 5, maxRate: 688 },
     radio5: { mimo: '4x4', txPower: 30, gain: 6, maxRate: 11530 },
     radio6: { mimo: '4x4', txPower: 30, gain: 6, maxRate: 11530 },
-    streams: 10, coverage: 185, clients: '1500+',
-    ethernet: '10 GbE + 1 GbE', poe: 'PoE++ (45W)', mount: 'Ceiling/Wall',
+    streams: 10, coverage: 185, clients: '1000+',
+    ethernet: '10 GbE + 1 GbE', poe: 'PoE++ (43W)', mount: 'Ceiling/Wall',
     features: ['6 GHz', '10G', 'Spectral', 'Dual Port'], notes: 'Enterprise flagship',
     elevation: { '2.4GHz': [-0.5, 3, 3.6, 4, 3.6, 3, 2.2, 1.2, 0.1, -3], '5GHz': [-2, 4, 5.5, 6, 5.5, 4.3, 3, 1.3, -0.8, -5], '6GHz': [-2, 4, 5.5, 6, 5.5, 4.3, 3, 1.3, -0.8, -5] },
     azimuth: { '2.4GHz': [4, 3.8, 3.9, 3.7, 4, 3.8, 3.9, 3.7, 4, 3.8, 3.9, 3.7], '5GHz': [6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7], '6GHz': [6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7] },
@@ -324,7 +324,7 @@ export const apData = {
     radio6: { mimo: '4x4', txPower: 36, gain: 12, maxRate: 11530 },
     streams: 10, coverage: 465, clients: '1500+',
     ethernet: '10 GbE + 1 GbE', poe: 'PoE++ (50W)', mount: 'Pole/Wall',
-    features: ['6 GHz', 'AFC', 'High-Gain', 'IP67'], notes: 'High-gain directional',
+    features: ['6 GHz', 'AFC', 'High-Gain', 'IPX6'], notes: 'High-gain directional (IP67 with cover kit)',
     elevation: { '2.4GHz': [-3, 6, 8, 9, 8, 6, 3.5, 0.5, -3, -7], '5GHz': [-5, 8, 11, 12, 11, 8.5, 5, 1, -4, -9], '6GHz': [-5, 8, 11, 12, 11, 8.5, 5, 1, -4, -9] },
     azimuth: { '2.4GHz': [9, 8.5, 8.7, 8.3, 9, 8.5, 8.7, 8.3, 9, 8.5, 8.7, 8.3], '5GHz': [12, 11.5, 11.7, 11.3, 12, 11.5, 11.7, 11.3, 12, 11.5, 11.7, 11.3], '6GHz': [12, 11.5, 11.7, 11.3, 12, 11.5, 11.7, 11.3, 12, 11.5, 11.7, 11.3] },
     beamwidth: { h: 120, v: 45 }
@@ -332,14 +332,13 @@ export const apData = {
   'E7-Audience': {
     name: 'E7-Audience', sku: 'E7-Audience', generation: 'Wi-Fi 7', category: 'enterprise',
     color: '#DC2626', msrp: 1499, eur: 1459, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-7-audience-e7-audience-a3320129.html', status: 'current',
-    radio24: { mimo: '4x4', txPower: 25, gain: 6, maxRate: 1376 },
-    radio5: { mimo: '8x8', txPower: 30, gain: 11, maxRate: 23000 },
-    radio6: { mimo: '8x8', txPower: 36, gain: 15, maxRate: 23000 },
-    streams: 20, coverage: 465, clients: '1500+',
+    radio5: { mimo: '4x4', txPower: 30, gain: 11, maxRate: 11530 },
+    radio6: { mimo: '2× 4x4', txPower: 36, gain: 15, maxRate: 23060 },
+    streams: 12, coverage: 465, clients: '1500+',
     ethernet: '10 GbE + 1 GbE', poe: 'PoE++ (90W)', mount: 'Pole/Truss',
-    features: ['6 GHz', 'AFC', 'Stadium', 'IP68'], notes: 'Stadium - 4x 10G',
-    elevation: { '2.4GHz': [-2, 4, 5.5, 6, 5.5, 4, 2.5, 0.5, -2, -5], '5GHz': [-4, 7, 10, 11, 10, 7.5, 4.5, 1, -3, -8], '6GHz': [-5, 10, 13.5, 15, 13.5, 10.5, 6, 1.5, -4, -10] },
-    azimuth: { '2.4GHz': [6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7, 6, 5.8, 5.9, 5.7], '5GHz': [11, 10.8, 10.9, 10.7, 11, 10.8, 10.9, 10.7, 11, 10.8, 10.9, 10.7], '6GHz': [15, 14.8, 14.9, 14.7, 15, 14.8, 14.9, 14.7, 15, 14.8, 14.9, 14.7] },
+    features: ['6 GHz', 'AFC', 'Stadium', 'IP68'], notes: 'Dual 6 GHz radios, no 2.4 GHz',
+    elevation: { '5GHz': [-4, 7, 10, 11, 10, 7.5, 4.5, 1, -3, -8], '6GHz': [-5, 10, 13.5, 15, 13.5, 10.5, 6, 1.5, -4, -10] },
+    azimuth: { '5GHz': [11, 10.8, 10.9, 10.7, 11, 10.8, 10.9, 10.7, 11, 10.8, 10.9, 10.7], '6GHz': [15, 14.8, 14.9, 14.7, 15, 14.8, 14.9, 14.7, 15, 14.8, 14.9, 14.7] },
     beamwidth: { h: 360, v: 60 }
   }
 };

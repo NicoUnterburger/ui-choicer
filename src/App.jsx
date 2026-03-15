@@ -774,6 +774,7 @@ export default function UniFiNetworkPortal() {
 
               {/* Radio Details */}
               <div className="grid grid-cols-3 gap-3">
+                {ap.radio24 ? (
                 <div className="bg-gray-700/50 rounded p-3">
                   <h4 className="text-orange-400 font-medium text-sm mb-2">2.4 GHz</h4>
                   <div className="text-xs space-y-1">
@@ -783,6 +784,11 @@ export default function UniFiNetworkPortal() {
                     <div className="flex justify-between"><span className="text-gray-400">Max</span><span>{ap.radio24.maxRate} Mbps</span></div>
                   </div>
                 </div>
+                ) : (
+                <div className="bg-gray-700/30 rounded p-3 flex items-center justify-center">
+                  <span className="text-xs text-gray-600">No 2.4 GHz</span>
+                </div>
+                )}
                 <div className="bg-gray-700/50 rounded p-3">
                   <h4 className="text-blue-400 font-medium text-sm mb-2">5 GHz</h4>
                   <div className="text-xs space-y-1">
@@ -818,7 +824,7 @@ export default function UniFiNetworkPortal() {
                   </h4>
                   {/* Band selector */}
                   <div className="flex gap-2 mb-3">
-                    {['2.4GHz', '5GHz', ...(ap.elevation['6GHz'] ? ['6GHz'] : [])].map(band => (
+                    {[...(ap.elevation['2.4GHz'] ? ['2.4GHz'] : []), '5GHz', ...(ap.elevation['6GHz'] ? ['6GHz'] : [])].map(band => (
                       <button key={band} onClick={() => setSelectedBand(band)}
                         className={`px-3 py-1 rounded text-xs font-medium transition-all ${selectedBand === band
                           ? band === '2.4GHz' ? 'bg-orange-600' : band === '5GHz' ? 'bg-blue-600' : 'bg-purple-600'
@@ -829,7 +835,7 @@ export default function UniFiNetworkPortal() {
                   </div>
                   {(() => {
                     const bandColor = selectedBand === '2.4GHz' ? '#F97316' : selectedBand === '5GHz' ? '#3B82F6' : '#A855F7';
-                    const bandGain = selectedBand === '2.4GHz' ? ap.radio24.gain : selectedBand === '5GHz' ? ap.radio5.gain : ap.radio6?.gain;
+                    const bandGain = selectedBand === '2.4GHz' ? ap.radio24?.gain : selectedBand === '5GHz' ? ap.radio5.gain : ap.radio6?.gain;
                     const lobeH = 88;
                     const lobeW = Math.min(72, (ap.beamwidth?.v || 75) * 0.92);
                     const vHalf = (ap.beamwidth?.v || 75) * 0.9;
@@ -914,7 +920,7 @@ export default function UniFiNetworkPortal() {
                     </div>
                     <div className="bg-gray-700/50 rounded p-1.5 text-center">
                       <div className="text-gray-400">{selectedBand} {T.rad_gainlabel}</div>
-                      <div className="font-bold text-amber-400">{selectedBand === '2.4GHz' ? ap.radio24.gain : selectedBand === '5GHz' ? ap.radio5.gain : ap.radio6?.gain} dBi</div>
+                      <div className="font-bold text-amber-400">{selectedBand === '2.4GHz' ? ap.radio24?.gain : selectedBand === '5GHz' ? ap.radio5.gain : ap.radio6?.gain} dBi</div>
                     </div>
                     <div className="bg-gray-700/50 rounded p-1.5 text-center">
                       <div className="text-gray-400">{T.rad_type}</div>
