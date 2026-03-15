@@ -66,7 +66,13 @@ export default function UniFiNetworkPortal() {
     
     // Access Points
     if (type === 'ap') {
-      return `${baseUrl}/wifi/${skuLower}`;
+      // Mapping für APs
+      const apMappings = {
+        'e7-audience': 'e7-audience-us',
+        'e7-campus': 'e7-campus-us'
+      };
+      const mapped = apMappings[skuLower] || skuLower;
+      return `${baseUrl}/wifi/${mapped}`;
     }
     
     // Switches
@@ -90,6 +96,16 @@ export default function UniFiNetworkPortal() {
       return `${baseUrl}/cameras-nvrs/${mapped}`;
     }
     
+    // NVR
+    if (type === 'nvr') {
+      return `${baseUrl}/cameras-nvrs/${skuLower}`;
+    }
+
+    // NAS
+    if (type === 'nas') {
+      return `${baseUrl}/integrations/${skuLower}`;
+    }
+
     return `https://techspecs.ui.com/?search=${encodeURIComponent(sku)}`;
   };
 
@@ -1805,6 +1821,10 @@ export default function UniFiNetworkPortal() {
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
                     </a>
+                    <a href={getDatasheetLink(nvr.sku, 'nvr')} target="_blank" rel="noopener noreferrer"
+                      className="bg-blue-700 hover:bg-blue-600 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
+                      {T.btn_specs}
+                    </a>
                     <button onClick={() => toggleCart(nvr.sku, nvr.name, nvr.msrp, 'NVR', nvr.color)}
                       className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(nvr.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
                       {isInCart(nvr.sku) ? T.btn_saved : T.btn_save}
@@ -1998,6 +2018,10 @@ export default function UniFiNetworkPortal() {
                     <a href={getGeizhalsLink(nas.sku)} target="_blank" rel="noopener noreferrer"
                       className="bg-orange-600 hover:bg-orange-500 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
                       🛒 Geizhals
+                    </a>
+                    <a href={getDatasheetLink(nas.sku, 'nas')} target="_blank" rel="noopener noreferrer"
+                      className="bg-blue-700 hover:bg-blue-600 px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1">
+                      {T.btn_specs}
                     </a>
                     <button onClick={() => toggleCart(nas.sku, nas.name, nas.msrp, 'NAS', nas.color)}
                       className={`px-1.5 py-0.5 rounded text-xs font-bold flex items-center gap-1 transition-colors ${isInCart(nas.sku) ? 'bg-green-600 hover:bg-red-700' : 'bg-gray-600 hover:bg-gray-500'}`}>
