@@ -70,31 +70,9 @@ export default function UniFiNetworkPortal() {
       const apMappings = {
         'uap-ac-lite': 'unifi-ap-ac-lite',
         'uap-ac-pro': 'unifi-ap-ac-pro',
-        'uap-nanohd': 'uap-nanohd',
-        'uap-flexhd': 'uap-flexhd',
-        'u6-lite': 'u6-lite',
-        'u6-plus': 'u6-plus',
-        'u6-lr': 'u6-lr',
-        'u6-pro': 'u6-pro',
-        'u6-mesh': 'u6-mesh',
-        'u6-mesh-pro': 'u6-mesh-pro',
-        'u6-iw': 'u6-iw',
-        'u6-extender': 'u6-extender',
-        'u6-enterprise': 'u6-enterprise',
-        'u6-enterprise-iw': 'u6-enterprise-iw',
-        'u7-lite': 'u7-lite',
-        'u7-lr': 'u7-lr',
-        'u7-pro': 'u7-pro',
-        'u7-pro-max': 'u7-pro-max',
-        'u7-pro-xg': 'u7-pro-xg',
-        'u7-pro-xgs': 'u7-pro-xgs',
-        'u7-iw': 'u7-iw',
-        'u7-pro-wall': 'u7-pro-wall',
-        'u7-outdoor': 'u7-outdoor',
-        'u7-pro-outdoor': 'u7-pro-outdoor',
         'e7': 'unifi-e7',
         'e7-campus': 'unifi-e7-campus',
-        'e7-audience': 'unifi-e7-audience'
+        'e7-audience': 'unifi-e7-audience',
       };
       const mapped = apMappings[skuLower] || skuLower;
       return `${baseUrl}/wifi/${mapped}`;
@@ -107,53 +85,15 @@ export default function UniFiNetworkPortal() {
     
     // Gateways
     if (type === 'gateway') {
-      const gwMappings = {
-        'ucg-ultra': 'ucg-ultra',
-        'ucg-max': 'ucg-max',
-        'ux7': 'ux7',
-        'ucg-fiber': 'ucg-fiber',
-        'udr7': 'udr7',
-        'udm-pro': 'udm-pro',
-        'udm-se': 'udm-se',
-        'udm-pro-max': 'udm-pro-max',
-        'efg': 'efg',
-        'uxg-enterprise': 'uxg-enterprise',
-        'udw': 'udw',
-        'udr-5g-max': 'udr-5g-max'
-      };
-      const mapped = gwMappings[skuLower] || skuLower;
+      const mapped = skuLower;
       return `${baseUrl}/cloud-gateways/${mapped}`;
     }
     
     // Cameras
     if (type === 'camera') {
       const camMappings = {
-        'uvc-g6-bullet': 'uvc-g6-bullet',
-        'uvc-g6-turret': 'uvc-g6-turret',
-        'uvc-g6-dome': 'uvc-g6-dome',
-        'uvc-g6-ins': 'uvc-g6-instant',
-        'uvc-g6-pro-bullet': 'uvc-g6-pro-bullet',
-        'uvc-g6-ptz': 'uvc-g6-ptz',
-        'uvc-g6-180': 'uvc-g6-180',
-        'uvc-g5-bullet': 'uvc-g5-bullet',
-        'uvc-g5-turret-ultra': 'uvc-g5-turret-ultra',
-        'uvc-g5-dome-ultra': 'uvc-g5-dome-ultra',
-        'uvc-g5-flex': 'uvc-g5-flex',
-        'uvc-g5-pro': 'uvc-g5-pro',
-        'uvc-g5-ptz': 'uvc-g5-ptz',
-        'uvc-ai-pro': 'uvc-ai-pro',
-        'uvc-ai-bullet': 'uvc-ai-bullet',
-        'uvc-ai-turret': 'uvc-ai-turret',
-        'uvc-ai-dome': 'uvc-ai-dome',
-        'uvc-ai-360': 'uvc-ai-360',
         'uvc-ai-lpr': 'uvc-ai-theta-lpr',
-        'uvc-ai-dslr': 'uvc-ai-dslr',
-        'uvc-ai-ptz': 'uvc-ai-ptz',
-        'uvc-ai-ptz-precision': 'uvc-ai-ptz-precision',
-        'uvc-ai-theta': 'uvc-ai-theta',
-        'uvc-g4-doorbell-pro': 'uvc-g4-doorbell-pro',
-        'uvc-g4-doorbell-pro-poe': 'uvc-g4-doorbell-pro-poe',
-        'uvc-doorbell-lite': 'uvc-g4-doorbell'
+        'uvc-doorbell-lite': 'uvc-g4-doorbell',
       };
       const mapped = camMappings[skuLower] || skuLower;
       return `${baseUrl}/cameras/${mapped}`;
