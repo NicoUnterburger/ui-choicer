@@ -31,7 +31,7 @@ export const switchData = {
     name: 'Enterprise Campus Aggregation', sku: 'ECS-Aggregation', category: 'aggregation',
     color: '#7C3AED', msrp: 1499, eur: 1459, status: 'new',
     ports: '48x 25G SFP28 + 6x 100G QSFP28', portCount: 54, speed: '100G QSFP28',
-    poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 48,
+    poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 48, qsfp28: 6,
     ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
     features: ['L3', '100G', 'HA'], formFactor: '1U Rack', power: 150,
     notes: '100G backbone'
@@ -60,7 +60,7 @@ export const switchData = {
     name: 'Enterprise Campus 24S PoE', sku: 'ECS-24S-PoE', category: 'enterprise',
     color: '#DC2626', msrp: 1999, status: 'new',
     ports: '16x 10G + 8x 2.5G + 4x 25G SFP28 + 2x 100G QSFP28', portCount: 30, speed: '10G / 25G / 100G',
-    poe: 'PoE+++', poeBudget: 1050, layer: 'L3', sfpPlus: 0, sfp28: 4,
+    poe: 'PoE+++', poeBudget: 1050, layer: 'L3', sfpPlus: 0, sfp28: 4, qsfp28: 2,
     ethernet1g: 0, ethernet2_5g: 8, ethernet10g: 16,
     features: ['L3', 'PoE+++', 'HA', '10G', '100G'], formFactor: '1U Rack', power: 1200,
     notes: '16x 10G + 8x 2.5G PoE+++ — 100G QSFP28 uplinks'
@@ -69,7 +69,7 @@ export const switchData = {
     name: 'Enterprise Campus 48S PoE', sku: 'ECS-48S-PoE', category: 'enterprise',
     color: '#DC2626', msrp: 3499, status: 'new',
     ports: '16x 10G + 32x 2.5G + 4x 25G SFP28 + 2x 100G QSFP28', portCount: 54, speed: '10G / 25G / 100G',
-    poe: 'PoE+++', poeBudget: 2150, layer: 'L3', sfpPlus: 0, sfp28: 4,
+    poe: 'PoE+++', poeBudget: 2150, layer: 'L3', sfpPlus: 0, sfp28: 4, qsfp28: 2,
     ethernet1g: 0, ethernet2_5g: 32, ethernet10g: 16,
     features: ['L3', 'PoE+++', 'HA', '10G', '100G'], formFactor: '1U Rack', power: 2400,
     notes: '16x 10G + 32x 2.5G PoE+++ — 100G QSFP28 uplinks'

@@ -1185,6 +1185,7 @@ export default function UniFiNetworkPortal() {
                   {sw.ethernet10g > 0 && <div className="bg-teal-900 rounded p-1.5 text-center"><div className="text-lg font-bold">{sw.ethernet10g}</div><div className="text-xs text-gray-400">10G</div></div>}
                   {sw.sfpPlus > 0 && <div className="bg-purple-900 rounded p-1.5 text-center"><div className="text-lg font-bold">{sw.sfpPlus}</div><div className="text-xs text-gray-400">SFP+</div></div>}
                   {sw.sfp28 > 0 && <div className="bg-pink-900 rounded p-1.5 text-center"><div className="text-lg font-bold">{sw.sfp28}</div><div className="text-xs text-gray-400">SFP28</div></div>}
+                  {sw.qsfp28 > 0 && <div className="bg-rose-900 rounded p-1.5 text-center"><div className="text-lg font-bold">{sw.qsfp28}</div><div className="text-xs text-gray-400">QSFP28</div></div>}
                 </div>
               </div>
 
@@ -1211,6 +1212,7 @@ export default function UniFiNetworkPortal() {
                       <th className="p-1 text-teal-400">10G</th>
                       <th className="p-1 text-purple-400">SFP+</th>
                       <th className="p-1 text-yellow-400">SFP28</th>
+                      <th className="p-1 text-rose-400">QSFP28</th>
                       <th className="p-1">PoE</th>
                       <th className="p-1">Budget</th>
                       <th className="p-1">Layer</th>
@@ -1229,6 +1231,7 @@ export default function UniFiNetworkPortal() {
                         <td className="p-1 text-center text-teal-400">{d.ethernet10g > 0 ? d.ethernet10g : '-'}</td>
                         <td className="p-1 text-center text-purple-400">{d.sfpPlus > 0 ? d.sfpPlus : '-'}</td>
                         <td className="p-1 text-center text-yellow-400">{d.sfp28 > 0 ? d.sfp28 : '-'}</td>
+                        <td className="p-1 text-center text-rose-400">{d.qsfp28 > 0 ? d.qsfp28 : '-'}</td>
                         <td className="p-1 text-center">{d.poe || '-'}</td>
                         <td className="p-1 text-center text-orange-400">{d.poeBudget > 0 ? d.poeBudget : '-'}</td>
                         <td className="p-1 text-center">{d.layer}</td>
