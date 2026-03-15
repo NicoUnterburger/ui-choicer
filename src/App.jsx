@@ -66,16 +66,7 @@ export default function UniFiNetworkPortal() {
     
     // Access Points
     if (type === 'ap') {
-      // Mapping für APs
-      const apMappings = {
-        'uap-ac-lite': 'unifi-ap-ac-lite',
-        'uap-ac-pro': 'unifi-ap-ac-pro',
-        'e7': 'unifi-e7',
-        'e7-campus': 'unifi-e7-campus',
-        'e7-audience': 'unifi-e7-audience',
-      };
-      const mapped = apMappings[skuLower] || skuLower;
-      return `${baseUrl}/wifi/${mapped}`;
+      return `${baseUrl}/wifi/${skuLower}`;
     }
     
     // Switches
@@ -96,7 +87,7 @@ export default function UniFiNetworkPortal() {
         'uvc-doorbell-lite': 'uvc-g4-doorbell',
       };
       const mapped = camMappings[skuLower] || skuLower;
-      return `${baseUrl}/cameras/${mapped}`;
+      return `${baseUrl}/cameras-nvrs/${mapped}`;
     }
     
     return `https://techspecs.ui.com/?search=${encodeURIComponent(sku)}`;
