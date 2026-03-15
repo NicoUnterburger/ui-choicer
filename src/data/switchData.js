@@ -24,7 +24,7 @@ export const switchData = {
     ports: '32x 25G SFP28', portCount: 32, speed: '25G SFP28',
     poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 32,
     ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
-    features: ['L3', '25G'], formFactor: '1U Rack', power: 85,
+    features: ['L3', '25G'], formFactor: '1U Rack', power: 200,
     notes: 'All 25G SFP28 ports'
   },
   'ECS-Aggregation': {
@@ -59,20 +59,20 @@ export const switchData = {
   'ECS-24S-PoE': {
     name: 'Enterprise Campus 24S PoE', sku: 'ECS-24S-PoE', category: 'enterprise',
     color: '#DC2626', msrp: 1999, status: 'new',
-    ports: '24x 10G + 2x 25G SFP28', portCount: 26, speed: '10G / 25G',
-    poe: 'PoE+++', poeBudget: 720, layer: 'L3', sfpPlus: 0, sfp28: 2,
-    ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 24,
-    features: ['L3', 'PoE+++', 'HA', '10G'], formFactor: '1U Rack', power: 900,
-    notes: '10G PoE+++ Campus'
+    ports: '16x 10G + 8x 2.5G + 4x 25G SFP28 + 2x 100G QSFP28', portCount: 30, speed: '10G / 25G / 100G',
+    poe: 'PoE+++', poeBudget: 1050, layer: 'L3', sfpPlus: 0, sfp28: 4,
+    ethernet1g: 0, ethernet2_5g: 8, ethernet10g: 16,
+    features: ['L3', 'PoE+++', 'HA', '10G', '100G'], formFactor: '1U Rack', power: 1200,
+    notes: '16x 10G + 8x 2.5G PoE+++ — 100G QSFP28 uplinks'
   },
   'ECS-48S-PoE': {
     name: 'Enterprise Campus 48S PoE', sku: 'ECS-48S-PoE', category: 'enterprise',
     color: '#DC2626', msrp: 3499, status: 'new',
-    ports: '48x 10G + 4x 25G SFP28', portCount: 52, speed: '10G / 25G',
-    poe: 'PoE+++', poeBudget: 1440, layer: 'L3', sfpPlus: 0, sfp28: 4,
-    ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 48,
-    features: ['L3', 'PoE+++', 'HA', '10G'], formFactor: '1U Rack', power: 1600,
-    notes: '48x 10G PoE+++'
+    ports: '16x 10G + 32x 2.5G + 4x 25G SFP28 + 2x 100G QSFP28', portCount: 54, speed: '10G / 25G / 100G',
+    poe: 'PoE+++', poeBudget: 2150, layer: 'L3', sfpPlus: 0, sfp28: 4,
+    ethernet1g: 0, ethernet2_5g: 32, ethernet10g: 16,
+    features: ['L3', 'PoE+++', 'HA', '10G', '100G'], formFactor: '1U Rack', power: 2400,
+    notes: '16x 10G + 32x 2.5G PoE+++ — 100G QSFP28 uplinks'
   },
   'USW-Enterprise-48-PoE': {
     name: 'Enterprise 48 PoE', sku: 'USW-Enterprise-48-PoE', category: 'enterprise',

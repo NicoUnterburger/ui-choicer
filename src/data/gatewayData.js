@@ -27,7 +27,7 @@ export const gatewayData = {
     wifi: null, poe: null, storage: '1x 3.5" HDD', formFactor: '1U Rack', power: 48,
     features: ['10G SFP+', 'NVR'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Standard rackmount gateway' },
   'UDM-SE': { name: 'Dream Machine SE', sku: 'UDM-SE', category: 'rackmount', color: '#3B82F6', msrp: 499, status: 'current',
-    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+ / 2.5G RJ45', lan: '8x 1GbE', sfp: '1x 10G SFP+',
+    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+ / 2.5G RJ45', lan: '8x 1GbE', sfp: '2x 10G SFP+',
     wifi: null, poe: '2x PoE+ (60W)', storage: '1x 3.5" HDD', formFactor: '1U Rack', power: 140,
     features: ['10G SFP+', 'PoE+', 'NVR', '2.5G WAN'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'With PoE+ ports' },
   'UDM-Pro-Max': { name: 'Dream Machine Pro Max', sku: 'UDM-Pro-Max', category: 'rackmount', color: '#8B5CF6', msrp: 599, status: 'current',
@@ -47,8 +47,8 @@ export const gatewayData = {
 
   // Special
   'UDW': { name: 'Dream Wall', sku: 'UDW', category: 'special', color: '#F97316', msrp: 1299, status: 'current',
-    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+', lan: '12x 1GbE', sfp: '2x 10G SFP+',
-    wifi: 'Wi-Fi 6 (4x4)', poe: '8x PoE+ (120W)', storage: '128GB SSD', formFactor: 'Wall-mount', power: 200,
+    ipsSpeed: 3.5, devices: 100, clients: 1000, wan: '10G SFP+', lan: '17x 1GbE', sfp: '2x 10G SFP+',
+    wifi: 'Wi-Fi 6 (4x4)', poe: '12x PoE (420W)', storage: '128GB SSD', formFactor: 'Wall-mount', power: 532,
     features: ['Wi-Fi 6', '10G', 'PoE+', 'Touchscreen'], apps: ['Network', 'Protect', 'Talk', 'Access'], notes: 'Wall-mounted all-in-one' },
   'UDR-5G-Max': { name: 'Dream Router 5G Max', sku: 'UDR-5G-Max', category: 'special', color: '#F97316', msrp: 499, status: 'new',
     ipsSpeed: 2.3, devices: 50, clients: 500, wan: '5G Cellular + 2.5G', lan: '4x 2.5GbE', sfp: null,
