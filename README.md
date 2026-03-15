@@ -1,6 +1,6 @@
 # ui-choicer
 
-Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 142 Produkte in 8 Kategorien.
+Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 143 Produkte in 8 Kategorien.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?logo=tailwindcss)
@@ -10,7 +10,7 @@ Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 142 Prod
 ## Features
 
 - **8 Produktkategorien**: Gateways, Switches, Access Points, Richtfunk, Cameras, Access, NVR, UNAS
-- **142 Produkte** mit detaillierten Spezifikationen und Vergleichstabellen
+- **143 Produkte** mit detaillierten Spezifikationen und Vergleichstabellen
 - **SVG Strahlungsdiagramme** für Access Points (Elevation + Azimuth) und Richtfunk-Antennen
 - **Merkliste** mit Mengensteuerung, Gesamtpreisberechnung und Gruppen nach Kategorie
 - **EN/DE Sprachumschaltung** mit Flaggen-Toggle, localStorage-Persistenz
@@ -22,7 +22,7 @@ Interaktives Vergleichsportal für Ubiquiti UniFi und UISP Produkte — 142 Prod
 
 | Kategorie | Produkte | Highlights |
 | --- | --- | --- |
-| **Gateways** | 12 | IPS Throughput, Multi-WAN, UniFi Apps |
+| **Gateways** | 13 | IPS Throughput, Multi-WAN, UniFi Apps |
 | **Switches** | 41 | PoE/PoE+/PoE++, L2/L3, 1G/2.5G/10G/25G |
 | **Access Points** | 27 | Wi-Fi 5/6/6E/7, Strahlungsdiagramme, BLE |
 | **Richtfunk** | 22 | 5/24/60 GHz, Strahlungsdiagramme, bis 100 km |
