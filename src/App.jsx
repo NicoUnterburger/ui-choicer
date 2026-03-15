@@ -9,6 +9,17 @@ import { bridgeData } from './data/bridgeData.js';
 import { apCategories, switchCategories, cameraCategories, gatewayCategories, nvrCategories, nasCategories, bridgeCategories } from './data/categories.js';
 import { translations } from './data/translations.js';
 
+function compareEntries([, a], [, b], col, dir, getter) {
+  const av = getter(a, col);
+  const bv = getter(b, col);
+  if (av == null) return 1;
+  if (bv == null) return -1;
+  const cmp = typeof av === 'number' && typeof bv === 'number'
+    ? av - bv
+    : String(av).localeCompare(String(bv), undefined, { numeric: true });
+  return dir === 'asc' ? cmp : -cmp;
+}
+
 export default function UniFiNetworkPortal() {
   const [activeSection, setActiveSection] = useState('gateways');
   const [selectedAP, setSelectedAP] = useState('U7-Pro');
@@ -574,17 +585,6 @@ export default function UniFiNetworkPortal() {
     if (bridgeCategoryFilter !== 'all') count++;
     return count;
   }, [bridgeFilters, bridgeCategoryFilter]);
-
-  const compareEntries = ([, a], [, b], col, dir, getter) => {
-    const av = getter(a, col);
-    const bv = getter(b, col);
-    if (av == null) return 1;
-    if (bv == null) return -1;
-    const cmp = typeof av === 'number' && typeof bv === 'number'
-      ? av - bv
-      : String(av).localeCompare(String(bv), undefined, { numeric: true });
-    return dir === 'asc' ? cmp : -cmp;
-  };
 
   const ap = apData[selectedAP];
   const sw = switchData[selectedSwitch];
