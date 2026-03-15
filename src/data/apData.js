@@ -2,7 +2,7 @@ export const apData = {
   // Wi-Fi 5 Legacy
   'AC-Lite': {
     name: 'UAP-AC-Lite', sku: 'UAP-AC-Lite', generation: 'Wi-Fi 5', category: 'flagship',
-    color: '#6B7280', msrp: 89, eur: 79, geizhals: 'https://geizhals.de/ubiquiti-unifi-ap-ac-lite-uap-ac-lite-a1325799.html', status: 'legacy',
+    color: '#6B7280', msrp: 89, eur: 79, status: 'legacy',
     radio24: { mimo: '2x2', txPower: 20, gain: 3, maxRate: 300 },
     radio5: { mimo: '2x2', txPower: 20, gain: 3, maxRate: 867 },
     radio6: null, streams: 4, coverage: 115, clients: '250+',
@@ -14,7 +14,7 @@ export const apData = {
   },
   'AC-Pro': {
     name: 'UAP-AC-Pro', sku: 'UAP-AC-Pro', generation: 'Wi-Fi 5', category: 'flagship',
-    color: '#6B7280', msrp: 149, eur: 139, geizhals: 'https://geizhals.de/ubiquiti-unifi-ap-ac-pro-uap-ac-pro-a1325803.html', status: 'legacy',
+    color: '#6B7280', msrp: 149, eur: 139, status: 'legacy',
     radio24: { mimo: '3x3', txPower: 22, gain: 3, maxRate: 450 },
     radio5: { mimo: '3x3', txPower: 22, gain: 3, maxRate: 1300 },
     radio6: null, streams: 6, coverage: 140, clients: '250+',
@@ -26,7 +26,7 @@ export const apData = {
   },
   'nanoHD': {
     name: 'UAP-nanoHD', sku: 'UAP-nanoHD', generation: 'Wi-Fi 5', category: 'flagship',
-    color: '#6B7280', msrp: 99, eur: 89, geizhals: 'https://geizhals.de/?fs=UAP-nanoHD', status: 'legacy',
+    color: '#6B7280', msrp: 99, eur: 89, status: 'legacy',
     radio24: { mimo: '2x2', txPower: 23, gain: 2.8, maxRate: 300 },
     radio5: { mimo: '4x4', txPower: 26, gain: 3, maxRate: 1700 },
     radio6: null, streams: 6, coverage: 115, clients: '200+',
@@ -38,7 +38,7 @@ export const apData = {
   },
   'FlexHD': {
     name: 'UAP-FlexHD', sku: 'UAP-FlexHD', generation: 'Wi-Fi 5', category: 'flagship',
-    color: '#6B7280', msrp: 149, eur: 129, geizhals: 'https://geizhals.de/?fs=UAP-FlexHD', status: 'legacy',
+    color: '#6B7280', msrp: 149, eur: 129, status: 'legacy',
     radio24: { mimo: '2x2', txPower: 23, gain: 3, maxRate: 300 },
     radio5: { mimo: '4x4', txPower: 26, gain: 3, maxRate: 1733 },
     radio6: null, streams: 6, coverage: 115, clients: '200+',
@@ -51,7 +51,7 @@ export const apData = {
   // Wi-Fi 6
   'U6-Lite': {
     name: 'U6-Lite', sku: 'U6-Lite', generation: 'Wi-Fi 6', category: 'flagship',
-    color: '#F97316', msrp: 99, eur: 89, geizhals: 'https://geizhals.de/?fs=U6-Lite', status: 'current',
+    color: '#F97316', msrp: 99, eur: 89, status: 'current',
     radio24: { mimo: '2x2', txPower: 20, gain: 3, maxRate: 300 },
     radio5: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 1201 },
     radio6: null, streams: 4, coverage: 115, clients: '300+',
@@ -63,7 +63,7 @@ export const apData = {
   },
   'U6+': {
     name: 'U6-Plus', sku: 'U6-Plus', generation: 'Wi-Fi 6', category: 'flagship',
-    color: '#F97316', msrp: 129, eur: 109, geizhals: 'https://geizhals.de/ubiquiti-unifi-6-plus-u6-plus-a2815847.html', status: 'current',
+    color: '#F97316', msrp: 129, eur: 109, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 3, maxRate: 574 },
     radio5: { mimo: '2x2', txPower: 23, gain: 5.4, maxRate: 2400 },
     radio6: null, streams: 4, coverage: 140, clients: '300+',
@@ -75,7 +75,7 @@ export const apData = {
   },
   'U6-LR': {
     name: 'U6-Long-Range', sku: 'U6-LR', generation: 'Wi-Fi 6', category: 'flagship',
-    color: '#F97316', msrp: 179, eur: 169, geizhals: 'https://geizhals.de/ubiquiti-unifi-6-long-range-u6-lr-a2516058.html', status: 'current',
+    color: '#F97316', msrp: 179, eur: 169, status: 'current',
     radio24: { mimo: '4x4', txPower: 26, gain: 4, maxRate: 600 },
     radio5: { mimo: '4x4', txPower: 25, gain: 5.5, maxRate: 2400 },
     radio6: null, streams: 8, coverage: 185, clients: '350+',
@@ -87,7 +87,7 @@ export const apData = {
   },
   'U6-Pro': {
     name: 'U6-Pro', sku: 'U6-Pro', generation: 'Wi-Fi 6', category: 'flagship',
-    color: '#F97316', msrp: 159, eur: 149, geizhals: 'https://geizhals.de/ubiquiti-unifi-6-pro-u6-pro-a2590635.html', status: 'current',
+    color: '#F97316', msrp: 159, eur: 149, status: 'current',
     radio24: { mimo: '2x2', txPower: 22, gain: 4, maxRate: 574 },
     radio5: { mimo: '4x4', txPower: 26, gain: 6, maxRate: 4800 },
     radio6: null, streams: 6, coverage: 140, clients: '350+',
@@ -99,7 +99,7 @@ export const apData = {
   },
   'U6-Mesh-Pro': {
     name: 'U6-Mesh-Pro', sku: 'U6-Mesh-Pro', generation: 'Wi-Fi 6', category: 'outdoor',
-    color: '#F97316', msrp: 199, eur: 189, geizhals: 'https://geizhals.de/?fs=U6-Mesh-Pro', status: 'current',
+    color: '#F97316', msrp: 199, eur: 189, status: 'current',
     radio24: { mimo: '2x2', txPower: 24, gain: 6, maxRate: 573 },
     radio5: { mimo: '4x4', txPower: 27, gain: 8, maxRate: 4804 },
     radio6: null, streams: 6, coverage: 185, clients: '350+',
@@ -111,7 +111,7 @@ export const apData = {
   },
   'U6-Mesh': {
     name: 'U6-Mesh', sku: 'U6-Mesh', generation: 'Wi-Fi 6', category: 'outdoor',
-    color: '#F97316', msrp: 179, eur: 159, geizhals: 'https://geizhals.de/ubiquiti-unifi-6-mesh-u6-mesh-a2590639.html', status: 'current',
+    color: '#F97316', msrp: 179, eur: 159, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 3, maxRate: 573 },
     radio5: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 1201 },
     radio6: null, streams: 4, coverage: 140, clients: '300+',
@@ -123,7 +123,7 @@ export const apData = {
   },
   'U6-IW': {
     name: 'U6-In-Wall', sku: 'U6-IW', generation: 'Wi-Fi 6', category: 'inwall',
-    color: '#F97316', msrp: 99, eur: 99, geizhals: 'https://geizhals.de/ubiquiti-unifi-6-in-wall-u6-iw-a2662285.html', status: 'current',
+    color: '#F97316', msrp: 99, eur: 99, status: 'current',
     radio24: { mimo: '2x2', txPower: 22, gain: 2.5, maxRate: 573 },
     radio5: { mimo: '4x4', txPower: 24, gain: 4, maxRate: 4800 },
     radio6: null, streams: 6, coverage: 100, clients: '300+',
@@ -135,7 +135,7 @@ export const apData = {
   },
   'U6-Extender': {
     name: 'U6-Extender', sku: 'U6-Extender', generation: 'Wi-Fi 6', category: 'inwall',
-    color: '#F97316', msrp: 99, eur: 89, geizhals: 'https://geizhals.de/?fs=U6-Extender', status: 'current',
+    color: '#F97316', msrp: 99, eur: 89, status: 'current',
     radio24: { mimo: '2x2', txPower: 20, gain: 2.5, maxRate: 573 },
     radio5: { mimo: '4x4', txPower: 24, gain: 4, maxRate: 4804 },
     radio6: null, streams: 6, coverage: 115, clients: '300+',
@@ -148,7 +148,7 @@ export const apData = {
   // Wi-Fi 6E
   'U6-Enterprise': {
     name: 'U6-Enterprise', sku: 'U6-Enterprise', generation: 'Wi-Fi 6E', category: 'flagship',
-    color: '#EC4899', msrp: 349, eur: 329, geizhals: 'https://geizhals.de/ubiquiti-unifi-6-enterprise-u6-enterprise-a2662287.html', status: 'current',
+    color: '#EC4899', msrp: 349, eur: 329, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 573 },
     radio5: { mimo: '4x4', txPower: 26, gain: 6, maxRate: 4800 },
     radio6: { mimo: '4x4', txPower: 23, gain: 5.5, maxRate: 4800 },
@@ -161,7 +161,7 @@ export const apData = {
   },
   'U6-Enterprise-IW': {
     name: 'U6-Enterprise-IW', sku: 'U6-Enterprise-IW', generation: 'Wi-Fi 6E', category: 'inwall',
-    color: '#EC4899', msrp: 299, eur: 279, geizhals: 'https://geizhals.de/?fs=U6-Enterprise-IW', status: 'current',
+    color: '#EC4899', msrp: 299, eur: 279, status: 'current',
     radio24: { mimo: '2x2', txPower: 22, gain: 2.5, maxRate: 573 },
     radio5: { mimo: '4x4', txPower: 25, gain: 4, maxRate: 4804 },
     radio6: { mimo: '4x4', txPower: 24, gain: 4, maxRate: 4804 },
@@ -175,7 +175,7 @@ export const apData = {
   // Wi-Fi 7 Flagship
   'U7-Lite': {
     name: 'U7-Lite', sku: 'U7-Lite', generation: 'Wi-Fi 7', category: 'flagship',
-    color: '#22C55E', msrp: 99, eur: 99, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-lite-u7-lite-a3136789.html', status: 'current',
+    color: '#22C55E', msrp: 99, eur: 99, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 688 },
     radio5: { mimo: '2x2', txPower: 24, gain: 5, maxRate: 4324 },
     radio6: null, streams: 4, coverage: 115, clients: '200+',
@@ -187,7 +187,7 @@ export const apData = {
   },
   'U7-LR': {
     name: 'U7-Long-Range', sku: 'U7-LR', generation: 'Wi-Fi 7', category: 'flagship',
-    color: '#22C55E', msrp: 159, eur: 155, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-long-range-u7-lr-a3271234.html', status: 'current',
+    color: '#22C55E', msrp: 159, eur: 155, status: 'current',
     radio24: { mimo: '2x2', txPower: 26, gain: 4, maxRate: 688 },
     radio5: { mimo: '3x3', txPower: 27, gain: 6, maxRate: 4324 },
     radio6: null, streams: 5, coverage: 160, clients: '300+',
@@ -199,7 +199,7 @@ export const apData = {
   },
   'U7-Pro': {
     name: 'U7-Pro', sku: 'U7-Pro', generation: 'Wi-Fi 7', category: 'flagship',
-    color: '#22C55E', msrp: 189, eur: 185, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-pro-u7-pro-a3055892.html', status: 'current',
+    color: '#22C55E', msrp: 189, eur: 185, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 688 },
     radio5: { mimo: '2x2', txPower: 26, gain: 6, maxRate: 4324 },
     radio6: { mimo: '2x2', txPower: 23, gain: 5.8, maxRate: 5765 },
@@ -212,7 +212,7 @@ export const apData = {
   },
   'U7-Pro-Max': {
     name: 'U7-Pro-Max', sku: 'U7-Pro-Max', generation: 'Wi-Fi 7', category: 'flagship',
-    color: '#8B5CF6', msrp: 279, eur: 269, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-pro-max-u7-pro-max-a3136791.html', status: 'current',
+    color: '#8B5CF6', msrp: 279, eur: 269, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 688 },
     radio5: { mimo: '4x4', txPower: 29, gain: 6, maxRate: 8648 },
     radio6: { mimo: '2x2', txPower: 23, gain: 5.9, maxRate: 5765 },
@@ -226,7 +226,7 @@ export const apData = {
   // Wi-Fi 7 XG (10G Uplink)
   'U7-Pro-XG': {
     name: 'U7-Pro-XG', sku: 'U7-Pro-XG', generation: 'Wi-Fi 7', category: 'flagship',
-    color: '#14B8A6', msrp: 199, eur: 195, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-pro-xg-u7-pro-xg-a3320123.html', status: 'new',
+    color: '#14B8A6', msrp: 199, eur: 195, status: 'new',
     radio24: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 688 },
     radio5: { mimo: '2x2', txPower: 26, gain: 6, maxRate: 4324 },
     radio6: { mimo: '2x2', txPower: 24, gain: 6, maxRate: 5765 },
@@ -239,7 +239,7 @@ export const apData = {
   },
   'U7-Pro-XGS': {
     name: 'U7-Pro-XGS', sku: 'U7-Pro-XGS', generation: 'Wi-Fi 7', category: 'flagship',
-    color: '#14B8A6', msrp: 299, eur: 289, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-pro-xgs-u7-pro-xgs-a3320125.html', status: 'new',
+    color: '#14B8A6', msrp: 299, eur: 289, status: 'new',
     radio24: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 688 },
     radio5: { mimo: '4x4', txPower: 29, gain: 6, maxRate: 8648 },
     radio6: { mimo: '2x2', txPower: 24, gain: 6, maxRate: 5765 },
@@ -253,7 +253,7 @@ export const apData = {
   // Wi-Fi 7 In-Wall
   'U7-IW': {
     name: 'U7-In-Wall', sku: 'U7-IW', generation: 'Wi-Fi 7', category: 'inwall',
-    color: '#22C55E', msrp: 99, eur: 99, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-in-wall-u7-iw-a3271236.html', status: 'current',
+    color: '#22C55E', msrp: 99, eur: 99, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 2.5, maxRate: 688 },
     radio5: { mimo: '2x2', txPower: 24, gain: 4, maxRate: 2882 },
     radio6: null, streams: 4, coverage: 100, clients: '200+',
@@ -265,7 +265,7 @@ export const apData = {
   },
   'U7-Pro-Wall': {
     name: 'U7-Pro-Wall', sku: 'U7-Pro-Wall', generation: 'Wi-Fi 7', category: 'inwall',
-    color: '#22C55E', msrp: 179, eur: 175, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-pro-wall-u7-pro-wall-a3271238.html', status: 'current',
+    color: '#22C55E', msrp: 179, eur: 175, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 2.5, maxRate: 688 },
     radio5: { mimo: '2x2', txPower: 24, gain: 4, maxRate: 4324 },
     radio6: { mimo: '2x2', txPower: 23, gain: 4, maxRate: 5765 },
@@ -279,7 +279,7 @@ export const apData = {
   // Wi-Fi 7 Outdoor
   'U7-Outdoor': {
     name: 'U7-Outdoor', sku: 'U7-Outdoor', generation: 'Wi-Fi 7', category: 'outdoor',
-    color: '#22C55E', msrp: 179, eur: 175, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-outdoor-u7-outdoor-a3136793.html', status: 'current',
+    color: '#22C55E', msrp: 179, eur: 175, status: 'current',
     radio24: { mimo: '2x2', txPower: 25, gain: 5, maxRate: 688 },
     radio5: { mimo: '4x4', txPower: 28, gain: 7, maxRate: 5765 },
     radio6: null, streams: 6, coverage: 280, clients: '300+',
@@ -291,7 +291,7 @@ export const apData = {
   },
   'U7-Pro-Outdoor': {
     name: 'U7-Pro-Outdoor', sku: 'U7-Pro-Outdoor', generation: 'Wi-Fi 7', category: 'outdoor',
-    color: '#22C55E', msrp: 379, eur: 369, geizhals: 'https://geizhals.de/ubiquiti-unifi-7-pro-outdoor-u7-pro-outdoor-a3271240.html', status: 'current',
+    color: '#22C55E', msrp: 379, eur: 369, status: 'current',
     radio24: { mimo: '2x2', txPower: 25, gain: 5, maxRate: 688 },
     radio5: { mimo: '4x4', txPower: 28, gain: 7, maxRate: 5765 },
     radio6: { mimo: '4x4', txPower: 30, gain: 8, maxRate: 11530 },
@@ -305,7 +305,7 @@ export const apData = {
   // Enterprise E7
   'E7': {
     name: 'E7', sku: 'E7', generation: 'Wi-Fi 7', category: 'enterprise',
-    color: '#DC2626', msrp: 499, eur: 489, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-7-e7-a3271242.html', status: 'current',
+    color: '#DC2626', msrp: 499, eur: 489, status: 'current',
     radio24: { mimo: '2x2', txPower: 23, gain: 5, maxRate: 688 },
     radio5: { mimo: '4x4', txPower: 30, gain: 6, maxRate: 11530 },
     radio6: { mimo: '4x4', txPower: 30, gain: 6, maxRate: 11530 },
@@ -318,7 +318,7 @@ export const apData = {
   },
   'E7-Campus': {
     name: 'E7-Campus', sku: 'E7-Campus', generation: 'Wi-Fi 7', category: 'enterprise',
-    color: '#DC2626', msrp: 799, eur: 779, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-7-campus-e7-campus-a3320127.html', status: 'current',
+    color: '#DC2626', msrp: 799, eur: 779, status: 'current',
     radio24: { mimo: '2x2', txPower: 25, gain: 9, maxRate: 688 },
     radio5: { mimo: '4x4', txPower: 30, gain: 12, maxRate: 11530 },
     radio6: { mimo: '4x4', txPower: 36, gain: 12, maxRate: 11530 },
@@ -331,7 +331,7 @@ export const apData = {
   },
   'E7-Audience': {
     name: 'E7-Audience', sku: 'E7-Audience', generation: 'Wi-Fi 7', category: 'enterprise',
-    color: '#DC2626', msrp: 1499, eur: 1459, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-7-audience-e7-audience-a3320129.html', status: 'current',
+    color: '#DC2626', msrp: 1499, eur: 1459, status: 'current',
     radio5: { mimo: '4x4', txPower: 30, gain: 11, maxRate: 11530 },
     radio6: { mimo: '2× 4x4', txPower: 36, gain: 15, maxRate: 23060 },
     streams: 12, coverage: 465, clients: '1500+',

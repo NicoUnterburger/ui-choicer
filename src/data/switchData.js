@@ -2,7 +2,7 @@ export const switchData = {
   // Aggregation
   'USW-Aggregation': {
     name: 'Aggregation', sku: 'USW-Aggregation', category: 'aggregation',
-    color: '#7C3AED', msrp: 299, eur: 289, geizhals: 'https://geizhals.de/ubiquiti-unifi-switch-aggregation-usw-aggregation-a2144866.html', status: 'current',
+    color: '#7C3AED', msrp: 299, eur: 289, status: 'current',
     ports: '8x SFP+', portCount: 8, speed: '10G SFP+',
     poe: null, poeBudget: 0, layer: 'L2', sfpPlus: 8, sfp28: 0,
     ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
@@ -11,7 +11,7 @@ export const switchData = {
   },
   'USW-Pro-Aggregation': {
     name: 'Hi-Capacity Aggregation', sku: 'USW-Pro-Aggregation', category: 'aggregation',
-    color: '#7C3AED', msrp: 399, eur: 389, geizhals: 'https://geizhals.de/ubiquiti-unifi-switch-pro-aggregation-usw-pro-aggregation-a2516060.html', status: 'current',
+    color: '#7C3AED', msrp: 399, eur: 389, status: 'current',
     ports: '28x 10G SFP+ + 4x 25G SFP28', portCount: 32, speed: '25G SFP28',
     poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 28, sfp28: 4,
     ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
@@ -20,7 +20,7 @@ export const switchData = {
   },
   'USW-Pro-XG-Aggregation': {
     name: 'Pro XG Aggregation', sku: 'USW-Pro-XG-Aggregation', category: 'aggregation',
-    color: '#7C3AED', msrp: 699, eur: 679, geizhals: 'https://geizhals.de/ubiquiti-unifi-switch-pro-xg-aggregation-usw-pro-xg-a3136795.html', status: 'current',
+    color: '#7C3AED', msrp: 699, eur: 679, status: 'current',
     ports: '32x 25G SFP28', portCount: 32, speed: '25G SFP28',
     poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 32,
     ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
@@ -29,7 +29,7 @@ export const switchData = {
   },
   'ECS-Aggregation': {
     name: 'Enterprise Campus Aggregation', sku: 'ECS-Aggregation', category: 'aggregation',
-    color: '#7C3AED', msrp: 1499, eur: 1459, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-campus-switch-aggregation-a3320131.html', status: 'new',
+    color: '#7C3AED', msrp: 1499, eur: 1459, status: 'new',
     ports: '48x 25G SFP28 + 6x 100G QSFP28', portCount: 54, speed: '100G QSFP28',
     poe: null, poeBudget: 0, layer: 'L3', sfpPlus: 0, sfp28: 48,
     ethernet1g: 0, ethernet2_5g: 0, ethernet10g: 0,
@@ -40,7 +40,7 @@ export const switchData = {
   // Enterprise Campus
   'ECS-24-PoE': {
     name: 'Enterprise Campus 24 PoE', sku: 'ECS-24-PoE', category: 'enterprise',
-    color: '#DC2626', msrp: 1299, eur: 1269, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-campus-switch-24-poe-a3271244.html', status: 'current',
+    color: '#DC2626', msrp: 1299, eur: 1269, status: 'current',
     ports: '24x 2.5G + 2x 25G SFP28', portCount: 26, speed: '2.5G / 25G',
     poe: 'PoE++', poeBudget: 400, layer: 'L3', sfpPlus: 0, sfp28: 2,
     ethernet1g: 0, ethernet2_5g: 24, ethernet10g: 0,
@@ -49,7 +49,7 @@ export const switchData = {
   },
   'ECS-48-PoE': {
     name: 'Enterprise Campus 48 PoE', sku: 'ECS-48-PoE', category: 'enterprise',
-    color: '#DC2626', msrp: 2499, eur: 2449, geizhals: 'https://geizhals.de/ubiquiti-unifi-enterprise-campus-switch-48-poe-a3271246.html', status: 'current',
+    color: '#DC2626', msrp: 2499, eur: 2449, status: 'current',
     ports: '48x 2.5G + 4x 25G SFP28', portCount: 52, speed: '2.5G / 25G',
     poe: 'PoE++', poeBudget: 720, layer: 'L3', sfpPlus: 0, sfp28: 4,
     ethernet1g: 0, ethernet2_5g: 48, ethernet10g: 0,
